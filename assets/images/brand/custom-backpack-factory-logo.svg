@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="120" viewBox="0 0 520 120" role="img" aria-labelledby="title">
+  <title id="title">Custom Backpack Factory</title>
+  <rect width="112" height="112" x="4" y="4" rx="18" fill="#0d5bd7"/>
+  <path d="M39 48c0-16 11-27 21-27h1c10 0 21 11 21 27" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round"/>
+  <path d="M31 48h58c7 0 13 6 13 13v31c0 7-6 13-13 13H31c-7 0-13-6-13-13V61c0-7 6-13 13-13Z" fill="#fff"/>
+  <path d="M43 69h34v22H43z" fill="#0d5bd7" opacity=".16"/>
+  <path d="M28 65v22M92 65v22" stroke="#0d5bd7" stroke-width="6" stroke-linecap="round"/>
+  <text x="136" y="55" fill="#152238" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="800">CUSTOM BACKPACK</text>
+  <text x="136" y="91" fill="#0d5bd7" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="800">FACTORY</text>
+</svg>

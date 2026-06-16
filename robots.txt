@@ -1,0 +1,5 @@
+﻿User-agent: *
+Allow: /
+
+Sitemap: https://www.junyibags.com/sitemap.xml
+

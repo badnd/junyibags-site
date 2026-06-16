@@ -1,0 +1,440 @@
+﻿(function(){
+  const data = window.siteData;
+  const body = document.body;
+  const base = body.dataset.base || '.';
+
+  function path(p){
+    if(!p) return '#';
+    if(p.startsWith('http') || p.startsWith('mailto:')) return p;
+    if(p.startsWith('/')) return p;
+    return `${base}/${p}`.replace(/\\/g,'/').replace(/\/{2,}/g,'/');
+  }
+
+  function inquiryContext(){
+    const params = new URLSearchParams(location.search);
+    const productKey = body.dataset.product || params.get('product');
+    return {
+      product: productKey ? data.products[productKey] : null,
+      variant: params.get('variant') || ''
+    };
+  }
+
+  function whatsappUrl(product=null, variant=''){
+    const context = inquiryContext();
+    const selectedProduct = product || context.product;
+    const selectedVariant = variant || context.variant;
+    const baseUrl = data.company.whatsappLink.split('?')[0];
+    const message = selectedProduct
+      ? `Hi, I'm interested in your ${selectedProduct.title} (${selectedProduct.model})${selectedVariant ? ` - ${selectedVariant}` : ''}. Please send MOQ, customization options and quotation.`
+      : `Hi, I'm interested in your custom bag products. Please send your product catalog, MOQ, customization options and quotation.`;
+    return `${baseUrl}?text=${encodeURIComponent(message)}`;
+  }
+
+  function privacyNotice(){
+    return `<p class="form-privacy">By contacting us, you acknowledge our <a href="${path('pages/privacy-policy.html')}">Privacy Policy</a>.</p>`;
+  }
+
+  function fallbackImage(){
+    return path('assets/images/junyi/products/ytljy5634-card.webp');
+  }
+
+  function imgTag(src, alt='', cls=''){
+    return `<img ${cls?`class="${cls}"`:''} src="${path(src)}" alt="${alt.replace(/"/g,'&quot;')}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='${fallbackImage()}'">`;
+  }
+
+  function attachImageFallback(scope=document){
+    scope.querySelectorAll('img').forEach(img=>{
+      if(img.dataset.boundFallback) return;
+      img.dataset.boundFallback = '1';
+      img.loading = img.loading || 'lazy';
+      img.decoding = 'async';
+      img.addEventListener('error', ()=>{
+        img.onerror = null;
+        img.src = fallbackImage();
+      });
+      if(img.complete && img.naturalWidth === 0){
+        img.src = fallbackImage();
+      }
+    });
+  }
+
+  function renderHeader(){
+    const headerTarget = document.getElementById('site-header');
+    if(!headerTarget) return;
+    headerTarget.innerHTML = `
+      <div class="topbar">
+        <div class="container">
+          <div class="topbar-items">
+            <span>📧 ${data.company.email}</span>
+            <span>💬 WhatsApp: ${data.company.whatsapp}</span>
+            <span>🟢 WeChat: ${data.company.wechat}</span>
+          </div>
+          <div class="topbar-actions">
+            <span>OEM / ODM Custom Bag Manufacturer</span>
+            <span>Low MOQ | Fast Response</span>
+          </div>
+        </div>
+      </div>
+      <header class="site-header">
+        <div class="container nav-wrap">
+          <a href="${path('index.html')}" class="brand" aria-label="Junyi Bags home">
+            <img class="brand-logo" src="${path('assets/images/junyi/brand/junyi-footer-logo.webp?v=1')}" alt="Junyi Bags">
+          </a>
+          <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation">☰</button>
+          <ul class="nav-links" id="navLinks">
+            <li><a href="${path('index.html')}">Home</a></li>
+            <li><a href="${path('pages/products.html')}">Products</a></li>
+            <li><a href="${path('pages/custom-service.html')}">Customization</a></li>
+            <li><a href="${path('pages/factory.html')}">Factory</a></li>
+            <li><a href="${path('pages/about.html')}">About Us</a></li>
+            <li><a href="${path('pages/contact.html')}">Contact</a></li>
+          </ul>
+          <div class="nav-actions">
+            <a class="btn btn-secondary" href="mailto:${data.company.email}">Email Us</a>
+            <a class="btn btn-primary" href="${whatsappUrl()}" target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+        </div>
+      </header>`;
+    const toggle = document.getElementById('mobileToggle');
+    const navLinks = document.getElementById('navLinks');
+    if(toggle && navLinks){
+      toggle.addEventListener('click', ()=>navLinks.classList.toggle('open'));
+      navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=>navLinks.classList.remove('open')));
+    }
+    const siteHeader = headerTarget.querySelector('.site-header');
+    const updateHeaderShadow = ()=>siteHeader.classList.toggle('is-scrolled', window.scrollY > 8);
+    updateHeaderShadow();
+    window.addEventListener('scroll', updateHeaderShadow, {passive:true});
+  }
+
+  function renderFooter(){
+    const footerTarget = document.getElementById('site-footer');
+    if(!footerTarget) return;
+    const year = new Date().getFullYear();
+    footerTarget.innerHTML = `
+      <footer class="footer">
+        <div class="container footer-grid">
+          <div>
+            <div class="brand footer-brand">
+              <span class="footer-logo-panel">
+                <img class="brand-logo footer-logo" src="${path('assets/images/junyi/brand/junyi-footer-logo.webp?v=1')}" alt="Junyi Bags">
+              </span>
+              <small>${data.company.tagline}</small>
+            </div>
+            <p class="editable">${data.company.name} supplies custom bag solutions for global B2B buyers, including full-print crossbody bags, backpacks, travel bags, tote bags and promotional bags.</p>
+          </div>
+          <div><h4>Products</h4><ul>${data.categories.map(c=>`<li><a href="${path(c.link)}">${c.name}</a></li>`).join('')}</ul></div>
+          <div><h4>Buyer Service</h4><ul><li><a href="${path('pages/custom-service.html')}">OEM / ODM Service</a></li><li><a href="${path('pages/factory.html')}">Factory Strength</a></li><li><a href="${path('pages/products.html')}">Product Catalog</a></li><li><a href="${path('pages/contact.html')}">Send Inquiry</a></li><li><a href="${path('pages/privacy-policy.html')}">Privacy Policy</a></li></ul></div>
+          <div><h4>Contact</h4><ul><li>Email: <a href="mailto:${data.company.email}">${data.company.email}</a></li><li>WhatsApp: <a href="${whatsappUrl()}" target="_blank" rel="noopener">${data.company.whatsapp}</a></li><li>WeChat: ${data.company.wechat}</li><li>${data.company.priceText}</li></ul></div>
+        </div>
+        <div class="container footer-bottom" id="editTriggerArea"><span>© ${year} ${data.company.name}. All rights reserved.</span></div>
+      </footer>
+      <a class="floating-wa" href="${whatsappUrl()}" target="_blank" rel="noopener" aria-label="WhatsApp inquiry">💬</a>
+      <div class="floating-label">WhatsApp Inquiry</div>
+      <div class="mobile-contact-bar"><a class="btn btn-secondary" href="mailto:${data.company.email}">Email</a><a class="btn btn-primary" href="${whatsappUrl()}" target="_blank" rel="noopener">WhatsApp</a></div>
+      <div class="edit-mode-banner" id="editBanner">Edit mode enabled.</div>`;
+  }
+
+  function renderHero(){
+    const hero = document.getElementById('heroMount');
+    if(!hero) return;
+    const slides = data.heroSlides;
+    let active = 0;
+    let timer;
+    function paint(reset=true){
+      const s = slides[active];
+      hero.innerHTML = `<section class="hero"><div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="badge">${s.subtitle}</span>
+          <h1 class="editable">${s.title}</h1>
+          <p class="editable">${s.text}</p>
+          <div class="hero-metrics"><div><strong>OEM/ODM</strong><span>Custom Service</span></div><div><strong>Low MOQ</strong><span>Flexible Orders</span></div><div><strong>Factory</strong><span>Direct Support</span></div></div>
+          <div class="hero-cta"><a class="btn btn-primary" href="${path(s.link)}">${s.cta}</a><a class="btn btn-secondary" href="${path('pages/products.html')}">Browse Products</a></div>
+        </div>
+        <div class="hero-media">
+          <div class="frame hero-carousel-frame">${imgTag(s.image, s.title)}<button class="hero-arrow hero-prev" type="button">‹</button><button class="hero-arrow hero-next" type="button">›</button></div>
+          <div class="hero-dots">${slides.map((_,i)=>`<button class="hero-dot ${i===active?'active':''}" data-slide="${i}" type="button"></button>`).join('')}</div>
+        </div>
+      </div></section>`;
+      hero.querySelector('.hero-prev').addEventListener('click', ()=>{active=(active-1+slides.length)%slides.length; paint();});
+      hero.querySelector('.hero-next').addEventListener('click', ()=>{active=(active+1)%slides.length; paint();});
+      hero.querySelectorAll('.hero-dot').forEach(b=>b.addEventListener('click',()=>{active=Number(b.dataset.slide); paint();}));
+      attachImageFallback(hero);
+      if(reset){clearInterval(timer); timer=setInterval(()=>{active=(active+1)%slides.length;paint(false);},5000);}
+    }
+    paint();
+  }
+
+  function productCard(p, slug, simple=false){
+    return `<article class="card product-card">
+      <a class="card-media" href="${path('pages/product-'+slug+'.html')}">${imgTag(simple ? p.hero : (p.cardImage || p.variants[0].image), p.title)}</a>
+      <div class="card-body"><div class="chip-list">${p.badges.slice(0,3).map(b=>`<span class="badge">${b}</span>`).join('')}</div><h3 class="card-title">${p.title}</h3><p class="muted">${p.intro}</p><div class="card-price">${data.company.priceText}</div></div>
+      <div class="card-actions"><a class="btn btn-primary" href="${path('pages/product-'+slug+'.html')}">View Details</a><a class="btn btn-secondary" href="${path('pages/contact.html')}?product=${slug}">Get Quote</a></div>
+    </article>`;
+  }
+
+  function renderCategories(){
+    const mount = document.getElementById('categoryGrid');
+    if(!mount) return;
+    mount.innerHTML = data.categories.map(cat=>`<article class="card category-card"><a class="card-media" href="${path(cat.link)}">${imgTag(cat.image, cat.name)}</a><div class="card-body"><h3 class="card-title">${cat.name}</h3><p class="muted">${cat.desc}</p><div class="card-price">${data.company.priceText}</div></div><div class="card-actions"><a class="btn btn-primary" href="${path(cat.link)}">View Details</a><a class="btn btn-secondary" href="${path('pages/contact.html')}?product=${cat.slug}">Request Quote</a></div></article>`).join('');
+    attachImageFallback(mount);
+  }
+
+  function renderFeaturedProducts(){
+    const mount = document.getElementById('featuredProducts');
+    if(!mount) return;
+    mount.innerHTML = Object.entries(data.products).slice(0,6).map(([slug,p])=>productCard(p,slug)).join('');
+    attachImageFallback(mount);
+  }
+
+  function renderTestimonials(){
+    const mount = document.getElementById('testimonialGrid');
+    if(!mount) return;
+    mount.innerHTML = data.testimonials.map(t=>`<div class="card testimonial-card"><div class="stars">★★★★★</div><p class="editable">“${t}”</p></div>`).join('');
+  }
+
+  function renderFAQ(){
+    const mount = document.getElementById('faqAccordion');
+    if(!mount) return;
+    mount.innerHTML = data.faq.map((item, idx)=>`<div class="acc-item ${idx===0?'active':''}"><div class="acc-head">${item[0]} <span>+</span></div><div class="acc-body">${item[1]}</div></div>`).join('');
+    mount.querySelectorAll('.acc-head').forEach(head=>head.addEventListener('click', ()=>head.parentElement.classList.toggle('active')));
+  }
+
+  function renderAllProducts(){
+    const mount = document.getElementById('allProductsGrid');
+    if(!mount) return;
+    const q = new URLSearchParams(location.search).get('category');
+    const filtered = q ? Object.entries(data.products).filter(([slug])=>slug===q) : Object.entries(data.products);
+    mount.innerHTML = filtered.map(([slug,p])=>productCard(p,slug,true)).join('');
+    const filters = document.getElementById('filterLinks');
+    if(filters){filters.innerHTML = `<a class="filter-link ${!q?'active':''}" href="products.html">All Products</a>` + data.categories.map(c=>`<a class="filter-link ${q===c.slug?'active':''}" href="products.html?category=${c.slug}">${c.name}</a>`).join('');}
+    attachImageFallback(mount);
+  }
+
+  function variantPresentation(variant){
+    const name = variant.name.toLowerCase();
+    const options = [
+      ['black', 'Black', '#20242b', 'Color'],
+      ['white', 'White', '#f4f4f1', 'Color'],
+      ['ivory', 'Ivory', '#eee8d8', 'Color'],
+      ['pink', 'Pink', '#d9879a', 'Color'],
+      ['khaki', 'Khaki', '#a89472', 'Color'],
+      ['blue', 'Blue', '#355d8a', 'Color'],
+      ['floral', 'Floral Print', 'linear-gradient(135deg,#d78598 0 33%,#638166 33% 66%,#e7c99c 66%)', 'Print'],
+      ['color series', 'Multi-color Options', 'linear-gradient(135deg,#20242b 0 25%,#355d8a 25% 50%,#a89472 50% 75%,#d9879a 75%)', 'Colors'],
+      ['color display', 'Multi-color Options', 'linear-gradient(135deg,#20242b 0 25%,#355d8a 25% 50%,#a89472 50% 75%,#d9879a 75%)', 'Colors'],
+      ['classic', 'Classic Black', '#20242b', 'Color'],
+      ['promotion', 'Logo Display', '#0d5bd7', 'View'],
+      ['lifestyle', 'Lifestyle View', '#6d7786', 'View'],
+      ['scene', 'Lifestyle View', '#6d7786', 'View'],
+      ['model collage', 'Lifestyle View', '#6d7786', 'View'],
+      ['detail', 'Detail View', '#0d5bd7', 'View'],
+      ['parameter', 'Detail View', '#0d5bd7', 'View'],
+      ['poster', 'Product Display', '#0d5bd7', 'View']
+    ];
+    const match = options.find(option=>name.includes(option[0]));
+    return match ? {label:match[1],color:match[2],type:match[3]} : {label:'Product View',color:'#6d7786',type:'View'};
+  }
+
+  function renderDetailPage(){
+    const detailMount = document.getElementById('productDetailMount');
+    if(!detailMount) return;
+    const key = body.dataset.product;
+    const p = data.products[key];
+    if(!p){detailMount.innerHTML='<div class="container section-sm">Product not found.</div>';return;}
+    detailMount.innerHTML = `<div class="breadcrumb container"><a href="${path('index.html')}">Home</a><span>/</span><a href="${path('pages/products.html')}">Products</a><span>/</span>${p.title}</div>
+    <section class="section-sm"><div class="container detail-grid">
+      <div><div class="gallery-main" tabindex="0" role="button" aria-label="Open large product image">${imgTag(p.gallery[0], p.title, 'detail-main-image')}<span class="gallery-zoom-hint">Click to enlarge</span></div><div class="gallery-thumbs">${p.gallery.map((g,i)=>`<img class="${i===0?'active':''}" src="${path(g)}" data-full="${path(g)}" data-index="${i}" alt="${p.title} ${i+1}" onerror="this.onerror=null;this.src='${fallbackImage()}'">`).join('')}</div></div>
+      <div class="detail-main"><div class="badge">${p.category}</div><h1 class="editable">${p.title}</h1><div class="detail-meta">Model: ${p.model}</div><p class="editable">${p.intro}</p><div class="inline-badges">${p.badges.map(b=>`<span class="badge">${b}</span>`).join('')}</div><div class="quote-price">${data.company.priceText}</div><h3>Key Features</h3><ul>${p.features.map(f=>`<li>${f}</li>`).join('')}</ul><div class="quick-icons"><div class="mini">Custom Logo</div><div class="mini">Custom Color</div><div class="mini">OEM / ODM</div><div class="mini">Low MOQ</div></div></div>
+      <aside class="quote-card"><h3>Quick Inquiry</h3><p class="muted">Send quantity, logo idea, target material and packaging requirements.</p><form class="form inquiry-form" data-product-title="${p.title}"><input name="name" placeholder="Your Name" required><input type="email" name="email" placeholder="Your Email" required><input name="qty" placeholder="Quantity / MOQ target"><textarea name="message" placeholder="Tell us your logo, color, material and packing needs"></textarea><button class="btn btn-primary btn-block" type="submit">Send Inquiry</button><a class="btn btn-secondary btn-block" href="${whatsappUrl(p)}" target="_blank" rel="noopener">WhatsApp Now</a>${privacyNotice()}</form><div class="contact-mini"><div>📧 ${data.company.email}</div><div>💬 ${data.company.whatsapp}</div><div>🟢 ${data.company.wechat}</div></div></aside>
+    </div></section>
+    <section class="section-sm bg-soft"><div class="container"><div class="section-head"><div><span class="badge">Procurement Details</span><h2>Specifications & Custom Options</h2><p>Structured details help B2B customers compare quickly and send accurate inquiries.</p></div></div><div class="spec-grid"><div class="spec-card spec-wide"><table class="spec-table"><tbody>${p.specs.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td></tr>`).join('')}</tbody></table></div><div class="spec-card"><h3>Custom Service</h3><ul><li>Logo method suggestion</li><li>Color and material matching</li><li>Sample and production support</li><li>Packaging option discussion</li></ul></div></div></div></section>
+    <section class="section-sm"><div class="container about-grid"><div><div class="section-head"><div><span class="badge">Scene Display</span><h2>Model Scene & Wearing Effect</h2><p>Scene images show product scale and help buyers understand market positioning.</p></div></div>${imgTag(p.lifestyle, p.title+' lifestyle', 'scene-image')}</div><div><div class="section-head"><div><span class="badge">Same Product</span><h2>Colors & Product Views</h2><p>Compare available colors, prints and product views. Click any image to enlarge.</p></div></div><div class="grid grid-3 variant-grid">${p.variants.map((v,i)=>{const option=variantPresentation(v);return `<article class="card variant-card"><button class="variant-media" type="button" data-variant-index="${i}" aria-label="Enlarge ${v.name}">${imgTag(v.image,v.name)}<span class="variant-zoom-hint">Enlarge</span></button><div class="card-body"><div class="variant-option"><span class="variant-swatch" style="background:${option.color}"></span><span><small>${option.type}</small><strong>${option.label}</strong></span></div><h3 class="card-title">${v.name}</h3><p class="muted">SKU: ${v.sku}</p></div><div class="card-actions"><a class="btn btn-primary" href="${path('pages/contact.html')}?product=${key}&variant=${encodeURIComponent(v.name)}">Request Quote</a></div></article>`;}).join('')}</div></div></div></section>`;
+    initProductGallery(detailMount, p);
+    attachImageFallback(detailMount);
+  }
+
+  function initProductGallery(detailMount, product){
+    const gallery = detailMount.querySelector('.gallery-main');
+    const mainImage = detailMount.querySelector('.detail-main-image');
+    const thumbs = [...detailMount.querySelectorAll('.gallery-thumbs img')];
+    const variantButtons = [...detailMount.querySelectorAll('.variant-media')];
+    if(!gallery || !mainImage || !thumbs.length) return;
+    let activeIndex = 0;
+    const galleryImages = thumbs.map(thumb=>({src:thumb.dataset.full,alt:thumb.alt}));
+    const variantImages = product.variants.map(variant=>({src:path(variant.image),alt:variant.name}));
+
+    const selectImage = index=>{
+      activeIndex = (index + thumbs.length) % thumbs.length;
+      thumbs.forEach((thumb,i)=>thumb.classList.toggle('active',i===activeIndex));
+      mainImage.src = thumbs[activeIndex].dataset.full;
+    };
+
+    thumbs.forEach((thumb,index)=>thumb.addEventListener('click',()=>selectImage(index)));
+
+    gallery.addEventListener('mousemove',event=>{
+      if(!matchMedia('(hover:hover) and (pointer:fine)').matches) return;
+      const rect = gallery.getBoundingClientRect();
+      mainImage.style.transformOrigin = `${((event.clientX-rect.left)/rect.width)*100}% ${((event.clientY-rect.top)/rect.height)*100}%`;
+      gallery.classList.add('is-zooming');
+    });
+    gallery.addEventListener('mouseleave',()=>{
+      gallery.classList.remove('is-zooming');
+      mainImage.style.transformOrigin = 'center center';
+    });
+
+    const lightbox = document.createElement('div');
+    lightbox.className = 'image-lightbox';
+    lightbox.setAttribute('role','dialog');
+    lightbox.setAttribute('aria-modal','true');
+    lightbox.setAttribute('aria-label',`${product.title} image gallery`);
+    lightbox.innerHTML = `<button class="lightbox-close" type="button" aria-label="Close image viewer">&times;</button>
+      <button class="lightbox-arrow lightbox-prev" type="button" aria-label="Previous image">&#8249;</button>
+      <div class="lightbox-stage"><img alt="${product.title.replace(/"/g,'&quot;')}"><div class="lightbox-counter"></div></div>
+      <button class="lightbox-arrow lightbox-next" type="button" aria-label="Next image">&#8250;</button>`;
+    document.body.appendChild(lightbox);
+
+    const lightboxImage = lightbox.querySelector('img');
+    const counter = lightbox.querySelector('.lightbox-counter');
+    const closeButton = lightbox.querySelector('.lightbox-close');
+    let viewerImages = galleryImages;
+    let viewerIndex = 0;
+    let returnFocus = gallery;
+    const updateLightbox = ()=>{
+      lightboxImage.src = viewerImages[viewerIndex].src;
+      lightboxImage.alt = viewerImages[viewerIndex].alt;
+      counter.textContent = `${viewerIndex+1} / ${viewerImages.length}`;
+    };
+    const openLightbox = (images=galleryImages,index=activeIndex,trigger=gallery)=>{
+      viewerImages = images;
+      viewerIndex = index;
+      returnFocus = trigger;
+      updateLightbox();
+      lightbox.classList.add('open');
+      document.body.classList.add('lightbox-open');
+      closeButton.focus();
+    };
+    const closeLightbox = ()=>{
+      lightbox.classList.remove('open');
+      document.body.classList.remove('lightbox-open');
+      returnFocus.focus();
+    };
+    const move = step=>{
+      viewerIndex = (viewerIndex + step + viewerImages.length) % viewerImages.length;
+      if(viewerImages===galleryImages) selectImage(viewerIndex);
+      updateLightbox();
+    };
+
+    gallery.addEventListener('click',()=>openLightbox());
+    gallery.addEventListener('keydown',event=>{
+      if(event.key==='Enter' || event.key===' '){
+        event.preventDefault();
+        openLightbox();
+      }
+    });
+    variantButtons.forEach((button,index)=>button.addEventListener('click',()=>openLightbox(variantImages,index,button)));
+    closeButton.addEventListener('click',closeLightbox);
+    lightbox.querySelector('.lightbox-prev').addEventListener('click',()=>move(-1));
+    lightbox.querySelector('.lightbox-next').addEventListener('click',()=>move(1));
+    lightbox.addEventListener('click',event=>{if(event.target===lightbox) closeLightbox();});
+    document.addEventListener('keydown',event=>{
+      if(!lightbox.classList.contains('open')) return;
+      if(event.key==='Escape') closeLightbox();
+      if(event.key==='ArrowLeft') move(-1);
+      if(event.key==='ArrowRight') move(1);
+    });
+  }
+
+  function renderAboutFactory(){
+    const aboutMount = document.getElementById('aboutFactoryMount');
+    if(aboutMount){aboutMount.innerHTML = `<section class="section-sm"><div class="container about-grid"><div><span class="badge">Factory Overview</span><h2 class="editable" style="font-size:2.3rem;margin:16px 0">Reliable custom bag manufacturing partner</h2><p class="editable muted">We support OEM / ODM bag production with workshop capability, process control, logo customization and export-oriented service.</p><div class="stats" style="margin-top:26px"><div class="stat-card"><span class="stat-num">OEM</span><div>Custom Service</div></div><div class="stat-card"><span class="stat-num">ODM</span><div>Development Support</div></div><div class="stat-card"><span class="stat-num">QC</span><div>Inspection Process</div></div><div class="stat-card"><span class="stat-num">B2B</span><div>Wholesale Focus</div></div></div></div><div class="media-panel">${imgTag('assets/images/junyi/factory/factory-exterior.webp','factory building')}</div></div></section><section class="section-sm bg-soft"><div class="container process-grid"><div><div class="section-head"><div><h2>Workshop & Production</h2><p>Real factory and workshop images help build trust with importers and brand buyers.</p></div></div><div class="media-stack">${['factory-workshop.webp','sewing-detail.webp','packing-bales.webp','why-work-with-us.webp'].map(x=>imgTag('assets/images/junyi/factory/'+x,x)).join('')}</div></div><div class="media-panel">${imgTag('assets/images/junyi/factory/custom-bag-manufacturer-hero.webp','custom process')}</div></div></section><section class="section-sm"><div class="container about-grid"><div class="media-panel">${imgTag('assets/images/junyi/factory/certification.webp','honors')}</div><div><div class="section-head"><div><h2>Certificates & Honors</h2><p>Trust elements for professional B2B presentation.</p></div></div><p class="muted">Workshop images, honor wall, certification graphics and production process content improve buyer confidence.</p>${imgTag('assets/images/junyi/factory/color-card.webp','certifications')}</div></div></section>`; attachImageFallback(aboutMount);}
+
+    const customMount = document.getElementById('customServiceMount');
+    if(customMount){customMount.innerHTML = `<section class="section-sm"><div class="container about-grid"><div><span class="badge">Customization Service</span><h2 style="font-size:2.3rem;margin:16px 0">Custom logo, material, color and packaging options</h2><p class="muted">Your custom bag project can start from reference images, sketches or an existing product idea.</p><ul class="feature-list" style="margin-top:24px"><li class="feature-item"><div class="icon-bubble">🎨</div><div><strong>Custom Colors</strong><div class="muted">Pantone and brand color matching support.</div></div></li><li class="feature-item"><div class="icon-bubble">🏷️</div><div><strong>Custom Logos</strong><div class="muted">Embroidery, print, heat transfer, rubber patch and woven labels.</div></div></li><li class="feature-item"><div class="icon-bubble">🧵</div><div><strong>Custom Fabrics</strong><div class="muted">Polyester, nylon, canvas, PU and other options.</div></div></li><li class="feature-item"><div class="icon-bubble">📦</div><div><strong>Packaging</strong><div class="muted">Hangtags, polybags and basic packaging solutions.</div></div></li></ul></div><div class="media-panel">${imgTag('assets/images/junyi/products/ytljy5634-fullprint-05.webp','logo options')}</div></div></section><section class="section-sm bg-soft"><div class="container process-grid"><div class="media-panel">${imgTag('assets/images/junyi/factory/color-card.webp','pantone')}</div><div><div class="section-head"><div><h2>Color & Design Development</h2><p>We organize logo, fabric and pattern choices into practical production solutions.</p></div></div>${imgTag('assets/images/junyi/factory/custom-logo-oem-factory.webp','oem odm collage')}</div></div></section>`; attachImageFallback(customMount);}
+
+    const contactMount = document.getElementById('contactPageMount');
+    if(contactMount){const q=new URLSearchParams(location.search);const pre=[q.get('product')||'',q.get('variant')||''].filter(Boolean).join(' - ');contactMount.innerHTML = `<section class="section-sm"><div class="container contact-grid"><div class="detail-main"><span class="badge">Contact & Inquiry</span><h1>Start your custom bag inquiry</h1><p class="muted">Send us product type, quantity, logo method and target market. We will help you move faster.</p><div class="contact-mini contact-big"><div>Company: ${data.company.name}</div><div>Email: <a href="mailto:${data.company.email}">${data.company.email}</a></div><div>WhatsApp: <a href="${whatsappUrl()}" target="_blank" rel="noopener">${data.company.whatsapp}</a></div><div>WeChat: ${data.company.wechat}</div></div><div style="margin-top:22px">${imgTag('assets/images/junyi/factory/factory-exterior.webp','factory')}</div></div><div class="quote-card"><h3>Send Inquiry</h3><form class="form inquiry-form" data-product-title="${pre || 'General Inquiry'}"><input name="name" placeholder="Your Name" required><input type="email" name="email" placeholder="Your Email" required><input name="company" placeholder="Company Name"><input name="product" placeholder="Interested Product" value="${pre}"><textarea name="message" placeholder="Quantity, logo method, material, color and packaging requirements"></textarea><button class="btn btn-primary btn-block" type="submit">Send by Email</button><a class="btn btn-secondary btn-block" href="${whatsappUrl()}" target="_blank" rel="noopener">Contact via WhatsApp</a>${privacyNotice()}</form></div></div></section>`; attachImageFallback(contactMount);}
+  }
+
+  function bindInquiryForms(){
+    document.querySelectorAll('.inquiry-form').forEach(form=>{
+      form.insertAdjacentHTML('afterbegin','<input class="form-honey" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">');
+      form.addEventListener('submit',async e=>{
+      e.preventDefault();
+      const fd=new FormData(form);
+      const subject=`[Website Inquiry] ${form.dataset.productTitle || fd.get('product') || 'Custom Bag Project'}`;
+      const button=form.querySelector('button[type="submit"]');
+      let status=form.querySelector('.form-status');
+      if(!status){
+        status=document.createElement('p');
+        status.className='form-status';
+        status.setAttribute('role','status');
+        status.setAttribute('aria-live','polite');
+        button.insertAdjacentElement('afterend',status);
+      }
+      if(fd.get('_honey')) return;
+      const payload={
+        name:fd.get('name')||'',
+        email:fd.get('email')||'',
+        company:fd.get('company')||'',
+        product:fd.get('product')||form.dataset.productTitle||'',
+        quantity:fd.get('qty')||'',
+        message:fd.get('message')||'',
+        _subject:subject,
+        _template:'table',
+        _captcha:'false',
+        _honey:''
+      };
+      const originalText=button.textContent;
+      button.disabled=true;
+      button.textContent='Sending...';
+      status.className='form-status';
+      status.textContent='Sending your inquiry...';
+      try{
+        const response=await fetch(`https://formsubmit.co/ajax/${data.company.email}`,{
+          method:'POST',
+          headers:{'Content-Type':'application/json','Accept':'application/json'},
+          body:JSON.stringify(payload)
+        });
+        const result=await response.json().catch(()=>({}));
+        if(!response.ok || result.success===false) throw new Error('Submission failed');
+        form.reset();
+        status.className='form-status success';
+        status.textContent='Thank you. Your inquiry has been sent successfully.';
+      }catch(error){
+        status.className='form-status error';
+        status.textContent='The form could not be sent. Please use WhatsApp or email us directly.';
+      }finally{
+        button.disabled=false;
+        button.textContent=originalText;
+      }
+      });
+    });
+  }
+
+  function enhanceWhatsAppLinks(){
+    document.querySelectorAll('a[href*="wa.me/"]').forEach(link=>{
+      if(!link.href.includes('text=')) link.href = whatsappUrl();
+    });
+  }
+
+  function initEditMode(){
+    let clicks=0,timer=null;
+    const banner=document.getElementById('editBanner');
+    const nodes=[document.getElementById('editTriggerArea'),document.querySelector('.site-header'),...document.querySelectorAll('.brand,.logo-mark')].filter(Boolean);
+    if(!banner) return;
+    const toggle=()=>{const enable=!document.body.classList.contains('editing');document.body.classList.toggle('editing',enable);document.querySelectorAll('.editable').forEach(el=>el.setAttribute('contenteditable',enable?'true':'false'));banner.textContent=enable?'Edit mode enabled. You can modify highlighted text blocks directly.':'Edit mode disabled.';banner.style.display='block';setTimeout(()=>{if(!document.body.classList.contains('editing')) banner.style.display='none';},1800);};
+    const count=()=>{clicks++;clearTimeout(timer);if(clicks>=5){toggle();clicks=0;return;}timer=setTimeout(()=>clicks=0,2400);};
+    nodes.forEach(n=>{n.addEventListener('click',count);});
+  }
+
+  function renderHomeSections(){
+    const why=document.getElementById('whyChooseUs');
+    if(why){why.innerHTML=`<div class="grid grid-4"><article class="card info-card"><div class="card-body"><div class="icon-bubble">🏭</div><h3 class="card-title">Real Factory Support</h3><p class="muted">Workshop photos and production content help buyers trust your business faster.</p></div></article><article class="card info-card"><div class="card-body"><div class="icon-bubble">🎯</div><h3 class="card-title">Clear Customization</h3><p class="muted">Logo, fabric, color, pattern and packaging options are presented clearly.</p></div></article><article class="card info-card"><div class="card-body"><div class="icon-bubble">📦</div><h3 class="card-title">Buyer-friendly MOQ</h3><p class="muted">Suitable for importers, wholesalers, retailers and promotional companies.</p></div></article><article class="card info-card"><div class="card-body"><div class="icon-bubble">✅</div><h3 class="card-title">Professional Follow-up</h3><p class="muted">Fast response and practical quotation support for long-term B2B cooperation.</p></div></article></div>`;}
+    const factory=document.getElementById('homeFactoryBlock');
+    if(factory){factory.innerHTML=`<div class="process-grid"><div><div class="section-head"><div><span class="badge">Buyer Workflow</span><h2>Designed around procurement browsing habits</h2><p>Homepage first builds trust, then shows categories, customization capability, factory strength and clear inquiry paths.</p></div></div><div class="feature-list"><div class="feature-item"><div class="icon-bubble">1</div><div><strong>Choose Product Type</strong><div class="muted">Full-print crossbody bags, backpacks, travel bags, duffel bags, sling bags, tote bags and promotional bags.</div></div></div><div class="feature-item"><div class="icon-bubble">2</div><div><strong>Confirm Custom Details</strong><div class="muted">Logo, color, pattern, fabric, hardware, packaging and multi-style product display.</div></div></div><div class="feature-item"><div class="icon-bubble">3</div><div><strong>Sample & Production</strong><div class="muted">Sample development, page confirmation and bulk production follow-up.</div></div></div><div class="feature-item"><div class="icon-bubble">4</div><div><strong>Shipment & Repeat Orders</strong><div class="muted">Stable communication for future orders.</div></div></div></div></div><div class="media-panel">${imgTag('assets/images/junyi/factory/factory-workshop.webp','factory workshop')}</div></div>`;attachImageFallback(factory);}
+  }
+
+  renderHeader();renderFooter();renderHero();renderCategories();renderFeaturedProducts();renderTestimonials();renderFAQ();renderAllProducts();renderDetailPage();renderAboutFactory();renderHomeSections();bindInquiryForms();enhanceWhatsAppLinks();attachImageFallback(document);initEditMode();
+})();
+
