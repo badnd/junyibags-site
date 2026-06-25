@@ -8,7 +8,8 @@
     { "source": "/pages/product-waist-bag.html", "destination": "/pages/products.html", "permanent": false },
     { "source": "/pages/product-chest-bag.html", "destination": "/pages/products.html", "permanent": false },
     { "source": "/pages/product-shoulder-bag.html", "destination": "/pages/products.html", "permanent": false },
-    { "source": "/pages/product-mini-crossbody.html", "destination": "/pages/product-full-print-crossbody.html", "permanent": false },
+    { "source": "/pages/product-mini-crossbody.html", "destination": "/pages/products.html", "permanent": false },
+    { "source": "/pages/product-full-print-crossbody.html", "destination": "/pages/product-ytljy5634.html", "permanent": false },
     { "source": "/pages/product-running-chest-bag.html", "destination": "/pages/products.html", "permanent": false },
     { "source": "/pages/product-gym-bag.html", "destination": "/pages/products.html", "permanent": false }
   ],

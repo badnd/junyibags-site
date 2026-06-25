@@ -35,7 +35,7 @@
   }
 
   function fallbackImage(){
-    return path('assets/images/junyi/products/ytljy5634-card.webp');
+    return path('assets/images/junyi/company/custom-bag-manufacturer-poster.png');
   }
 
   function imgTag(src, alt='', cls=''){
@@ -78,7 +78,8 @@
       <header class="site-header">
         <div class="container nav-wrap">
           <a href="${path('index.html')}" class="brand" aria-label="Junyi Bags home">
-            <img class="brand-logo" src="${path('assets/images/junyi/brand/junyi-footer-logo.webp?v=1')}" alt="Junyi Bags">
+            <img class="brand-icon" src="${path('assets/images/junyi/brand/nameer-symbol.png?v=2')}" alt="">
+            <span class="brand-text"><strong>Junyi Bags</strong><small>OEM/ODM Custom Bag Manufacturer</small></span>
           </a>
           <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation">☰</button>
           <ul class="nav-links" id="navLinks">
@@ -116,14 +117,11 @@
         <div class="container footer-grid">
           <div>
             <div class="brand footer-brand">
-              <span class="footer-logo-panel">
-                <img class="brand-logo footer-logo" src="${path('assets/images/junyi/brand/junyi-footer-logo.webp?v=1')}" alt="Junyi Bags">
-              </span>
-              <small>${data.company.tagline}</small>
+              <span class="footer-brandline"><img class="footer-brand-icon" src="${path('assets/images/junyi/brand/nameer-symbol.png?v=3')}" alt=""><span><strong>Junyi Bags</strong><small>${data.company.tagline}</small></span></span>
             </div>
-            <p class="editable">${data.company.name} supplies custom bag solutions for global B2B buyers, including full-print crossbody bags, backpacks, travel bags, tote bags and promotional bags.</p>
+            <p class="editable">${data.company.name} supplies custom bag solutions for global B2B buyers, including logo customization, material matching, sampling, production and export communication.</p>
           </div>
-          <div><h4>Products</h4><ul>${data.categories.map(c=>`<li><a href="${path(c.link)}">${c.name}</a></li>`).join('')}</ul></div>
+      <div><h4>Products</h4><ul><li><a href="${path('pages/products.html?category=crossbody-sling-bags')}">Crossbody & Sling Bags</a></li><li><a href="${path('pages/products.html?category=waist-bags')}">Waist Bags</a></li><li><a href="${path('pages/products.html?category=backpacks')}">Backpacks</a></li></ul></div>
           <div><h4>Buyer Service</h4><ul><li><a href="${path('pages/custom-service.html')}">OEM / ODM Service</a></li><li><a href="${path('pages/factory.html')}">Factory Strength</a></li><li><a href="${path('pages/products.html')}">Product Catalog</a></li><li><a href="${path('pages/contact.html')}">Send Inquiry</a></li><li><a href="${path('pages/privacy-policy.html')}">Privacy Policy</a></li></ul></div>
           <div><h4>Contact</h4><ul><li>Email: <a href="mailto:${data.company.email}">${data.company.email}</a></li><li>WhatsApp: <a href="${whatsappUrl()}" target="_blank" rel="noopener">${data.company.whatsapp}</a></li><li>WeChat: ${data.company.wechat}</li><li>${data.company.priceText}</li></ul></div>
         </div>
@@ -166,16 +164,47 @@
   }
 
   function productCard(p, slug, simple=false){
-    return `<article class="card product-card">
-      <a class="card-media" href="${path('pages/product-'+slug+'.html')}">${imgTag(simple ? p.hero : (p.cardImage || p.variants[0].image), p.title)}</a>
+    const img = simple ? p.hero : (p.cardImage || p.variants[0].image);
+    return `<article class="card product-card" data-category="${p.categorySlug || p.category || ''}">
+      <a class="card-media" href="${path('pages/product-'+slug+'.html')}">${imgTag(img, p.title)}</a>
       <div class="card-body"><div class="chip-list">${p.badges.slice(0,3).map(b=>`<span class="badge">${b}</span>`).join('')}</div><h3 class="card-title">${p.title}</h3><p class="muted">${p.intro}</p><div class="card-price">${data.company.priceText}</div></div>
       <div class="card-actions"><a class="btn btn-primary" href="${path('pages/product-'+slug+'.html')}">View Details</a><a class="btn btn-secondary" href="${path('pages/contact.html')}?product=${slug}">Get Quote</a></div>
     </article>`;
   }
 
+  function selectHomepageProducts(){
+    const entries = Object.entries(data.products);
+    const limit = Math.min(12, entries.length);
+    const categoryQuotas = {
+      'crossbody-sling-bags': 6,
+      'waist-bags': 3,
+      'backpacks': 2
+    };
+    const selected = [];
+    const selectedSlugs = new Set();
+    const categoryCounts = {};
+    entries.forEach(([slug, product])=>{
+      if(selected.length >= limit || selectedSlugs.has(slug)) return;
+      const cat = product.categorySlug || product.category || 'other';
+      const quota = categoryQuotas[cat] || 1;
+      const count = categoryCounts[cat] || 0;
+      if(count >= quota) return;
+      selected.push([slug, product]);
+      selectedSlugs.add(slug);
+      categoryCounts[cat] = count + 1;
+    });
+    entries.forEach(([slug, product])=>{
+      if(selected.length >= limit || selectedSlugs.has(slug)) return;
+      selected.push([slug, product]);
+      selectedSlugs.add(slug);
+    });
+    return selected;
+  }
+
   function renderCategories(){
     const mount = document.getElementById('categoryGrid');
     if(!mount) return;
+    mount.classList.toggle('single-product-grid', data.categories.length === 1);
     mount.innerHTML = data.categories.map(cat=>`<article class="card category-card"><a class="card-media" href="${path(cat.link)}">${imgTag(cat.image, cat.name)}</a><div class="card-body"><h3 class="card-title">${cat.name}</h3><p class="muted">${cat.desc}</p><div class="card-price">${data.company.priceText}</div></div><div class="card-actions"><a class="btn btn-primary" href="${path(cat.link)}">View Details</a><a class="btn btn-secondary" href="${path('pages/contact.html')}?product=${cat.slug}">Request Quote</a></div></article>`).join('');
     attachImageFallback(mount);
   }
@@ -183,7 +212,13 @@
   function renderFeaturedProducts(){
     const mount = document.getElementById('featuredProducts');
     if(!mount) return;
-    mount.innerHTML = Object.entries(data.products).slice(0,6).map(([slug,p])=>productCard(p,slug)).join('');
+    if(!Object.keys(data.products).length){
+      mount.innerHTML = `<article class="card empty-catalog"><div class="card-body"><span class="badge">Products Pending</span><h3 class="card-title">New product uploads are coming soon</h3><p class="muted">Current product items have been removed while the catalog is being rebuilt.</p><div class="card-actions"><a class="btn btn-primary" href="${path('pages/contact.html')}">Contact Sales</a></div></div></article>`;
+      return;
+    }
+    const selected = selectHomepageProducts();
+    mount.classList.toggle('single-product-grid', selected.length === 1);
+    mount.innerHTML = selected.map(([slug,p])=>productCard(p,slug)).join('');
     attachImageFallback(mount);
   }
 
@@ -204,7 +239,15 @@
     const mount = document.getElementById('allProductsGrid');
     if(!mount) return;
     const q = new URLSearchParams(location.search).get('category');
-    const filtered = q ? Object.entries(data.products).filter(([slug])=>slug===q) : Object.entries(data.products);
+    const filtered = q ? Object.entries(data.products).filter(([slug,p])=>slug===q || p.categorySlug===q) : Object.entries(data.products);
+    if(!filtered.length){
+      mount.classList.remove('single-product-grid');
+      mount.innerHTML = `<article class="card empty-catalog"><div class="card-body"><span class="badge">No Match</span><h3 class="card-title">No products found in this filter</h3><p class="muted">Please return to all products or send your target bag style, quantity, logo and material requirements for a direct quotation.</p><div class="card-actions"><a class="btn btn-primary" href="${path('pages/contact.html')}">Send Inquiry</a><a class="btn btn-secondary" href="${path('pages/products.html')}">All Products</a></div></div></article>`;
+      const filters = document.getElementById('filterLinks');
+      if(filters) filters.innerHTML = `<a class="filter-link active" href="products.html">All Products</a>` + data.categories.map(c=>`<a class="filter-link" href="products.html?category=${c.slug}">${c.name}</a>`).join('');
+      return;
+    }
+    mount.classList.toggle('single-product-grid', filtered.length === 1);
     mount.innerHTML = filtered.map(([slug,p])=>productCard(p,slug,true)).join('');
     const filters = document.getElementById('filterLinks');
     if(filters){filters.innerHTML = `<a class="filter-link ${!q?'active':''}" href="products.html">All Products</a>` + data.categories.map(c=>`<a class="filter-link ${q===c.slug?'active':''}" href="products.html?category=${c.slug}">${c.name}</a>`).join('');}
@@ -244,7 +287,7 @@
     if(!p){detailMount.innerHTML='<div class="container section-sm">Product not found.</div>';return;}
     detailMount.innerHTML = `<div class="breadcrumb container"><a href="${path('index.html')}">Home</a><span>/</span><a href="${path('pages/products.html')}">Products</a><span>/</span>${p.title}</div>
     <section class="section-sm"><div class="container detail-grid">
-      <div><div class="gallery-main" tabindex="0" role="button" aria-label="Open large product image">${imgTag(p.gallery[0], p.title, 'detail-main-image')}<span class="gallery-zoom-hint">Click to enlarge</span></div><div class="gallery-thumbs">${p.gallery.map((g,i)=>`<img class="${i===0?'active':''}" src="${path(g)}" data-full="${path(g)}" data-index="${i}" alt="${p.title} ${i+1}" onerror="this.onerror=null;this.src='${fallbackImage()}'">`).join('')}</div></div>
+      <div><div class="gallery-main poster-gallery" tabindex="0" role="button" aria-label="Open large product image">${imgTag(p.gallery[0], p.title, 'detail-main-image')}<span class="gallery-zoom-hint">Click to enlarge</span></div><div class="gallery-thumbs">${p.gallery.map((g,i)=>`<img class="${i===0?'active':''}" src="${path(g)}" data-full="${path(g)}" data-index="${i}" alt="${p.title} ${i+1}" onerror="this.onerror=null;this.src='${fallbackImage()}'">`).join('')}</div></div>
       <div class="detail-main"><div class="badge">${p.category}</div><h1 class="editable">${p.title}</h1><div class="detail-meta">Model: ${p.model}</div><p class="editable">${p.intro}</p><div class="inline-badges">${p.badges.map(b=>`<span class="badge">${b}</span>`).join('')}</div><div class="quote-price">${data.company.priceText}</div><h3>Key Features</h3><ul>${p.features.map(f=>`<li>${f}</li>`).join('')}</ul><div class="quick-icons"><div class="mini">Custom Logo</div><div class="mini">Custom Color</div><div class="mini">OEM / ODM</div><div class="mini">Low MOQ</div></div></div>
       <aside class="quote-card"><h3>Quick Inquiry</h3><p class="muted">Send quantity, logo idea, target material and packaging requirements.</p><form class="form inquiry-form" data-product-title="${p.title}"><input name="name" placeholder="Your Name" required><input type="email" name="email" placeholder="Your Email" required><input name="qty" placeholder="Quantity / MOQ target"><textarea name="message" placeholder="Tell us your logo, color, material and packing needs"></textarea><button class="btn btn-primary btn-block" type="submit">Send Inquiry</button><a class="btn btn-secondary btn-block" href="${whatsappUrl(p)}" target="_blank" rel="noopener">WhatsApp Now</a>${privacyNotice()}</form><div class="contact-mini"><div>📧 ${data.company.email}</div><div>💬 ${data.company.whatsapp}</div><div>🟢 ${data.company.wechat}</div></div></aside>
     </div></section>
@@ -347,69 +390,60 @@
 
   function renderAboutFactory(){
     const aboutMount = document.getElementById('aboutFactoryMount');
-    if(aboutMount){aboutMount.innerHTML = `<section class="section-sm"><div class="container about-grid"><div><span class="badge">Factory Overview</span><h2 class="editable" style="font-size:2.3rem;margin:16px 0">Reliable custom bag manufacturing partner</h2><p class="editable muted">We support OEM / ODM bag production with workshop capability, process control, logo customization and export-oriented service.</p><div class="stats" style="margin-top:26px"><div class="stat-card"><span class="stat-num">OEM</span><div>Custom Service</div></div><div class="stat-card"><span class="stat-num">ODM</span><div>Development Support</div></div><div class="stat-card"><span class="stat-num">QC</span><div>Inspection Process</div></div><div class="stat-card"><span class="stat-num">B2B</span><div>Wholesale Focus</div></div></div></div><div class="media-panel">${imgTag('assets/images/junyi/factory/factory-exterior.webp','factory building')}</div></div></section><section class="section-sm bg-soft"><div class="container process-grid"><div><div class="section-head"><div><h2>Workshop & Production</h2><p>Real factory and workshop images help build trust with importers and brand buyers.</p></div></div><div class="media-stack">${['factory-workshop.webp','sewing-detail.webp','packing-bales.webp','why-work-with-us.webp'].map(x=>imgTag('assets/images/junyi/factory/'+x,x)).join('')}</div></div><div class="media-panel">${imgTag('assets/images/junyi/factory/custom-bag-manufacturer-hero.webp','custom process')}</div></div></section><section class="section-sm"><div class="container about-grid"><div class="media-panel">${imgTag('assets/images/junyi/factory/certification.webp','honors')}</div><div><div class="section-head"><div><h2>Certificates & Honors</h2><p>Trust elements for professional B2B presentation.</p></div></div><p class="muted">Workshop images, honor wall, certification graphics and production process content improve buyer confidence.</p>${imgTag('assets/images/junyi/factory/color-card.webp','certifications')}</div></div></section>`; attachImageFallback(aboutMount);}
+    if(aboutMount){aboutMount.innerHTML = `<section class="section-sm"><div class="container about-grid"><div><span class="badge">Factory Overview</span><h2 class="editable" style="font-size:2.3rem;margin:16px 0">Reliable custom bag manufacturing partner</h2><p class="editable muted">We support OEM / ODM bag production with workshop capability, process control, logo customization and export-oriented service.</p><div class="stats" style="margin-top:26px"><div class="stat-card"><span class="stat-num">OEM</span><div>Custom Service</div></div><div class="stat-card"><span class="stat-num">ODM</span><div>Development Support</div></div><div class="stat-card"><span class="stat-num">QC</span><div>Inspection Process</div></div><div class="stat-card"><span class="stat-num">B2B</span><div>Wholesale Focus</div></div></div></div><div class="media-panel">${imgTag('assets/images/junyi/company/factory-building.png','factory building')}</div></div></section><section class="section-sm bg-soft"><div class="container process-grid"><div><div class="section-head"><div><h2>Workshop & Production</h2><p>Use production and factory images here only, keeping product posters inside product sections.</p></div></div><div class="media-stack">${['production-process.png','sample-room.png','trade-show-booth.png','trade-show-collage.png'].map(x=>imgTag('assets/images/junyi/company/'+x,x)).join('')}</div></div><div class="media-panel">${imgTag('assets/images/junyi/company/certification.jpg','certification')}</div></div></section><section class="section-sm"><div class="container about-grid"><div class="media-panel">${imgTag('assets/images/junyi/company/factory-honor.png','factory honor')}</div><div><div class="section-head"><div><h2>Certificates, Honors & Exhibition</h2><p>Trust elements for professional B2B presentation.</p></div></div><p class="muted">Factory building, sample room, exhibition and certificate content help buyers evaluate your capability before sending custom bag inquiries.</p>${imgTag('assets/images/junyi/company/trade-show-collage.png','trade show collage')}</div></div></section>`; attachImageFallback(aboutMount);}
 
     const customMount = document.getElementById('customServiceMount');
-    if(customMount){customMount.innerHTML = `<section class="section-sm"><div class="container about-grid"><div><span class="badge">Customization Service</span><h2 style="font-size:2.3rem;margin:16px 0">Custom logo, material, color and packaging options</h2><p class="muted">Your custom bag project can start from reference images, sketches or an existing product idea.</p><ul class="feature-list" style="margin-top:24px"><li class="feature-item"><div class="icon-bubble">🎨</div><div><strong>Custom Colors</strong><div class="muted">Pantone and brand color matching support.</div></div></li><li class="feature-item"><div class="icon-bubble">🏷️</div><div><strong>Custom Logos</strong><div class="muted">Embroidery, print, heat transfer, rubber patch and woven labels.</div></div></li><li class="feature-item"><div class="icon-bubble">🧵</div><div><strong>Custom Fabrics</strong><div class="muted">Polyester, nylon, canvas, PU and other options.</div></div></li><li class="feature-item"><div class="icon-bubble">📦</div><div><strong>Packaging</strong><div class="muted">Hangtags, polybags and basic packaging solutions.</div></div></li></ul></div><div class="media-panel">${imgTag('assets/images/junyi/products/ytljy5634-fullprint-05.webp','logo options')}</div></div></section><section class="section-sm bg-soft"><div class="container process-grid"><div class="media-panel">${imgTag('assets/images/junyi/factory/color-card.webp','pantone')}</div><div><div class="section-head"><div><h2>Color & Design Development</h2><p>We organize logo, fabric and pattern choices into practical production solutions.</p></div></div>${imgTag('assets/images/junyi/factory/custom-logo-oem-factory.webp','oem odm collage')}</div></div></section>`; attachImageFallback(customMount);}
+    if(customMount){customMount.innerHTML = `<section class="section-sm"><div class="container about-grid"><div><span class="badge">Customization Service</span><h2 style="font-size:2.3rem;margin:16px 0">Custom logo, pattern, color and packaging options</h2><p class="muted">Your custom bag project can start from reference images, sketches, a logo file or an existing product idea.</p><ul class="feature-list" style="margin-top:24px"><li class="feature-item"><div class="icon-bubble">1</div><div><strong>Custom Artwork</strong><div class="muted">Send logo, AI/PSD/PDF artwork or reference photos.</div></div></li><li class="feature-item"><div class="icon-bubble">2</div><div><strong>Confirm Sample</strong><div class="muted">Review print effect, material, color, logo and structure.</div></div></li><li class="feature-item"><div class="icon-bubble">3</div><div><strong>Bulk Production</strong><div class="muted">Proceed with cutting, sewing, inspection and packing.</div></div></li><li class="feature-item"><div class="icon-bubble">4</div><div><strong>Delivery Support</strong><div class="muted">Export communication and repeat-order follow-up.</div></div></li></ul></div><div class="media-panel">${imgTag('assets/images/junyi/company/custom-logo-oem-factory.png','logo options')}</div></div></section><section class="section-sm bg-soft"><div class="container process-grid"><div class="media-panel">${imgTag('assets/images/junyi/company/pantone-color-card.png','pantone')}</div><div><div class="section-head"><div><h2>Order Process & Color Development</h2><p>Logo methods, color cards and order process content belong in customization, not in the factory workshop section.</p></div></div>${imgTag('assets/images/junyi/company/order-process.png','order process')}</div></div></section>`; attachImageFallback(customMount);}
 
     const contactMount = document.getElementById('contactPageMount');
-    if(contactMount){const q=new URLSearchParams(location.search);const pre=[q.get('product')||'',q.get('variant')||''].filter(Boolean).join(' - ');contactMount.innerHTML = `<section class="section-sm"><div class="container contact-grid"><div class="detail-main"><span class="badge">Contact & Inquiry</span><h1>Start your custom bag inquiry</h1><p class="muted">Send us product type, quantity, logo method and target market. We will help you move faster.</p><div class="contact-mini contact-big"><div>Company: ${data.company.name}</div><div>Email: <a href="mailto:${data.company.email}">${data.company.email}</a></div><div>WhatsApp: <a href="${whatsappUrl()}" target="_blank" rel="noopener">${data.company.whatsapp}</a></div><div>WeChat: ${data.company.wechat}</div></div><div style="margin-top:22px">${imgTag('assets/images/junyi/factory/factory-exterior.webp','factory')}</div></div><div class="quote-card"><h3>Send Inquiry</h3><form class="form inquiry-form" data-product-title="${pre || 'General Inquiry'}"><input name="name" placeholder="Your Name" required><input type="email" name="email" placeholder="Your Email" required><input name="company" placeholder="Company Name"><input name="product" placeholder="Interested Product" value="${pre}"><textarea name="message" placeholder="Quantity, logo method, material, color and packaging requirements"></textarea><button class="btn btn-primary btn-block" type="submit">Send by Email</button><a class="btn btn-secondary btn-block" href="${whatsappUrl()}" target="_blank" rel="noopener">Contact via WhatsApp</a>${privacyNotice()}</form></div></div></section>`; attachImageFallback(contactMount);}
+    if(contactMount){const q=new URLSearchParams(location.search);const pre=[q.get('product')||'',q.get('variant')||''].filter(Boolean).join(' - ');contactMount.innerHTML = `<section class="section-sm"><div class="container contact-grid"><div class="detail-main"><span class="badge">Contact & Inquiry</span><h1>Start your custom bag inquiry</h1><p class="muted">Send us product type, quantity, logo method and target market. We will help you move faster.</p><div class="contact-mini contact-big"><div>Company: ${data.company.name}</div><div>Email: <a href="mailto:${data.company.email}">${data.company.email}</a></div><div>WhatsApp: <a href="${whatsappUrl()}" target="_blank" rel="noopener">${data.company.whatsapp}</a></div><div>WeChat: ${data.company.wechat}</div></div><div style="margin-top:22px">${imgTag('assets/images/junyi/company/factory-building.png','factory')}</div></div><div class="quote-card"><h3>Send Inquiry</h3><form class="form inquiry-form" data-product-title="${pre || 'General Inquiry'}"><input name="name" placeholder="Your Name" required><input type="email" name="email" placeholder="Your Email" required><input name="company" placeholder="Company Name"><input name="product" placeholder="Interested Product" value="${pre}"><textarea name="message" placeholder="Quantity, logo method, material, color and packaging requirements"></textarea><button class="btn btn-primary btn-block" type="submit">Send by Email</button><a class="btn btn-secondary btn-block" href="${whatsappUrl()}" target="_blank" rel="noopener">Contact via WhatsApp</a>${privacyNotice()}</form></div></div></section>`; attachImageFallback(contactMount);}
   }
 
   function bindInquiryForms(){
     document.querySelectorAll('.inquiry-form').forEach(form=>{
+      form.action = `https://formsubmit.co/${data.company.email}`;
+      form.method = 'POST';
       form.insertAdjacentHTML('afterbegin','<input class="form-honey" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">');
-      form.addEventListener('submit',async e=>{
-      e.preventDefault();
-      const fd=new FormData(form);
-      const subject=`[Website Inquiry] ${form.dataset.productTitle || fd.get('product') || 'Custom Bag Project'}`;
-      const button=form.querySelector('button[type="submit"]');
-      let status=form.querySelector('.form-status');
-      if(!status){
-        status=document.createElement('p');
-        status.className='form-status';
-        status.setAttribute('role','status');
-        status.setAttribute('aria-live','polite');
-        button.insertAdjacentElement('afterend',status);
-      }
-      if(fd.get('_honey')) return;
-      const payload={
-        name:fd.get('name')||'',
-        email:fd.get('email')||'',
-        company:fd.get('company')||'',
-        product:fd.get('product')||form.dataset.productTitle||'',
-        quantity:fd.get('qty')||'',
-        message:fd.get('message')||'',
-        _subject:subject,
-        _template:'table',
-        _captcha:'false',
-        _honey:''
+
+      const upsertHidden = (name, value)=>{
+        let input = form.querySelector(`input[name="${name}"]`);
+        if(!input){
+          input = document.createElement('input');
+          input.type = 'hidden';
+          input.name = name;
+          form.appendChild(input);
+        }
+        input.value = value;
       };
-      const originalText=button.textContent;
-      button.disabled=true;
-      button.textContent='Sending...';
-      status.className='form-status';
-      status.textContent='Sending your inquiry...';
-      try{
-        const response=await fetch(`https://formsubmit.co/ajax/${data.company.email}`,{
-          method:'POST',
-          headers:{'Content-Type':'application/json','Accept':'application/json'},
-          body:JSON.stringify(payload)
-        });
-        const result=await response.json().catch(()=>({}));
-        if(!response.ok || result.success===false) throw new Error('Submission failed');
-        form.reset();
-        status.className='form-status success';
-        status.textContent='Thank you. Your inquiry has been sent successfully.';
-      }catch(error){
-        status.className='form-status error';
-        status.textContent='The form could not be sent. Please use WhatsApp or email us directly.';
-      }finally{
-        button.disabled=false;
-        button.textContent=originalText;
-      }
+
+      form.addEventListener('submit', e=>{
+        const fd = new FormData(form);
+        if(fd.get('_honey')){
+          e.preventDefault();
+          return;
+        }
+        const product = fd.get('product') || form.dataset.productTitle || 'Custom Bag Project';
+        const qty = fd.get('qty') || fd.get('quantity') || '';
+        upsertHidden('_subject', `[Website Inquiry] ${product}`);
+        upsertHidden('_template', 'table');
+        upsertHidden('_captcha', 'false');
+        upsertHidden('_next', new URL(`${location.pathname}?sent=1`, location.origin).href);
+        if(!fd.get('product')) upsertHidden('product', product);
+        if(qty && !fd.get('quantity')) upsertHidden('quantity', qty);
       });
     });
+
+    if(new URLSearchParams(location.search).get('sent') === '1'){
+      const firstForm = document.querySelector('.inquiry-form');
+      const button = firstForm?.querySelector('button[type="submit"]');
+      if(firstForm && button){
+        const status = document.createElement('p');
+        status.className = 'form-status success';
+        status.setAttribute('role','status');
+        status.textContent = 'Thank you. Your inquiry has been submitted.';
+        button.insertAdjacentElement('afterend', status);
+      }
+    }
   }
 
   function enhanceWhatsAppLinks(){
@@ -430,9 +464,9 @@
 
   function renderHomeSections(){
     const why=document.getElementById('whyChooseUs');
-    if(why){why.innerHTML=`<div class="grid grid-4"><article class="card info-card"><div class="card-body"><div class="icon-bubble">🏭</div><h3 class="card-title">Real Factory Support</h3><p class="muted">Workshop photos and production content help buyers trust your business faster.</p></div></article><article class="card info-card"><div class="card-body"><div class="icon-bubble">🎯</div><h3 class="card-title">Clear Customization</h3><p class="muted">Logo, fabric, color, pattern and packaging options are presented clearly.</p></div></article><article class="card info-card"><div class="card-body"><div class="icon-bubble">📦</div><h3 class="card-title">Buyer-friendly MOQ</h3><p class="muted">Suitable for importers, wholesalers, retailers and promotional companies.</p></div></article><article class="card info-card"><div class="card-body"><div class="icon-bubble">✅</div><h3 class="card-title">Professional Follow-up</h3><p class="muted">Fast response and practical quotation support for long-term B2B cooperation.</p></div></article></div>`;}
+    if(why){why.innerHTML=`<div class="grid grid-4"><article class="card info-card"><div class="card-body"><div class="icon-bubble">01</div><h3 class="card-title">Real Factory Support</h3><p class="muted">Workshop, sample room and production content help buyers trust your business faster.</p></div></article><article class="card info-card"><div class="card-body"><div class="icon-bubble">02</div><h3 class="card-title">Clear Customization</h3><p class="muted">Logo, fabric, color, pattern and packaging options are presented clearly.</p></div></article><article class="card info-card"><div class="card-body"><div class="icon-bubble">03</div><h3 class="card-title">Buyer-friendly MOQ</h3><p class="muted">Suitable for importers, wholesalers, retailers and promotional companies.</p></div></article><article class="card info-card"><div class="card-body"><div class="icon-bubble">04</div><h3 class="card-title">Professional Follow-up</h3><p class="muted">Fast response and practical quotation support for long-term B2B cooperation.</p></div></article></div>`;}
     const factory=document.getElementById('homeFactoryBlock');
-    if(factory){factory.innerHTML=`<div class="process-grid"><div><div class="section-head"><div><span class="badge">Buyer Workflow</span><h2>Designed around procurement browsing habits</h2><p>Homepage first builds trust, then shows categories, customization capability, factory strength and clear inquiry paths.</p></div></div><div class="feature-list"><div class="feature-item"><div class="icon-bubble">1</div><div><strong>Choose Product Type</strong><div class="muted">Full-print crossbody bags, backpacks, travel bags, duffel bags, sling bags, tote bags and promotional bags.</div></div></div><div class="feature-item"><div class="icon-bubble">2</div><div><strong>Confirm Custom Details</strong><div class="muted">Logo, color, pattern, fabric, hardware, packaging and multi-style product display.</div></div></div><div class="feature-item"><div class="icon-bubble">3</div><div><strong>Sample & Production</strong><div class="muted">Sample development, page confirmation and bulk production follow-up.</div></div></div><div class="feature-item"><div class="icon-bubble">4</div><div><strong>Shipment & Repeat Orders</strong><div class="muted">Stable communication for future orders.</div></div></div></div></div><div class="media-panel">${imgTag('assets/images/junyi/factory/factory-workshop.webp','factory workshop')}</div></div>`;attachImageFallback(factory);}
+    if(factory){factory.innerHTML=`<div class="process-grid"><div><div class="section-head"><div><span class="badge">Buyer Workflow</span><h2>From custom artwork to bulk production</h2><p>Homepage first shows products, then customization capability, factory strength and clear inquiry paths.</p></div></div><div class="feature-list"><div class="feature-item"><div class="icon-bubble">1</div><div><strong>Send Artwork</strong><div class="muted">Share your logo, product style, quantity and target market.</div></div></div><div class="feature-item"><div class="icon-bubble">2</div><div><strong>Approve Sample</strong><div class="muted">Confirm print effect, fabric, color, hardware and packaging.</div></div></div><div class="feature-item"><div class="icon-bubble">3</div><div><strong>Bulk Production</strong><div class="muted">Arrange cutting, sewing, inspection and packing.</div></div></div><div class="feature-item"><div class="icon-bubble">4</div><div><strong>Shipment & Repeat Orders</strong><div class="muted">Stable communication for future orders.</div></div></div></div></div><div class="media-panel">${imgTag('assets/images/junyi/company/production-process.png','production process')}</div></div>`;attachImageFallback(factory);}
   }
 
   renderHeader();renderFooter();renderHero();renderCategories();renderFeaturedProducts();renderTestimonials();renderFAQ();renderAllProducts();renderDetailPage();renderAboutFactory();renderHomeSections();bindInquiryForms();enhanceWhatsAppLinks();attachImageFallback(document);initEditMode();
