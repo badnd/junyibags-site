@@ -1,23 +1,13 @@
 {
-  "cleanUrls": false,
   "trailingSlash": false,
-  "redirects": [
-    { "source": "/pages/product-student-backpack.html", "destination": "/pages/products.html", "permanent": false },
-    { "source": "/pages/product-women-backpack.html", "destination": "/pages/products.html", "permanent": false },
-    { "source": "/pages/product-mommy-bag.html", "destination": "/pages/products.html", "permanent": false },
-    { "source": "/pages/product-waist-bag.html", "destination": "/pages/products.html", "permanent": false },
-    { "source": "/pages/product-chest-bag.html", "destination": "/pages/products.html", "permanent": false },
-    { "source": "/pages/product-shoulder-bag.html", "destination": "/pages/products.html", "permanent": false },
-    { "source": "/pages/product-mini-crossbody.html", "destination": "/pages/products.html", "permanent": false },
-    { "source": "/pages/product-full-print-crossbody.html", "destination": "/pages/product-ytljy5634.html", "permanent": false },
-    { "source": "/pages/product-running-chest-bag.html", "destination": "/pages/products.html", "permanent": false },
-    { "source": "/pages/product-gym-bag.html", "destination": "/pages/products.html", "permanent": false }
-  ],
   "headers": [
     {
-      "source": "/assets/(.*)",
+      "source": "/assets/:path*",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     }
   ]
