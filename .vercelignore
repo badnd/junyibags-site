@@ -1,11 +1,12 @@
 source
-nameerbag-site-main.zip
 custombackpackfactory-site-main
 custombackpackfactory-site-main.zip
 junyibags_site_package_current.zip
 *.zip
 .tools
 tools
+node_modules
+.next
 SITE-PROGRAM-NOTES.md
 migration-log.txt
 CHECK_REPORT.txt
