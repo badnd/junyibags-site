@@ -1,13 +1,6 @@
-source
-custombackpackfactory-site-main
-custombackpackfactory-site-main.zip
-junyibags_site_package_current.zip
 *.zip
 .tools
+.agents
 tools
 node_modules
 .next
-SITE-PROGRAM-NOTES.md
-migration-log.txt
-CHECK_REPORT.txt
-JUNYIBAGS_REVIEW_2026-06-25.md
