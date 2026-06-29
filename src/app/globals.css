@@ -39,7 +39,7 @@ button,input,textarea,select{font:inherit}
 .nav-wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:20px}
 .brand{display:flex;align-items:center;gap:14px;min-width:0}
 .brand-logo{display:block;width:172px;height:48px;object-fit:contain;object-position:left center}
-.logo-mark{display:block;width:172px;height:48px;flex:0 0 172px;background:url('/assets/images/junyi/brand/junyi-footer-logo.webp') left center/contain no-repeat}
+.logo-mark{display:block;width:172px;height:48px;flex:0 0 172px;background:url('https://images.junyibags.com/assets/images/junyi/brand/junyi-footer-logo.webp') left center/contain no-repeat}
 .logo-mark img{display:none!important}
 .brand>.logo-mark+div{display:none}
 .footer-logo-panel{display:inline-flex;align-items:center;background:#fff;border-radius:14px;padding:10px 14px}
