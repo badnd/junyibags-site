@@ -1,5 +1,5 @@
 export const siteUrl = 'https://www.junyibags.com';
-const defaultAssetBaseUrl = '';
+const defaultAssetBaseUrl = 'https://images.junyibags.com';
 export const assetBaseUrl = (process.env.NEXT_PUBLIC_ASSET_BASE_URL ?? defaultAssetBaseUrl).replace(/\/+$/, '');
 
 export function assetPath(src) {
