@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { siteData } from '@/data/site-data';
-import { assetPath, whatsappUrl } from '@/lib/paths';
+import { whatsappUrl } from '@/lib/paths';
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
@@ -11,8 +11,9 @@ export function SiteFooter() {
         <div className="container footer-grid">
           <div>
             <div className="brand footer-brand">
-              <span className="footer-logo-panel">
-                <img className="brand-logo footer-logo" src={assetPath('/assets/images/junyi/brand/junyi-footer-logo.webp')} alt="Junyi Bags" />
+              <span className="footer-logo-panel footer-text-logo">
+                <span className="brand-icon" aria-hidden="true">JY</span>
+                <span className="brand-wordmark">Junyi Bags</span>
               </span>
               <small>{siteData.company.tagline}</small>
             </div>

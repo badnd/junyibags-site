@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { siteData } from '@/data/site-data';
-import { assetPath, whatsappUrl } from '@/lib/paths';
+import { whatsappUrl } from '@/lib/paths';
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
@@ -43,8 +43,9 @@ export function SiteHeader() {
       </div>
       <header className={`site-header ${scrolled ? 'is-scrolled' : ''}`}>
         <div className="container nav-wrap">
-          <Link href="/" className="brand" aria-label="Junyi Bags home">
-            <img className="brand-logo" src={assetPath('/assets/images/junyi/brand/junyi-footer-logo.webp')} alt="Junyi Bags" />
+          <Link href="/" className="brand brand-text-logo" aria-label="Junyi Bags home">
+            <span className="brand-icon" aria-hidden="true">JY</span>
+            <span className="brand-wordmark">Junyi Bags</span>
           </Link>
           <button className="mobile-toggle" type="button" onClick={() => setOpen((value) => !value)} aria-label="Toggle navigation">Menu</button>
           <ul className={`nav-links ${open ? 'open' : ''}`}>

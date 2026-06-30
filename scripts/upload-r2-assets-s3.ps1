@@ -32,6 +32,7 @@ function Get-ContentType {
     ".xml" { "application/xml"; break }
     ".json" { "application/json"; break }
     ".pdf" { "application/pdf"; break }
+    ".mp4" { "video/mp4"; break }
     default { "application/octet-stream" }
   }
 }

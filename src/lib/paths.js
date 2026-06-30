@@ -66,7 +66,7 @@ export function organizationSchema(data) {
     name: data.company.name,
     email: data.company.email,
     url: `${siteUrl}/`,
-    logo: assetUrl('/assets/images/junyi/brand/junyi-footer-logo.png'),
+    logo: assetUrl('/assets/images/junyi/brand/junyi-logo.svg'),
     contactPoint: [
       {
         '@type': 'ContactPoint',
