@@ -14,8 +14,9 @@ export const siteData = {
       "title": "Custom Bag Manufacturer for Global Brands",
       "subtitle": "OEM/ODM | Private Label | Full-Print Bags",
       "text": "Junyi Bags supplies all-over print crossbody bags, sling bags, waist bags and backpacks for importers, wholesalers, retail brands and promotional buyers.",
-      "image": "assets/images/junyi/trust/factory-sewing-waistbag-1600.jpg",
+      "image": "assets/images/junyi/products/showcase/product-slingbag-8colors-900.jpg",
       "video": "assets/videos/factory/factory-fullprint-cutting-machine-18s.mp4",
+      "duration": 3500,
       "cta": "Browse Products",
       "link": "pages/products.html"
     },
@@ -23,7 +24,8 @@ export const siteData = {
       "title": "Factory, Sampling and Production Support",
       "subtitle": "Design | Sampling | Cutting | Sewing | Packing",
       "text": "From artwork and sample confirmation to bulk production and delivery, our workflow is built for B2B custom bag orders.",
-      "image": "assets/images/junyi/company/production-process.png",
+      "image": "assets/images/junyi/products/showcase/product-slingbag-8colors-900.jpg",
+      "duration": 3500,
       "cta": "Explore Factory",
       "link": "pages/factory.html"
     },
@@ -31,9 +33,29 @@ export const siteData = {
       "title": "Custom Logo, Color and Pattern Service",
       "subtitle": "Logo Methods | Color Card | Low MOQ",
       "text": "Send your logo, color direction, pattern idea and quantity. We help turn it into a practical custom bag solution.",
-      "image": "assets/images/junyi/company/custom-logo-oem-factory.png",
+      "image": "assets/images/junyi/trust/factory-sewing-waistbag-1600.jpg",
+      "duration": 3500,
       "cta": "View Custom Service",
       "link": "pages/custom-service.html"
+    },
+    {
+      "title": "Scalable Production Line for Full-Print Orders",
+      "subtitle": "Cutting | Sewing | Packing | Delivery",
+      "text": "Production-line video and factory process visuals show the capacity behind all-over print waist bags, sling bags and custom backpack programs.",
+      "image": "assets/images/junyi/company/production-process.png",
+      "video": "assets/videos/factory/factory-production-line-21s.mp4",
+      "duration": 3500,
+      "cta": "Explore Factory",
+      "link": "pages/factory.html"
+    },
+    {
+      "title": "Pattern Development for Custom Prints",
+      "subtitle": "Artwork | Paper Pattern | Sampling",
+      "text": "Pattern development helps buyers align repeat prints, panels, trims and logo zones before mass production begins.",
+      "image": "https://images.junyibags.com/assets/images/shared/factory-pattern-development-1600.jpg",
+      "duration": 3500,
+      "cta": "Contact Factory",
+      "link": "pages/contact.html"
     }
   ],
   "categories": [
