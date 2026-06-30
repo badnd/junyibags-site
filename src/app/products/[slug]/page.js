@@ -105,6 +105,36 @@ export default async function ProductPage({ params }) {
         </div>
       </section>
 
+      {slug === 'ytljy6825' ? (
+        <section className="section bg-soft">
+          <div className="container product-story-grid">
+            <div>
+              <span className="badge">Available Colors</span>
+              <h2>Eight stock colors for custom sling bag programs</h2>
+              <p className="muted">This style is available in 8 stock colors as shown, with custom colors available for orders meeting the color-specific MOQ.</p>
+            </div>
+            <div className="media-panel">
+              <img src={assetPath('/assets/images/junyi/products/showcase/product-slingbag-8colors-900.jpg')} alt="Eight color options for custom sling bag including teal, mint, navy, pink, orange, burgundy and yellow" />
+            </div>
+          </div>
+        </section>
+      ) : null}
+
+      {product.categorySlug === 'crossbody-sling-bags' ? (
+        <section className="section">
+          <div className="container product-story-grid">
+            <div>
+              <span className="badge">Customer Case Study</span>
+              <h2>Full-print crossbody campaign example</h2>
+              <p className="muted">Custom crossbody bag developed for a US-based charitable campaign, featuring full-color printed branding on a khaki base fabric.</p>
+            </div>
+            <div className="media-panel">
+              <img src={assetPath('/assets/images/junyi/cases/case-charity-crossbody-blurred-900.jpg')} alt="Custom full-print crossbody bag developed for a US-based charity campaign" />
+            </div>
+          </div>
+        </section>
+      ) : null}
+
       <section className="section bg-soft">
         <div className="container">
           <div className="section-head">

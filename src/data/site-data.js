@@ -14,7 +14,8 @@ export const siteData = {
       "title": "Custom Bag Manufacturer for Global Brands",
       "subtitle": "OEM/ODM | Private Label | Full-Print Bags",
       "text": "Junyi Bags supplies all-over print crossbody bags, sling bags, waist bags and backpacks for importers, wholesalers, retail brands and promotional buyers.",
-      "image": "assets/images/junyi/company/custom-bag-manufacturer-poster.png",
+      "image": "assets/images/junyi/trust/factory-sewing-waistbag-1600.jpg",
+      "video": "assets/videos/factory/factory-fullprint-cutting-machine-18s.mp4",
       "cta": "Browse Products",
       "link": "pages/products.html"
     },

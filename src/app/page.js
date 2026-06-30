@@ -59,6 +59,7 @@ export default function HomePage() {
               <article className="card info-card" key={title}><div className="card-body"><div className="icon-bubble">{num}</div><h3 className="card-title">{title}</h3><p className="muted">{text}</p></div></article>
             ))}
           </div>
+          <p className="price-guidance">Reference MOQ price ranges: full-print waist bags from about USD 2.50-5.80, sling bags from about USD 3.20-7.50, and full-print backpacks from about USD 5.80-12.80 depending on fabric, print coverage, hardware and quantity.</p>
           <div className="trust-showcase">
             <div className="media-panel"><img src={assetPath('/assets/images/junyi/company/trade-show-collage.png')} alt="Junyi Bags trade show and buyer service" /></div>
             <div className="media-panel"><img src={assetPath('/assets/images/junyi/company/buyer-reviews.png')} alt="buyer reviews for custom bags" /></div>

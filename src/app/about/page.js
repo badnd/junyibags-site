@@ -40,6 +40,27 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+      <section className="section bg-soft">
+        <div className="container">
+          <div className="section-head">
+            <div>
+              <span className="badge">Certifications & Honors</span>
+              <h2>ISO-certified manufacturing background</h2>
+              <p>Junyi Bags is produced by Tianjin Junyi Premium Trading Co., Ltd., an ISO 9001 certified manufacturer with a strong track record in custom bag production.</p>
+            </div>
+          </div>
+          <div className="trust-showcase">
+            <figure className="media-panel trust-figure">
+              <img src={assetPath('/assets/images/junyi/trust/trust-certifications-iso-bsci-1600.jpg')} alt="ISO 9001, BSCI, SGS and RoHS certification materials for Tianjin Junyi Premium Trading" />
+              <figcaption>Quality management and compliance documents for B2B custom bag orders.</figcaption>
+            </figure>
+            <figure className="media-panel trust-figure">
+              <img src={assetPath('/assets/images/junyi/trust/trust-honor-wall-trophies-1200.jpg')} alt="Honor wall and trade exhibition trophies for Tianjin Junyi Premium Trading" />
+              <figcaption>Industry honors and trade exhibition recognition from our manufacturing team.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
