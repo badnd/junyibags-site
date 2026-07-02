@@ -27,7 +27,10 @@ export const metadata = {
     apple: assetPath('/assets/images/junyi/brand/favicon-180.png')
   },
   verification: {
-    google: 'IQUna8ebvLl8rqUvAXXzcLbKYeVNrGoXA8WudQcb0W4'
+    google: 'IQUna8ebvLl8rqUvAXXzcLbKYeVNrGoXA8WudQcb0W4',
+    other: {
+      'msvalidate.01': 'AD12B57AA450C181C4A8D6F90403CA06'
+    }
   }
 };
 
