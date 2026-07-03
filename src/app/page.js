@@ -26,6 +26,23 @@ export default function HomePage() {
 
       <section className="section">
         <div className="container">
+          <div className="stats">
+            {[
+              ['15+', 'Years in Bag Manufacturing'],
+              ['3,000', 'sqm Sewing Workshop'],
+              ['50', 'Team Members (35 production + 15 sales & support)'],
+              ['200,000+', 'Units Produced Annually'],
+              ['10+', 'Export Markets Worldwide'],
+              ['50 pcs', 'MOQ Entry Tier']
+            ].map(([num, label]) => (
+              <div key={label}><strong>{num}</strong><span>{label}</span></div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
           <div className="section-head">
             <div>
               <span className="badge">What We Offer</span>
@@ -52,7 +69,7 @@ export default function HomePage() {
           <div className="grid grid-4">
             {[
               ['01', 'Full-Print Bag Programs', 'Crossbody bags, waist bags, sling bags and backpacks are grouped clearly for OEM/ODM custom projects.'],
-              ['02', 'Low MOQ Options', 'MOQ can be discussed around 300 / 500 / 1000 pcs depending on style, material and logo details.'],
+              ['02', 'Low MOQ Options', 'MOQ tiers from 50 pcs - typical tiers at 50 / 100 / 300 / 500 / 1,000 / 3,000+ units depending on style, material and logo method.'],
               ['03', 'Fast Sampling', 'Sample development usually takes 7-15 days after artwork and material details are confirmed.'],
               ['04', 'Reliable Production', 'Bulk production usually takes 15-30 days after sample approval, subject to actual order schedule.']
             ].map(([num, title, text]) => (
@@ -62,7 +79,7 @@ export default function HomePage() {
           <p className="price-guidance">Reference MOQ price ranges: full-print waist bags from about USD 2.50-5.80, sling bags from about USD 3.20-7.50, and full-print backpacks from about USD 5.80-12.80 depending on fabric, print coverage, hardware and quantity.</p>
           <div className="trust-showcase">
             <div className="media-panel"><img src={assetPath('/assets/images/junyi/company/trade-show-collage.png')} alt="Junyi Bags trade show and buyer service" /></div>
-            <div className="media-panel"><img src={assetPath('/assets/images/junyi/company/buyer-reviews.png')} alt="buyer reviews for custom bags" /></div>
+            <div className="media-panel"><img src={assetPath('/assets/images/junyi/company/factory-building.png')} alt="Junyi Bags factory exterior in Baigou Hebei" /></div>
           </div>
         </div>
       </section>
@@ -85,6 +102,7 @@ export default function HomePage() {
                 {['Send Requirements', 'Confirm Details', 'Sample & Approve', 'Bulk Production'].map((title, index) => (
                   <div className="feature-item" key={title}><div className="icon-bubble">{index + 1}</div><div><strong>{title}</strong><div className="muted">{['Product type, quantity, logo, material, color, packaging and target market.', 'We review practical production options and help align the custom direction.', 'Typical sample time is 7-15 days after key details are confirmed.', 'Production usually takes 15-30 days after sample approval, based on actual scheduling.'][index]}</div></div></div>
                 ))}
+                <div className="feature-item"><div className="icon-bubble">S</div><div><strong>Sample fee refund policy</strong><div className="muted">Sample cost varies with design complexity. For bulk orders of 1,000+ pcs the sample fee is refunded; for 500-1,000 pcs refund is negotiable. Details confirmed during quotation.</div></div></div>
               </div>
             </div>
             <div className="media-panel trust-media"><img src={assetPath('/assets/images/junyi/company/production-process.png')} alt="custom bag manufacturing workflow" /></div>

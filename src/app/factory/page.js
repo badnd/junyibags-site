@@ -22,7 +22,7 @@ export default function FactoryPage() {
           <div>
             <span className="badge">Factory Workflow</span>
             <h1>Clear custom bag production process</h1>
-            <p className="muted">From product idea to sampling and bulk order, we keep the workflow practical for overseas buyers.</p>
+            <p className="muted">From product idea to sampling and bulk order, we keep the workflow practical for overseas buyers. Sewing production is handled by our Baigou factory, while our Tianjin export team supports international communication, documentation and logistics.</p>
             <div className="feature-list">
               {['Requirement review', 'Material and logo confirmation', 'Sample development', 'Bulk production and packing'].map((item, index) => (
                 <div className="feature-item" key={item}><div className="icon-bubble">{index + 1}</div><div><strong>{item}</strong><div className="muted">Step {index + 1} for transparent production communication.</div></div></div>
@@ -50,7 +50,7 @@ export default function FactoryPage() {
             <div>
               <span className="badge">Live Production</span>
               <h2>Full-print bag production in our workshop</h2>
-              <p>These factory videos show real cutting, sewing and production-line work for all-over print bags, helping buyers understand how custom artwork moves from panels to finished products.</p>
+              <p>These factory videos show real cutting, sewing and production-line work for all-over print bags, helping buyers understand how custom artwork moves from panels to finished products. Our bags ship to clients across North America, Europe, Asia, Latin America and Africa.</p>
             </div>
           </div>
           <div className="video-grid">
