@@ -1,11 +1,12 @@
 import { siteData } from '@/data/site-data';
 import { InquiryForm } from '@/components/InquiryForm';
 import { whatsappUrl } from '@/lib/paths';
+import { i18nAlternates } from '@/lib/i18n';
 
 export const metadata = {
   title: 'Contact Junyi Bags | Custom Bag Factory Quote',
   description: 'Contact Junyi Bags for custom crossbody bag, waist bag, sling bag and backpack OEM/ODM quotation within 24 hours.',
-  alternates: { canonical: '/contact' }
+  alternates: i18nAlternates('/contact')
 };
 
 export default function ContactPage() {
