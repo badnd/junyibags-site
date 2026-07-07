@@ -119,7 +119,7 @@ export const landingPages = [
     badge: 'Sublimation Printing',
     serviceType: 'Sublimation printing for bags',
     hero: 'Sublimation is the technology behind every all-over print bag we make. It explains what AOP can and cannot do, and how to brief artwork correctly before sampling.',
-    relatedProducts: ['yqjy0014', 'ytljy6825', 'ytljy944', 'ytljy8083'],
+    relatedProducts: ['all-over-print-crossbody-bag-ytljy956', 'all-over-print-vertical-crossbody-ytljy6840', 'yqjy0014', 'ytljy6825', 'ytljy944', 'ytljy8083'],
     relatedLinks: [['AOP Backpacks', '/all-over-print-backpacks'], ['AOP Tote Bags', '/all-over-print-tote-bags'], ['AOP Drawstring Bags', '/all-over-print-drawstring-bags'], ['Printing Guide', '/blog/sublimation-vs-screen-printing-bags']],
     sections: [
       {

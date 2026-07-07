@@ -744,6 +744,286 @@ export const siteData = {
         }
       ]
     },
+    "all-over-print-crossbody-bag-ytljy956": {
+      "path": "/all-over-print-crossbody-bag-ytljy956",
+      "title": "All-Over Print Crossbody Bag - Full-Surface Custom Print (Model YTLJY956)",
+      "metaTitle": "All-Over Print Crossbody Bag Custom | YTLJY956",
+      "metaDescription": "Full-surface all-over print crossbody bag, 21x16x5cm, ripstop nylon. Your pattern printed across the entire bag. OEM/ODM, samples 7-15 days.",
+      "schemaDescription": "Full-surface all-over print crossbody bag, 21x16x5cm, ripstop nylon. Your pattern printed across the entire bag. OEM/ODM, samples 7-15 days.",
+      "offerDescription": "Custom quotation upon request. Flexible MOQ tiers from 50 pcs depending on print complexity and customization.",
+      "model": "YTLJY956-AOP",
+      "category": "Crossbody & Sling Bags",
+      "categorySlug": "crossbody-sling-bags",
+      "intro": "Your pattern, your colors, printed on every inch of the bag. This all-over print crossbody takes our compact everyday sling format and turns the entire surface into your brand canvas - monogram repeats, diagonal logo patterns, tonal prints or fully custom graphic artwork. A standout everyday-carry piece for brands that want their identity everywhere, not just on a patch.",
+      "badges": [
+        "All-Over Print",
+        "Full-Surface Branding",
+        "Ripstop Nylon"
+      ],
+      "features": [
+        "Full-surface all-over print lets your artwork cover the entire bag body",
+        "Pattern options include monogram repeat, diagonal logo repeat, tonal repeat and custom graphics",
+        "Water-resistant ripstop nylon plus mesh construction for everyday use",
+        "Multi-pocket layout includes front pocket, back pocket, inner zipper pocket and main compartment",
+        "Smooth dual zippers, detachable adjustable strap and durable metal hooks",
+        "Private label options include woven label, rubber patch, custom tags and packaging"
+      ],
+      "specs": [
+        [
+          "Model",
+          "YTLJY956 (AOP version)"
+        ],
+        [
+          "Size",
+          "21 x 16 x 5 cm"
+        ],
+        [
+          "Weight",
+          "approx. 0.10 kg"
+        ],
+        [
+          "Material",
+          "Ripstop Nylon + Mesh"
+        ],
+        [
+          "Lining",
+          "Polyester"
+        ],
+        [
+          "Base Colors",
+          "Black / Light Gray / Olive Green, all with all-over logo print"
+        ],
+        [
+          "Customization",
+          "All-over custom pattern printing, woven label, rubber patch and private label packaging"
+        ],
+        [
+          "MOQ",
+          "MOQ tiers from 50 pcs (50/100/300/500/1,000/3,000+ depending on style and print complexity)"
+        ],
+        [
+          "Sample Time",
+          "7-15 days after artwork, color and branding requirements are confirmed"
+        ]
+      ],
+      "hero": "assets/images/junyi/products/all-over-print-crossbody-bag-ytljy956/all-over-print-crossbody-bag-ytljy956-1.webp",
+      "cardImage": "assets/images/junyi/products/all-over-print-crossbody-bag-ytljy956/all-over-print-crossbody-bag-ytljy956-1.webp",
+      "lifestyle": "assets/images/junyi/products/all-over-print-crossbody-bag-ytljy956/all-over-print-crossbody-bag-ytljy956-8.webp",
+      "gallery": [
+        "assets/images/junyi/products/all-over-print-crossbody-bag-ytljy956/all-over-print-crossbody-bag-ytljy956-1.webp",
+        "assets/images/junyi/products/all-over-print-crossbody-bag-ytljy956/all-over-print-crossbody-bag-ytljy956-2.webp",
+        "assets/images/junyi/products/all-over-print-crossbody-bag-ytljy956/all-over-print-crossbody-bag-ytljy956-3.webp",
+        "assets/images/junyi/products/all-over-print-crossbody-bag-ytljy956/all-over-print-crossbody-bag-ytljy956-4.webp",
+        "assets/images/junyi/products/all-over-print-crossbody-bag-ytljy956/all-over-print-crossbody-bag-ytljy956-5.webp",
+        "assets/images/junyi/products/all-over-print-crossbody-bag-ytljy956/all-over-print-crossbody-bag-ytljy956-6.webp",
+        "assets/images/junyi/products/all-over-print-crossbody-bag-ytljy956/all-over-print-crossbody-bag-ytljy956-7.webp",
+        "assets/images/junyi/products/all-over-print-crossbody-bag-ytljy956/all-over-print-crossbody-bag-ytljy956-8.webp"
+      ],
+      "galleryAlt": [
+        "All-over print crossbody bag with custom monogram pattern - front view and color options",
+        "All-over print crossbody bag with custom logo repeat - multi-angle overview",
+        "All-over print crossbody bag with brand pattern - feature detail poster",
+        "All-over print crossbody bag with monogram pattern - compact size and capacity",
+        "All-over print crossbody bag with custom pattern - organized storage display",
+        "All-over print crossbody bag with repeat logo pattern - product information poster",
+        "All-over print crossbody bag with custom monogram pattern - lifestyle wearing scene",
+        "All-over print crossbody bag with logo repeat - urban daily carry scene"
+      ],
+      "relatedLinks": [
+        [
+          "Sublimation Printing",
+          "/printing/sublimation-printing"
+        ],
+        [
+          "AOP Backpacks",
+          "/all-over-print-backpacks"
+        ]
+      ],
+      "variants": [
+        {
+          "name": "Full-Surface Pattern Front View",
+          "sku": "YTLJY956-AOP-01",
+          "image": "assets/images/junyi/products/all-over-print-crossbody-bag-ytljy956/all-over-print-crossbody-bag-ytljy956-1.webp"
+        },
+        {
+          "name": "Multi-Angle Full-Print Overview",
+          "sku": "YTLJY956-AOP-02",
+          "image": "assets/images/junyi/products/all-over-print-crossbody-bag-ytljy956/all-over-print-crossbody-bag-ytljy956-2.webp"
+        },
+        {
+          "name": "Product Features and Print Details",
+          "sku": "YTLJY956-AOP-03",
+          "image": "assets/images/junyi/products/all-over-print-crossbody-bag-ytljy956/all-over-print-crossbody-bag-ytljy956-3.webp"
+        },
+        {
+          "name": "Compact Size and Capacity",
+          "sku": "YTLJY956-AOP-04",
+          "image": "assets/images/junyi/products/all-over-print-crossbody-bag-ytljy956/all-over-print-crossbody-bag-ytljy956-4.webp"
+        },
+        {
+          "name": "Organized Storage Layout",
+          "sku": "YTLJY956-AOP-05",
+          "image": "assets/images/junyi/products/all-over-print-crossbody-bag-ytljy956/all-over-print-crossbody-bag-ytljy956-5.webp"
+        },
+        {
+          "name": "Product Information Poster",
+          "sku": "YTLJY956-AOP-06",
+          "image": "assets/images/junyi/products/all-over-print-crossbody-bag-ytljy956/all-over-print-crossbody-bag-ytljy956-6.webp"
+        },
+        {
+          "name": "Light Travel Lifestyle",
+          "sku": "YTLJY956-AOP-07",
+          "image": "assets/images/junyi/products/all-over-print-crossbody-bag-ytljy956/all-over-print-crossbody-bag-ytljy956-7.webp"
+        },
+        {
+          "name": "Urban Everyday Carry Scene",
+          "sku": "YTLJY956-AOP-08",
+          "image": "assets/images/junyi/products/all-over-print-crossbody-bag-ytljy956/all-over-print-crossbody-bag-ytljy956-8.webp"
+        }
+      ]
+    },
+    "all-over-print-vertical-crossbody-ytljy6840": {
+      "path": "/all-over-print-vertical-crossbody-ytljy6840",
+      "title": "All-Over Print Vertical Crossbody Bag - Full Custom Print (Model YTLJY6840)",
+      "metaTitle": "All-Over Print Vertical Crossbody Bag | YTLJY6840",
+      "metaDescription": "Full-print vertical flap crossbody bag, 15x3x18cm, nylon. Custom all-over pattern or graphic printed across the bag. OEM/ODM, samples 7-15 days.",
+      "schemaDescription": "Full-print vertical flap crossbody bag, 15x3x18cm, nylon. Custom all-over pattern or graphic printed across the bag. OEM/ODM, samples 7-15 days.",
+      "offerDescription": "Custom quotation upon request. Flexible MOQ tiers from 50 pcs depending on print complexity and customization.",
+      "model": "YTLJY6840-AOP",
+      "category": "Crossbody & Sling Bags",
+      "categorySlug": "crossbody-sling-bags",
+      "intro": "One bag for outdoor and daily commute - with your design printed across every panel. This vertical flap crossbody supports full all-over print, from repeating logo patterns to fully custom graphic artwork such as landscape scenes, brand illustrations and seasonal designs. The magnetic snap flap over a top zipper keeps essentials secure while your artwork does the talking.",
+      "badges": [
+        "All-Over Print",
+        "Vertical Flap Bag",
+        "Custom Pattern"
+      ],
+      "features": [
+        "Full all-over print capability supports logo repeats or completely custom graphics",
+        "Magnetic snap flap plus top zipper creates a secure dual closure",
+        "Smart interior includes main compartment, inner slip pocket and easy-access front section",
+        "Lightweight ripstop-style nylon is water-resistant for everyday carry",
+        "Adjustable shoulder strap and durable hardware support daily commuter use",
+        "Works for illustrated artwork, seasonal drops, landscape prints and brand pattern systems"
+      ],
+      "specs": [
+        [
+          "Model",
+          "YTLJY6840 (AOP version)"
+        ],
+        [
+          "Size",
+          "15 x 3 x 18 cm"
+        ],
+        [
+          "Weight",
+          "0.08 kg"
+        ],
+        [
+          "Material",
+          "Nylon"
+        ],
+        [
+          "Lining",
+          "Polyester"
+        ],
+        [
+          "Closure",
+          "Magnetic flap + top zipper"
+        ],
+        [
+          "Base Colors",
+          "Black / Grey / Olive, plus fully custom pattern printing"
+        ],
+        [
+          "Customization",
+          "Full-print customization, custom logo, private label and OEM/ODM packaging"
+        ],
+        [
+          "MOQ",
+          "MOQ tiers from 50 pcs (50/100/300/500/1,000/3,000+ depending on print complexity)"
+        ],
+        [
+          "Sample Time",
+          "7-15 days after artwork, color and branding requirements are confirmed"
+        ]
+      ],
+      "hero": "assets/images/junyi/products/all-over-print-vertical-crossbody-ytljy6840/all-over-print-vertical-crossbody-ytljy6840-1.webp",
+      "cardImage": "assets/images/junyi/products/all-over-print-vertical-crossbody-ytljy6840/all-over-print-vertical-crossbody-ytljy6840-1.webp",
+      "lifestyle": "assets/images/junyi/products/all-over-print-vertical-crossbody-ytljy6840/all-over-print-vertical-crossbody-ytljy6840-8.webp",
+      "gallery": [
+        "assets/images/junyi/products/all-over-print-vertical-crossbody-ytljy6840/all-over-print-vertical-crossbody-ytljy6840-1.webp",
+        "assets/images/junyi/products/all-over-print-vertical-crossbody-ytljy6840/all-over-print-vertical-crossbody-ytljy6840-2.webp",
+        "assets/images/junyi/products/all-over-print-vertical-crossbody-ytljy6840/all-over-print-vertical-crossbody-ytljy6840-3.webp",
+        "assets/images/junyi/products/all-over-print-vertical-crossbody-ytljy6840/all-over-print-vertical-crossbody-ytljy6840-4.webp",
+        "assets/images/junyi/products/all-over-print-vertical-crossbody-ytljy6840/all-over-print-vertical-crossbody-ytljy6840-5.webp",
+        "assets/images/junyi/products/all-over-print-vertical-crossbody-ytljy6840/all-over-print-vertical-crossbody-ytljy6840-6.webp",
+        "assets/images/junyi/products/all-over-print-vertical-crossbody-ytljy6840/all-over-print-vertical-crossbody-ytljy6840-7.webp",
+        "assets/images/junyi/products/all-over-print-vertical-crossbody-ytljy6840/all-over-print-vertical-crossbody-ytljy6840-8.webp"
+      ],
+      "galleryAlt": [
+        "All-over print vertical crossbody bag with olive logo pattern - multi-angle display",
+        "All-over print vertical crossbody bag with custom logo pattern - product information",
+        "All-over print vertical crossbody bag with custom graphic pattern - color and print options",
+        "All-over print vertical crossbody bag with logo repeat - detail features",
+        "All-over print vertical crossbody bag with custom pattern - storage compartments",
+        "All-over print vertical crossbody bag with olive full print - compact capacity",
+        "All-over print vertical crossbody bag with custom artwork - everyday capacity scene",
+        "All-over print vertical crossbody bag with full custom pattern - lifestyle wearing view"
+      ],
+      "relatedLinks": [
+        [
+          "Sublimation Printing",
+          "/printing/sublimation-printing"
+        ],
+        [
+          "AOP Drawstring Bags",
+          "/all-over-print-drawstring-bags"
+        ]
+      ],
+      "variants": [
+        {
+          "name": "Multi-Angle Full-Print Display",
+          "sku": "YTLJY6840-AOP-01",
+          "image": "assets/images/junyi/products/all-over-print-vertical-crossbody-ytljy6840/all-over-print-vertical-crossbody-ytljy6840-1.webp"
+        },
+        {
+          "name": "Product Information and Size",
+          "sku": "YTLJY6840-AOP-02",
+          "image": "assets/images/junyi/products/all-over-print-vertical-crossbody-ytljy6840/all-over-print-vertical-crossbody-ytljy6840-2.webp"
+        },
+        {
+          "name": "Color and Print Options",
+          "sku": "YTLJY6840-AOP-03",
+          "image": "assets/images/junyi/products/all-over-print-vertical-crossbody-ytljy6840/all-over-print-vertical-crossbody-ytljy6840-3.webp"
+        },
+        {
+          "name": "Details and Features",
+          "sku": "YTLJY6840-AOP-04",
+          "image": "assets/images/junyi/products/all-over-print-vertical-crossbody-ytljy6840/all-over-print-vertical-crossbody-ytljy6840-4.webp"
+        },
+        {
+          "name": "Multiple Storage Compartments",
+          "sku": "YTLJY6840-AOP-05",
+          "image": "assets/images/junyi/products/all-over-print-vertical-crossbody-ytljy6840/all-over-print-vertical-crossbody-ytljy6840-5.webp"
+        },
+        {
+          "name": "Compact Size and Capacity",
+          "sku": "YTLJY6840-AOP-06",
+          "image": "assets/images/junyi/products/all-over-print-vertical-crossbody-ytljy6840/all-over-print-vertical-crossbody-ytljy6840-6.webp"
+        },
+        {
+          "name": "Everyday Capacity Scene",
+          "sku": "YTLJY6840-AOP-07",
+          "image": "assets/images/junyi/products/all-over-print-vertical-crossbody-ytljy6840/all-over-print-vertical-crossbody-ytljy6840-7.webp"
+        },
+        {
+          "name": "Custom Full-Print Crossbody Lifestyle",
+          "sku": "YTLJY6840-AOP-08",
+          "image": "assets/images/junyi/products/all-over-print-vertical-crossbody-ytljy6840/all-over-print-vertical-crossbody-ytljy6840-8.webp"
+        }
+      ]
+    },
     "yqjy0014": {
       "title": "YQJY0014 Custom All-Over Print Backpack",
       "model": "YQJY0014",
@@ -856,6 +1136,8 @@ export const siteData = {
     ]
   ],
   "homeFeaturedProducts": [
+    "all-over-print-crossbody-bag-ytljy956",
+    "all-over-print-vertical-crossbody-ytljy6840",
     "ytljy8083",
     "ytljy6858",
     "ytljy6825",
@@ -870,6 +1152,8 @@ export const siteData = {
     "ga4": ""
   },
   "productOrder": [
+    "all-over-print-crossbody-bag-ytljy956",
+    "all-over-print-vertical-crossbody-ytljy6840",
     "ytljy8083",
     "ytljy6858",
     "ytljy6825",

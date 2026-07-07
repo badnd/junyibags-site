@@ -5,7 +5,7 @@ import { siteData } from '@/data/site-data';
 export function ProductCard({ slug, product, showLogoZone = false }) {
   return (
     <article className="card product-card">
-      <Link className="card-media" href={productPath(slug)}>
+      <Link className="card-media" href={productPath(slug, product)}>
         <img src={assetPath(product.hero)} alt={product.title} loading="lazy" decoding="async" />
         {showLogoZone ? <span className="logo-location-pill">Custom Logo Zone</span> : null}
       </Link>
@@ -20,7 +20,7 @@ export function ProductCard({ slug, product, showLogoZone = false }) {
         <div className="card-price">{siteData.company.priceText}</div>
       </div>
       <div className="card-actions">
-        <Link className="btn btn-primary" href={productPath(slug)}>View Details</Link>
+        <Link className="btn btn-primary" href={productPath(slug, product)}>View Details</Link>
         <Link className="btn btn-secondary" href={`/contact?product=${encodeURIComponent(slug)}`}>Get Quote</Link>
       </div>
     </article>

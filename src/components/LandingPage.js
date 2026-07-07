@@ -61,7 +61,7 @@ function ProductCard({ slug }) {
 
   return (
     <article className="card product-card">
-      <Link className="card-media" href={productPath(slug)}>
+      <Link className="card-media" href={productPath(slug, product)}>
         <img src={assetPath(product.cardImage || product.hero)} alt={product.title} loading="lazy" decoding="async" />
       </Link>
       <div className="card-body">
@@ -71,7 +71,7 @@ function ProductCard({ slug }) {
         <div className="card-price">{siteData.company.priceText}</div>
       </div>
       <div className="card-actions">
-        <Link className="btn btn-primary" href={productPath(slug)}>View Product</Link>
+        <Link className="btn btn-primary" href={productPath(slug, product)}>View Product</Link>
         <Link className="btn btn-secondary" href={`/contact?product=${encodeURIComponent(slug)}`}>Request Quote</Link>
       </div>
     </article>

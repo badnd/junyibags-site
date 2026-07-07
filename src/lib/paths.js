@@ -17,8 +17,8 @@ export function assetUrl(src) {
   return `${siteUrl}${path}`;
 }
 
-export function productPath(slug) {
-  return `/products/${slug}`;
+export function productPath(slug, product) {
+  return product?.path || `/products/${slug}`;
 }
 
 export function productLegacyPath(slug) {
@@ -28,8 +28,8 @@ export function productLegacyPath(slug) {
 export function whatsappUrl(data, product, variant = '') {
   const base = data.company.whatsappLink.split('?')[0];
   const message = product
-    ? `Hi, I'm interested in the ${product.title} (${product.model})${variant ? ` - ${variant}` : ''}. Please send MOQ tiers, sample cost and lead time.`
-    : 'Hi, I am interested in your custom bag products. Please send your product catalog, MOQ tiers, sample cost and lead time.';
+    ? `Hi, I'm interested in the ${product.title} (${product.model})${variant ? ` - ${variant}` : ''}. Please send MOQ tiers, sample cost and lead time. - Anna Wei, Sales`
+    : 'Hi, I am interested in your custom bag products. Please send your product catalog, MOQ tiers, sample cost and lead time. - Anna Wei, Sales';
   return `${base}?text=${encodeURIComponent(message)}`;
 }
 
@@ -39,17 +39,17 @@ export function productSchema(data, slug, product) {
     '@type': 'Product',
     name: product.title,
     image: product.gallery.map((image) => assetUrl(image)),
-    description: product.intro,
+    description: product.schemaDescription ?? product.metaDescription ?? product.intro,
     brand: { '@type': 'Brand', name: 'Junyi Bags' },
     sku: product.model,
     manufacturer: { '@type': 'Organization', name: data.company.name },
     offers: {
       '@type': 'Offer',
       availability: 'https://schema.org/InStock',
-      url: `${siteUrl}${productPath(slug)}`,
+      url: `${siteUrl}${productPath(slug, product)}`,
       priceCurrency: 'USD',
       price: '0.00',
-      description: 'Custom quotation upon request. Flexible MOQ tiers from 50 pcs depending on style and customization.',
+      description: product.offerDescription ?? 'Custom quotation upon request. Flexible MOQ tiers from 50 pcs depending on style and customization.',
       seller: { '@type': 'Organization', name: data.company.name }
     },
     additionalProperty: product.specs.map(([name, value]) => ({
