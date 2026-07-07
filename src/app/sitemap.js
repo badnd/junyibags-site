@@ -5,7 +5,7 @@ import { productPath, siteUrl } from '@/lib/paths';
 export default function sitemap() {
   const now = new Date();
   const staticRoutes = ['/', '/products', '/custom-service', '/factory', '/about', '/contact', '/privacy-policy', '/blog'];
-  const ruRoutes = ['/ru/', '/ru/custom-service', '/ru/factory', '/ru/about', '/ru/contact'];
+  const ruRoutes = ['/ru/', '/ru/products', '/ru/custom-service', '/ru/factory', '/ru/about', '/ru/contact'];
   return [
     ...staticRoutes.map((route) => ({ url: `${siteUrl}${route === '/' ? '' : route}`, lastModified: now })),
     ...ruRoutes.map((route) => ({ url: `${siteUrl}${route}`, lastModified: now })),

@@ -2,11 +2,12 @@ import Link from 'next/link';
 import { siteData } from '@/data/site-data';
 import { ProductCard } from '@/components/ProductCard';
 import { assetPath } from '@/lib/paths';
+import { i18nAlternates } from '@/lib/i18n';
 
 export const metadata = {
   title: 'Custom Bag Product Catalog',
   description: 'Browse Junyi Bags full-print crossbody bags, waist bags, sling bags and backpacks for OEM/ODM, low MOQ and private label projects.',
-  alternates: { canonical: '/products' }
+  alternates: i18nAlternates('/products')
 };
 
 export default async function ProductsPage({ searchParams }) {
