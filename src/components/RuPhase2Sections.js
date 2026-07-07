@@ -9,19 +9,63 @@ function categoryName(category) {
 
 function productType(slug, product) {
   const text = `${slug} ${product.title || ''} ${product.categorySlug || ''}`.toLowerCase();
-  if (text.includes('waist')) return 'поясная сумка';
-  if (text.includes('backpack')) return 'рюкзак с полной запечаткой';
-  if (text.includes('drawstring')) return 'сумка через плечо с кулиской';
-  return 'сумка через плечо с полной запечаткой';
+  if (text.includes('waist')) return 'waist';
+  if (text.includes('backpack')) return 'backpack';
+  if (text.includes('drawstring')) return 'drawstring';
+  return 'crossbody';
 }
 
+const productTypeLabels = {
+  waist: 'поясная сумка',
+  backpack: 'рюкзак с полной запечаткой',
+  drawstring: 'сумка с кулиской',
+  crossbody: 'сумка через плечо с полной запечаткой',
+};
+
+const productTypeIntro = {
+  waist: 'Компактная модель для промо-мерча, фестивалей и повседневных коллекций с печатью по всей поверхности.',
+  backpack: 'Рюкзак для розницы, школ и брендированных кампаний: можно адаптировать artwork, материал, молнии и упаковку.',
+  drawstring: 'Легкая сумка для мероприятий и промо-заказов, где важны быстрая подготовка макета и гибкий MOQ.',
+  crossbody: 'Модель через плечо для городских коллекций и сувенирных программ с полной запечаткой и private label.',
+  default: 'Модель подходит для OEM/ODM заказа: логотип, материал, цвет, упаковка и образец согласуются перед производством.',
+};
+
+const badgeTranslations = {
+  '360° All-Over Print': 'печать 360°',
+  'All-Over Logo Printing': 'печать логотипа по всей поверхности',
+  'All-Over Print': 'полная запечатка',
+  Backpack: 'рюкзак',
+  'Custom Pattern': 'индивидуальный паттерн',
+  'Double Zipper': 'двойная молния',
+  'Envelope Crossbody': 'сумка-конверт через плечо',
+  'Front Bungee Detail': 'эластичный шнур спереди',
+  'Full Print': 'полная печать',
+  'Full-Print': 'полная печать',
+  'Full-Print Customization': 'кастомизация полной печати',
+  'Full-Surface Branding': 'брендинг по всей поверхности',
+  'Large Capacity': 'большая вместимость',
+  'Lightweight Nylon': 'легкий нейлон',
+  'Low MOQ': 'низкий MOQ',
+  'Multiple Compartments': 'несколько отделений',
+  'Print Variations': 'варианты печати',
+  'Private Label': 'private label',
+  'Reflective Nylon': 'светоотражающий нейлон',
+  'Sling Bag': 'сумка-слинг',
+  'Travel Ready': 'для поездок',
+  'Urban Daily Style': 'городской стиль',
+  'Waist Bag': 'поясная сумка',
+  'Water-Resistant Nylon': 'водоотталкивающий нейлон',
+};
+
 function translatedBadges(product) {
-  return (product.badges || []).slice(0, 3).map((badge) => ruPhase2.badges[badge] || badge);
+  return (product.badges || []).slice(0, 3).map((badge) => badgeTranslations[badge] || ruPhase2.badges[badge] || badge);
 }
 
 export function RuProductCard({ slug, product }) {
   const model = product.model || slug.toUpperCase();
-  const type = productType(slug, product);
+  const typeKey = productType(slug, product);
+  const type = productTypeLabels[typeKey] || productTypeLabels.crossbody;
+  const intro = productTypeIntro[typeKey] || productTypeIntro.default;
   const title = `${model} ${type}`;
 
   return (
@@ -33,7 +77,7 @@ export function RuProductCard({ slug, product }) {
       <div className="card-body">
         <div className="chip-list">{translatedBadges(product).map((badge) => <span className="badge" key={badge}>{badge}</span>)}</div>
         <h3 className="card-title">{title}</h3>
-        <p className="muted">{ruPhase2.productIntro[type] || ruPhase2.productIntro.default}</p>
+        <p className="muted">{intro}</p>
         <div className="card-price">{ruPhase2.priceText}</div>
       </div>
       <div className="card-actions">
