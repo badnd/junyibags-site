@@ -23,6 +23,13 @@ export function SiteFooter() {
           <div>
             <h4>Products</h4>
             <ul>{siteData.categories.slice(0, 7).map((category) => <li key={category.slug}><Link href={category.link || `/products?category=${category.slug}`}>{category.name}</Link></li>)}</ul>
+            <h4 className="footer-subhead">Custom Solutions</h4>
+            <ul>
+              <li><Link href="/all-over-print-backpacks">All-Over Print Backpacks</Link></li>
+              <li><Link href="/all-over-print-tote-bags">All-Over Print Tote Bags</Link></li>
+              <li><Link href="/all-over-print-drawstring-bags">All-Over Print Drawstring Bags</Link></li>
+              <li><Link href="/printing/sublimation-printing">Sublimation Printing</Link></li>
+            </ul>
           </div>
           <div>
             <h4>Buyer Service</h4>
