@@ -12,7 +12,7 @@ const leads = [
     owner: 'Anna',
     score: 92,
     status: 'Quoted',
-    value: '$18,600',
+    value: 'Tiered quote sent',
     next: 'Follow up quotation in 8h'
   },
   {
@@ -23,7 +23,7 @@ const leads = [
     owner: 'Leo',
     score: 84,
     status: 'Sample',
-    value: '$9,400',
+    value: 'Sample stage',
     next: 'Confirm sample address'
   },
   {
@@ -34,7 +34,7 @@ const leads = [
     owner: 'Mia',
     score: 76,
     status: 'Negotiating',
-    value: '$31,200',
+    value: 'Revised quote',
     next: 'Send revised MOQ option'
   },
   {
@@ -45,17 +45,17 @@ const leads = [
     owner: 'Chen',
     score: 67,
     status: 'New',
-    value: '$4,800',
+    value: 'New RFQ',
     next: 'First reply overdue'
   }
 ];
 
 const pipeline = [
-  ['New Leads', 42, '$86k'],
-  ['Contacted', 31, '$74k'],
-  ['Quoted', 19, '$58k'],
-  ['Sample', 8, '$39k'],
-  ['Won', 5, '$26k']
+  ['New Leads', 42, '42 active'],
+  ['Contacted', 31, '31 in follow-up'],
+  ['Quoted', 19, '19 tiered quotes'],
+  ['Sample', 8, '8 sample cases'],
+  ['Won', 5, '5 active orders']
 ];
 
 const tasks = [
@@ -73,9 +73,9 @@ const products = [
 ];
 
 const quotes = [
-  ['Q-2026-0630-18', 'Nordic Retail Group', '$18,600', 'Valid 12 days'],
-  ['Q-2026-0630-17', 'Bright Promo LLC', '$31,200', 'Version 3'],
-  ['Q-2026-0629-09', 'Mercado Outdoor', '$9,400', 'Waiting sample fee']
+  ['Q-2026-0630-18', 'Nordic Retail Group', 'Tiered quotation', 'Valid 12 days'],
+  ['Q-2026-0630-17', 'Bright Promo LLC', 'Revised quotation', 'Version 3'],
+  ['Q-2026-0629-09', 'Mercado Outdoor', 'Sample quote', 'Waiting sample fee']
 ];
 
 function ScoreBar({ score }) {
@@ -158,9 +158,9 @@ export default function CrmPage() {
         <section className="crm-metrics" aria-label="CRM metrics">
           {[
             ['New inquiries', '42', '+18%'],
-            ['Quoted value', '$58.2k', '+11%'],
+            ['Quotes sent', '19', '+11%'],
             ['Follow-up rate', '94%', '+7%'],
-            ['Won orders', '$26.4k', '+4%']
+            ['Won orders', '5', '+4%']
           ].map(([label, value, trend]) => (
             <article className="crm-metric" key={label}>
               <span>{label}</span>

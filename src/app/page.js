@@ -81,7 +81,10 @@ export default function HomePage() {
               <article className="card info-card" key={title}><div className="card-body"><div className="icon-bubble">{num}</div><h3 className="card-title">{title}</h3><p className="muted">{text}</p></div></article>
             ))}
           </div>
-          <p className="price-guidance">Reference MOQ price ranges: full-print waist bags from about USD 2.50-5.80, sling bags from about USD 3.20-7.50, and full-print backpacks from about USD 5.80-12.80 depending on fabric, print coverage, hardware and quantity.</p>
+          <div className="price-guidance">
+            <strong>Factory-direct pricing, quoted per project.</strong>
+            <span>Exact pricing depends on style, fabric, quantity and logo method. Send your requirements and Anna will reply within 24 hours with a tiered quotation (per-unit prices at different MOQ levels).</span>
+          </div>
           <div className="trust-showcase">
             <div className="media-panel"><img src={assetPath('/assets/images/junyi/company/trade-show-collage.png')} alt="Junyi Bags trade show and buyer service" /></div>
             <div className="media-panel"><img src={assetPath('/assets/images/junyi/company/factory-building.png')} alt="Junyi Bags factory exterior in Baigou Hebei" /></div>
@@ -91,7 +94,7 @@ export default function HomePage() {
 
       <section className="section">
         <div className="container">
-          <div className="section-head"><div><span className="badge">Featured Products</span><h2>Popular custom bag collections and new additions</h2><p>Each product page includes unified price wording: "Contact us for best price".</p></div></div>
+          <div className="section-head"><div><span className="badge">Featured Products</span><h2>Popular custom bag collections and new additions</h2><p>Each product page uses inquiry-first wording and directs buyers to request a project-based quotation.</p></div></div>
           <div className="grid grid-3">
             {featured.map(([slug, product]) => <ProductCard key={slug} slug={slug} product={product} showLogoZone />)}
           </div>
