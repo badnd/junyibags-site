@@ -24,7 +24,7 @@ export const ruShared = {
 
 export const ruPages = {
   '': {
-    route: '/ru/',
+    route: '/ru',
     enRoute: '/',
     title: ruSite.homeTitle,
     description: ruSite.homeDescription,
