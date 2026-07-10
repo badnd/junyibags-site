@@ -82,8 +82,8 @@ export default function HomePage() {
             ))}
           </div>
           <div className="price-guidance">
-            <strong>Factory-direct pricing, quoted per project.</strong>
-            <span>Exact pricing depends on style, fabric, quantity and logo method. Send your requirements and Anna will reply within 24 hours with a tiered quotation (per-unit prices at different MOQ levels).</span>
+            <strong>Factory-direct support for all-over print projects.</strong>
+            <span>Share your bag style, artwork, fabric, quantity and logo method. Anna will reply within 24 hours with MOQ guidance, sample steps and production suggestions.</span>
           </div>
           <div className="trust-showcase">
             <div className="media-panel"><img src={assetPath('/assets/images/junyi/company/trade-show-collage.png')} alt="Junyi Bags trade show and buyer service" /></div>
