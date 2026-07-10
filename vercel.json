@@ -6,32 +6,60 @@
     {
       "source": "/",
       "headers": [
-        { "key": "Cache-Control", "value": "private, no-cache, no-store, max-age=0, must-revalidate" }
+        {
+          "key": "Cache-Control",
+          "value": "private, no-cache, no-store, max-age=0, must-revalidate"
+        }
       ]
     },
     {
       "source": "/ru/:path*",
       "headers": [
-        { "key": "Cache-Control", "value": "private, no-cache, no-store, max-age=0, must-revalidate" }
+        {
+          "key": "Cache-Control",
+          "value": "private, no-cache, no-store, max-age=0, must-revalidate"
+        }
       ]
     },
     {
       "source": "/products/:path*",
       "headers": [
-        { "key": "Cache-Control", "value": "private, no-cache, no-store, max-age=0, must-revalidate" }
+        {
+          "key": "Cache-Control",
+          "value": "private, no-cache, no-store, max-age=0, must-revalidate"
+        }
       ]
     },
     {
       "source": "/blog/:path*",
       "headers": [
-        { "key": "Cache-Control", "value": "private, no-cache, no-store, max-age=0, must-revalidate" }
+        {
+          "key": "Cache-Control",
+          "value": "private, no-cache, no-store, max-age=0, must-revalidate"
+        }
       ]
     },
     {
       "source": "/:page(custom-service|factory|about|contact|privacy-policy)",
       "headers": [
-        { "key": "Cache-Control", "value": "private, no-cache, no-store, max-age=0, must-revalidate" }
+        {
+          "key": "Cache-Control",
+          "value": "private, no-cache, no-store, max-age=0, must-revalidate"
+        }
       ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "junyibags.com"
+        }
+      ],
+      "destination": "https://www.junyibags.com/:path*",
+      "statusCode": 301
     }
   ]
 }
