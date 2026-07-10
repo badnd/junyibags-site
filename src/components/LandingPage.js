@@ -25,7 +25,7 @@ function serviceSchema(page) {
       availability: 'https://schema.org/InStock',
       priceCurrency: 'USD',
       price: '0.00',
-      description: 'Custom quotation upon request. Exact pricing depends on style, fabric, quantity and logo method.',
+      description: 'Custom quotation upon request. Project details are confirmed by style, fabric, quantity and logo method.',
       seller: { '@type': 'Organization', name: siteData.company.name },
     },
   };
@@ -96,8 +96,8 @@ export function LandingPage({ page }) {
             </div>
           </div>
           <aside className="quote-card">
-            <h3>Factory-direct pricing, quoted per project.</h3>
-            <p className="muted">Exact pricing depends on style, fabric, quantity and logo method. Send your requirements and Anna will reply within 24 hours with a tiered quotation (per-unit prices at different MOQ levels).</p>
+            <h3>Factory-direct support for custom print projects.</h3>
+            <p className="muted">Send your bag style, artwork, quantity and logo requirements. Anna will reply within 24 hours with practical MOQ guidance, sampling steps and production suggestions.</p>
             <Link className="btn btn-primary" href="/contact">Send Requirements</Link>
           </aside>
         </div>
