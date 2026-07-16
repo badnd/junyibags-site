@@ -147,7 +147,7 @@ export default function HomePage() {
           <div className="grid grid-3">
             {blogPosts.slice(0, 3).map((post) => (
               <article className="card" key={post.slug}>
-                <Link className="card-media" href={`/blog/${post.slug}`}><img src={assetPath(post.hero)} alt={post.title} /></Link>
+                <Link className="card-media" href={`/blog/${post.slug}`}><img src={assetPath(post.hero)} alt={post.heroAlt || post.title} /></Link>
                 <div className="card-body"><span className="badge">{post.category}</span><h3 className="card-title">{post.title}</h3><p className="muted">{post.description}</p></div>
                 <div className="card-actions"><Link className="btn btn-primary" href={`/blog/${post.slug}`}>Read Guide</Link></div>
               </article>

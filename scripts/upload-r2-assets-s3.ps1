@@ -127,6 +127,11 @@ $resolvedAssets = (Resolve-Path -LiteralPath $AssetsDir).Path
 $files = Get-ChildItem -LiteralPath $resolvedAssets -Recurse -File
 $uploaded = 0
 
+if (-not $DryRun) {
+  npm run ocr:guard
+  if ($LASTEXITCODE -ne 0) { throw "R2 upload blocked by OCR preflight." }
+}
+
 foreach ($file in $files) {
   $relative = $file.FullName.Substring($resolvedAssets.Length).TrimStart([char[]]@('\', '/'))
   $key = "assets/$($relative -replace '\\', '/')"

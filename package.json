@@ -7,6 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "ocr:guard": "node scripts/image-ocr-guard.mjs --preflight",
+    "ocr:test-injection": "node scripts/image-ocr-guard.mjs --test-injection",
     "cdn:purge": "node scripts/purge-cdn-cache.mjs",
     "r2:upload": "powershell -ExecutionPolicy Bypass -File scripts/upload-r2-assets-s3.ps1",
     "r2:upload:wrangler": "powershell -ExecutionPolicy Bypass -File scripts/upload-r2-assets.ps1"
@@ -17,9 +19,11 @@
     "react-dom": "latest"
   },
   "devDependencies": {
-    "typescript": "latest",
+    "@tesseract.js-data/eng": "^1.0.0",
     "@types/node": "latest",
     "@types/react": "latest",
-    "@types/react-dom": "latest"
+    "@types/react-dom": "latest",
+    "tesseract.js": "^7.0.0",
+    "typescript": "latest"
   }
 }

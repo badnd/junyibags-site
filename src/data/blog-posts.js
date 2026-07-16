@@ -6,7 +6,9 @@ export const blogPosts = [
     category: 'Customization',
     date: '2026-07-02',
     keywords: ['sublimation printing bags', 'screen printing bags', 'custom bag printing', 'full print bags'],
-    hero: '/assets/images/junyi/company/custom-logo-oem-factory.png',
+    hero: '/assets/images/junyi/factory/fullprint-artwork-prepress.jpg',
+    heroAlt: 'Bag artwork and dimensions being reviewed on a computer before full-print production',
+    heroCaption: 'A real prepress review frame showing bag artwork and panel dimensions before material preparation.',
     sections: [
       ['The right printing method depends on design and fabric', 'Sublimation printing and screen printing are both common for custom bags, but they solve different design problems. Sublimation is strong for full-color artwork, gradients and all-over printed polyester fabrics. Screen printing is practical for simple logos, solid color graphics and high-volume programs.'],
       ['Sublimation is best for full-color, all-over artwork', 'Sublimation transfers dye into polyester-based fabric, so the print becomes part of the material rather than a thick surface layer. It is useful for waist bags, sling bags, backpacks and promotional bags with repeat patterns, photographic artwork or many colors.'],
@@ -24,7 +26,7 @@ export const blogPosts = [
         headline: 'Sublimation Printing vs Screen Printing for Bags: Which Is Better for Custom Designs?',
         description: 'A side-by-side comparison of sublimation and screen printing for custom bags, covering design complexity, fabric compatibility, durability, and cost at different order volumes.',
         url: 'https://www.junyibags.com/blog/sublimation-vs-screen-printing-bags',
-        image: 'https://images.junyibags.com/assets/images/junyi/company/custom-logo-oem-factory.png',
+        image: 'https://images.junyibags.com/assets/images/junyi/factory/fullprint-artwork-prepress.jpg',
         datePublished: '2026-07-02',
         dateModified: '2026-07-02',
         author: {
@@ -191,7 +193,9 @@ export const blogPosts = [
     description: 'How buyers can prepare logo files, color references and sample approvals for OEM/ODM custom bag manufacturing.',
     category: 'Customization',
     date: '2026-06-27',
-    hero: '/assets/images/junyi/company/custom-logo-oem-factory.png',
+    hero: '/assets/images/junyi/factory/fullprint-automatic-pattern-cutter.jpg',
+    heroAlt: 'Automatic cutter following printed bag pattern outlines during material preparation',
+    heroCaption: 'A real production frame of the automatic cutter tracing bag pattern pieces before sewing.',
     sections: [
       ['Pick the right logo method', 'Common options include full-print artwork, woven labels, embroidery, patches and private label tags. The best method depends on fabric, order quantity and brand positioning.'],
       ['Use color references early', 'Pantone references and physical color cards make communication clearer. For custom orders, color confirmation should happen before the final sample is approved.'],
