@@ -26,12 +26,15 @@ export default function AboutPage() {
             </div>
             <div className="hero-cta"><Link className="btn btn-primary" href="/contact">Contact Sales</Link><Link className="btn btn-secondary" href="/products">View Products</Link></div>
           </div>
-          <div className="media-panel"><img src={assetPath('/assets/images/junyi/company/factory-building.png')} alt="Tianjin Junyi factory exterior" /></div>
+          <figure className="media-panel trust-figure">
+            <img src={assetPath('/assets/images/junyi/company/factory-building.png')} alt="Junyi-signed production block at the shared Baigou factory site" />
+            <figcaption>The Junyi-signed production block, one of the buildings within the shared Baigou factory site.</figcaption>
+          </figure>
         </div>
       </section>
       <section className="section">
         <div className="container">
-          <div className="section-head"><div><span className="badge">Our Focus</span><h2>From print file to sewn all-over pattern</h2><p>Artwork is checked against bag templates before sublimation, then printed panels move through cutting and sewing in the Baigou workshop. The Tianjin team coordinates files, approvals and export details.</p></div></div>
+          <div className="section-head"><div><span className="badge">Our Focus</span><h2>From print file to sewn all-over pattern</h2><p>Artwork is checked against bag templates before sublimation, then printed panels move through cutting and sewing in the Baigou workshop. The Tianjin team coordinates files, approvals and export details.</p><p>Junyi's artwork-to-bag workflow runs inside one Baigou factory site made up of production and office buildings; the sewing workshop measures 3,000 sqm. The site and its production crew are shared by Tianjin Nameer International Trade Co., Ltd. and Tianjin Junyi Premium Trading Co., Ltd., accounting for both names being visible there. In Tianjin, the trade team checks specifications, prepares shipping documents and coordinates logistics.</p></div></div>
           <div className="grid grid-3">
             {[
               ['Artwork Preparation', 'Check resolution, repeat placement and printable panel boundaries before a sample is produced.'],
