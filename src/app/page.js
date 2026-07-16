@@ -27,13 +27,18 @@ export default function HomePage() {
   return (
     <>
       <JsonLd data={faqSchema} />
-      <HeroCarousel slides={siteData.heroSlides} />
+      <HeroCarousel
+        slides={siteData.heroSlides}
+        proofLine="MOQ from 50 pcs* · Free Artwork Mockup · All-Over Print Samples in 7-15 Days · Factory-Direct Sublimation"
+        mockupText="Send your artwork and bag template requirements. Anna will prepare an all-over print mockup for review before sampling."
+        footnote="* Final MOQ depends on style, fabric and logo method. Anna will confirm in your quotation."
+      />
 
       <section className="section">
         <div className="container">
           <div className="stats">
             {[
-              ['15+', 'Years in Bag Manufacturing'],
+              ['20+', 'Years in Bag Manufacturing'],
               ['3,000', 'sqm Sewing Workshop'],
               ['50', 'Team Members (35 production + 15 sales & support)'],
               ['200,000+', 'Units Produced Annually'],
@@ -60,11 +65,20 @@ export default function HomePage() {
             {siteData.categories.slice(0, 9).map((category) => (
               <article className="card category-card" key={category.slug}>
                 <Link className="card-media" href={category.link || `/products?category=${category.slug}`}><img src={assetPath(category.image)} alt={category.name} /></Link>
-                <div className="card-body"><h3 className="card-title">{category.name}</h3><p className="muted">{category.desc}</p><div className="card-price">{siteData.company.priceText}</div></div>
+                <div className="card-body"><h3 className="card-title">{category.name}</h3><p className="muted">{category.desc}</p><div className="card-facts"><span>MOQ: from 50 pcs*</span><span>Lead Time: Sample 7-15 days · Bulk 15-30 days</span><span>Print: All-over sublimation</span></div><div className="card-price">{siteData.company.priceText}</div></div>
                 <div className="card-actions"><Link className="btn btn-primary" href={category.link || `/products?category=${category.slug}`}>View Products</Link><Link className="btn btn-secondary" href={`/contact?product=${category.slug}`}>Request Quote</Link></div>
               </article>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="section export-markets">
+        <div className="container">
+          <span className="badge">Export Markets</span>
+          <h2>All-over print bag programs for 10+ export markets</h2>
+          <p className="market-list">USA · Russia · UK · Canada · Mexico · Peru · Japan · Singapore · Malaysia · Bangladesh · Djibouti</p>
+          <p>We support artwork-led custom bag programs for importers and private-label buyers across these repeat markets.</p>
         </div>
       </section>
 
