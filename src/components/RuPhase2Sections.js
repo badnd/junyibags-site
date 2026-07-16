@@ -184,7 +184,7 @@ export function RuHomePhase2() {
             </div>
           </div>
           <div className="media-stack">
-            <img src={assetPath('/assets/images/junyi/company/trade-show-collage.png')} alt="Junyi Bags выставка и сервис" />
+            <img src={assetPath('/assets/images/junyi/factory/fullprint-automatic-pattern-cutter.jpg')} alt="Junyi Bags выставка и сервис" />
             <img src={assetPath('/assets/images/junyi/company/factory-building.png')} alt="фабрика Junyi Bags" />
           </div>
         </div>

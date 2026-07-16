@@ -40,19 +40,19 @@ export const siteData = {
       "link": "pages/custom-service.html"
     },
     {
-      "title": "Pattern Development for Custom Prints",
-      "subtitle": "Artwork | Paper Pattern | Sampling",
-      "text": "Pattern development helps buyers align repeat prints, panels, trims and logo zones before mass production begins.",
-      "image": "assets/images/shared/factory-pattern-development-1600.jpg",
+      "title": "Artwork Preparation for Full-Print Bags",
+      "subtitle": "Artwork | Panel Layout | Prepress",
+      "text": "A real prepress workstation shows how bag dimensions and panel layouts are reviewed before printed material moves to cutting.",
+      "image": "assets/images/junyi/factory/fullprint-artwork-prepress.jpg",
       "duration": 4000,
       "cta": "Contact Factory",
       "link": "pages/contact.html"
     },
     {
-      "title": "Trusted Bag Factory with Export Experience",
-      "subtitle": "Honor Wall | Quality Systems | Buyer Confidence",
-      "text": "Factory qualifications, awards and long-term production routines help buyers evaluate the partner behind each custom bag order.",
-      "image": "assets/images/shared/trust-honor-wall-trophies-1200.jpg",
+      "title": "Automatic Panel Cutting for Print Programs",
+      "subtitle": "Pattern Cutter | Panel Preparation | Production Proof",
+      "text": "A real automatic cutting table prepares marked bag panels before printed components move into sewing and assembly.",
+      "image": "assets/images/junyi/factory/fullprint-automatic-pattern-cutter.jpg",
       "duration": 4000,
       "cta": "Contact Factory",
       "link": "pages/contact.html"

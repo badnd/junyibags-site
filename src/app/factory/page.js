@@ -10,9 +10,9 @@ export const metadata = {
 
 export default function FactoryPage() {
   const productionVideos = [
-    ['Full-Print Cutting', '/assets/videos/factory/factory-fullprint-cutting-machine-18s.mp4', 'Automated cutting support for full-print bag panels before sewing.'],
-    ['Pattern Cutting', '/assets/videos/factory/factory-pattern-cutting-15s.mp4', 'Pattern and panel preparation helps keep artwork placement consistent across custom orders.'],
-    ['Detail Sewing', '/assets/videos/factory/factory-camo-bag-detail-13s.mp4', 'Skilled sewing teams handle zipper, strap and edge details for printed bag styles.'],
+    ['Order Packing', '/assets/videos/factory/factory-fullprint-cutting-machine-18s.mp4', 'Finished bulk packages are secured for warehouse handling and shipment.'],
+    ['Artwork Prepress', '/assets/videos/factory/factory-pattern-cutting-15s.mp4', 'Bag dimensions and panel layouts are reviewed at the artwork workstation before production.'],
+    ['Automatic Pattern Cutting', '/assets/videos/factory/factory-camo-bag-detail-13s.mp4', 'An automatic cutting table follows marked panel outlines before sewing and assembly.'],
     ['Production Line', '/assets/videos/factory/factory-production-line-21s.mp4', 'Live production workflow from panel preparation to assembly and order packing.']
   ];
 
@@ -32,7 +32,7 @@ export default function FactoryPage() {
             <div className="hero-cta"><Link className="btn btn-primary" href="/contact">Discuss Your Order</Link></div>
           </div>
           <div className="media-stack">
-            <img src={assetPath('/assets/images/junyi/company/production-process.png')} alt="custom bag factory process" />
+            <img src={assetPath('/assets/images/junyi/factory/fullprint-automatic-pattern-cutter.jpg')} alt="Automatic pattern cutter working across marked bag panels" />
             <img src={assetPath('/assets/images/junyi/company/factory-building.png')} alt="custom bag factory exterior" />
           </div>
         </div>

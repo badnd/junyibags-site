@@ -59,8 +59,8 @@ export default function AboutPage() {
               <figcaption>Baigou workshop where printed panels are cut, aligned and sewn into finished bags.</figcaption>
             </figure>
             <figure className="media-panel trust-figure">
-              <img src={assetPath('/assets/images/junyi/company/production-process.png')} alt="Junyi custom bag production workflow" />
-              <figcaption>Artwork-to-production workflow for repeat all-over print orders.</figcaption>
+              <img src={assetPath('/assets/images/junyi/factory/fullprint-artwork-prepress.jpg')} alt="Bag panel dimensions reviewed at Junyi's artwork workstation" />
+              <figcaption>Prepress review of bag dimensions and panel layout before material preparation.</figcaption>
             </figure>
           </div>
         </div>

@@ -127,7 +127,7 @@ export default function HomePage() {
                 <div className="feature-item"><div className="icon-bubble">S</div><div><strong>Sample fee refund policy</strong><div className="muted">Sample cost varies with design complexity. For bulk orders of 1,000+ pcs the sample fee is refunded; for 500-1,000 pcs refund is negotiable. Details confirmed during quotation.</div></div></div>
               </div>
             </div>
-            <div className="media-panel trust-media"><img src={assetPath('/assets/images/junyi/company/production-process.png')} alt="custom bag manufacturing workflow" /></div>
+            <div className="media-panel trust-media"><img src={assetPath('/assets/images/junyi/factory/fullprint-automatic-pattern-cutter.jpg')} alt="Automatic cutter preparing marked bag panels for full-print production" /></div>
           </div>
         </div>
       </section>
