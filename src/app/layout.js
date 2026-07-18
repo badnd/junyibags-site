@@ -37,7 +37,7 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }) {
-  const ga4 = siteData.analytics?.ga4;
+  const ga4 = process.env.NEXT_PUBLIC_GA4_ID || siteData.analytics?.ga4;
   const requestHeaders = await headers();
   const pathname = requestHeaders.get('x-pathname') || '';
   const lang = pathname.startsWith('/ru') ? 'ru' : 'en';
@@ -45,17 +45,18 @@ export default async function RootLayout({ children }) {
   return (
     <html lang={lang}>
       <body>
-        {ga4 ? (
-          <>
-            <Script src={`https://www.googletagmanager.com/gtag/js?id=${ga4}`} strategy="afterInteractive" />
-            <Script id="ga4" strategy="afterInteractive">{`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', '${ga4}');
-        `}</Script>
-          </>
-        ) : null}
+        {ga4 ? <Script id="ga4-delayed" strategy="afterInteractive">{`
+          window.setTimeout(function () {
+            window.dataLayer = window.dataLayer || [];
+            window.gtag = window.gtag || function(){window.dataLayer.push(arguments);};
+            window.gtag('js', new Date());
+            window.gtag('config', '${ga4}');
+            var ga = document.createElement('script');
+            ga.async = true;
+            ga.src = 'https://www.googletagmanager.com/gtag/js?id=${ga4}';
+            document.head.appendChild(ga);
+          }, 1200);
+        `}</Script> : null}
         <JsonLd data={organizationSchema(siteData)} />
         <SiteHeader />
         <main>{children}</main>
