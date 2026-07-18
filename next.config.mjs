@@ -14,6 +14,7 @@ const productRedirects = [
 const nextConfig = {
   distDir: process.env.NEXT_DIST_DIR || '.next',
   trailingSlash: false,
+  experimental: { cpus: 1 },
   async redirects() {
     const baseRedirects = [
       { source: '/pages/products.html', destination: '/products', permanent: true },
