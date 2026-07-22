@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import { siteData } from '@/data/site-data';
+import { selectFeaturedProducts } from '@/lib/featured-products';
+import { categoryCardImage, productCardImage } from '@/lib/card-images';
 import { assetPath, productPath } from '@/lib/paths';
 import { ruPhase2, ruShared } from '@/data/ru-phase1';
 
@@ -71,7 +73,7 @@ export function RuProductCard({ slug, product }) {
   return (
     <article className="card product-card">
       <Link className="card-media" href={productPath(slug, product)}>
-        <img src={assetPath(product.cardImage || product.hero)} alt={title} loading="lazy" decoding="async" />
+        <img src={assetPath(productCardImage(slug))} alt={title} loading="lazy" decoding="async" />
         <span className="logo-location-pill">Зона логотипа</span>
       </Link>
       <div className="card-body">
@@ -108,7 +110,7 @@ export function RuProductsPage({ activeCategory = '' }) {
           <div className="grid grid-4">
             {siteData.categories.map((category) => (
               <Link className="card category-mini" href={`/ru/products?category=${category.slug}`} key={category.slug}>
-                <img src={assetPath(category.image)} alt={categoryName(category)} />
+                <img src={assetPath(categoryCardImage(category.slug))} alt={categoryName(category)} />
                 <strong>{categoryName(category)}</strong>
               </Link>
             ))}
@@ -127,7 +129,7 @@ export function RuProductsPage({ activeCategory = '' }) {
 
 export function RuHomePhase2() {
   const hero = siteData.heroSlides?.[0];
-  const featured = siteData.homeFeaturedProducts.map((slug) => [slug, siteData.products[slug]]).filter(([, product]) => product);
+  const featured = selectFeaturedProducts(siteData.products, siteData.featuredProductBaseline);
 
   return (
     <>
@@ -156,7 +158,7 @@ export function RuHomePhase2() {
           <div className="grid grid-3">
             {siteData.categories.map((category) => (
               <article className="card category-card" key={category.slug}>
-                <Link className="card-media" href={`/ru/products?category=${category.slug}`}><img src={assetPath(category.image)} alt={categoryName(category)} /></Link>
+                <Link className="card-media" href={`/ru/products?category=${category.slug}`}><img src={assetPath(categoryCardImage(category.slug))} alt={categoryName(category)} /></Link>
                 <div className="card-body"><h3 className="card-title">{categoryName(category)}</h3><p className="muted">{ruPhase2.categoryDesc[category.slug]}</p><div className="card-facts"><span>MOQ: от 50 шт*</span><span>Сроки: образец 7-15 дней · партия 15-30 дней</span><span>Печать: полная сублимационная печать</span></div><div className="card-price">{ruPhase2.priceText}</div></div>
                 <div className="card-actions"><Link className="btn btn-primary" href={`/ru/products?category=${category.slug}`}>Смотреть модели</Link><Link className="btn btn-secondary" href={`/ru/contact?product=${category.slug}`}>Получить расчёт</Link></div>
               </article>

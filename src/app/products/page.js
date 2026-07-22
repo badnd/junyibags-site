@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { siteData } from '@/data/site-data';
 import { ProductCard } from '@/components/ProductCard';
+import { categoryCardImage } from '@/lib/card-images';
 import { assetPath } from '@/lib/paths';
 import { i18nAlternates } from '@/lib/i18n';
 
@@ -39,7 +40,7 @@ export default async function ProductsPage({ searchParams }) {
           <div className="grid grid-4">
             {siteData.categories.map((category) => (
               <Link className="card category-mini" href={category.link || `/products?category=${category.slug}`} key={category.slug}>
-                <img src={assetPath(category.image)} alt={category.name} />
+                <img src={assetPath(categoryCardImage(category.slug))} alt={category.name} />
                 <strong>{category.name}</strong>
               </Link>
             ))}

@@ -1137,7 +1137,8 @@ export const siteData = {
       "We check materials, stitching, zipper, print effect, packing and final goods before shipment, and keep communication clear during production."
     ]
   ],
-  "homeFeaturedProducts": [
+  // Migration baseline only. New products enter the homepage through publishedAt.
+  "featuredProductBaseline": [
     "all-over-print-crossbody-bag-ytljy956",
     "all-over-print-vertical-crossbody-ytljy6840",
     "ytljy8083",
@@ -1146,9 +1147,7 @@ export const siteData = {
     "ytljy6830",
     "ytljy5634",
     "ytljy944",
-    "ytljy6835",
-    "ytljy6824",
-    "yqjy0014"
+    "ytljy6835"
   ],
   "analytics": {
     "ga4": ""

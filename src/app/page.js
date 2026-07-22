@@ -7,13 +7,15 @@ import { JsonLd } from '@/components/JsonLd';
 import { HeroCarousel } from '@/components/HeroCarousel';
 import { assetPath } from '@/lib/paths';
 import { i18nAlternates } from '@/lib/i18n';
+import { selectFeaturedProducts } from '@/lib/featured-products';
+import { blogCardImage, categoryCardImage } from '@/lib/card-images';
 
 export const metadata = {
   alternates: i18nAlternates('/')
 };
 
 export default function HomePage() {
-  const featured = siteData.homeFeaturedProducts.map((slug) => [slug, siteData.products[slug]]).filter(([, product]) => product);
+  const featured = selectFeaturedProducts(siteData.products, siteData.featuredProductBaseline);
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -64,7 +66,7 @@ export default function HomePage() {
           <div className="grid grid-3">
             {siteData.categories.slice(0, 9).map((category) => (
               <article className="card category-card" key={category.slug}>
-                <Link className="card-media" href={category.link || `/products?category=${category.slug}`}><img src={assetPath(category.image)} alt={category.name} /></Link>
+                <Link className="card-media" href={category.link || `/products?category=${category.slug}`}><img src={assetPath(categoryCardImage(category.slug))} alt={category.name} /></Link>
                 <div className="card-body"><h3 className="card-title">{category.name}</h3><p className="muted">{category.desc}</p><div className="card-facts"><span>MOQ: from 50 pcs*</span><span>Lead Time: Sample 7-15 days · Bulk 15-30 days</span><span>Print: All-over sublimation</span></div><div className="card-price">{siteData.company.priceText}</div></div>
                 <div className="card-actions"><Link className="btn btn-primary" href={category.link || `/products?category=${category.slug}`}>View Products</Link><Link className="btn btn-secondary" href={`/contact?product=${category.slug}`}>Request Quote</Link></div>
               </article>
@@ -145,9 +147,9 @@ export default function HomePage() {
             <Link className="btn btn-secondary" href="/blog">View all guides</Link>
           </div>
           <div className="grid grid-3">
-            {blogPosts.slice(0, 3).map((post) => (
+            {blogPosts.slice(0, 3).map((post, index) => (
               <article className="card" key={post.slug}>
-                <Link className="card-media" href={`/blog/${post.slug}`}><img src={assetPath(post.hero)} alt={post.heroAlt || post.title} /></Link>
+                <Link className="card-media" href={`/blog/${post.slug}`}><img src={assetPath(blogCardImage(index))} alt={post.heroAlt || post.title} /></Link>
                 <div className="card-body"><span className="badge">{post.category}</span><h3 className="card-title">{post.title}</h3><p className="muted">{post.description}</p></div>
                 <div className="card-actions"><Link className="btn btn-primary" href={`/blog/${post.slug}`}>Read Guide</Link></div>
               </article>
