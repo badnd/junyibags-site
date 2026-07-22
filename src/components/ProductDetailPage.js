@@ -26,6 +26,7 @@ export function ProductDetailPage({ slug, product }) {
           <article className="detail-main">
             <span className="badge">{product.category}</span>
             <h1>{product.title}</h1>
+            {product.tagline ? <p><strong>{product.tagline}</strong></p> : null}
             <p className="muted">{product.intro}</p>
             <div className="chip-list">
               {product.badges.map((badge) => <span className="badge" key={badge}>{badge}</span>)}
@@ -73,6 +74,18 @@ export function ProductDetailPage({ slug, product }) {
           {product.relatedLinks?.length ? (
             <div className="hero-cta">
               {product.relatedLinks.map(([label, href]) => <Link className="btn btn-secondary" href={href} key={href}>{label}</Link>)}
+            </div>
+          ) : null}
+          {product.inquiry ? (
+            <div className="product-facts-panel">
+              <p><strong>{product.inquiry.moq}</strong></p>
+              <p>{product.inquiry.sampling} · {product.inquiry.bulk}</p>
+              <p>{product.inquiry.sampleFee}</p>
+              <p>{product.inquiry.customization}</p>
+              <p>{product.inquiry.pricing}</p>
+              <p>{product.inquiry.services}</p>
+              <p className="muted">{product.inquiry.note}</p>
+              <p><strong>Contact Anna Wei:</strong><br />Email <a href="mailto:annawei@nameerbag.com">annawei@nameerbag.com</a> · WhatsApp +86 151 0224 9548 · WeChat 15102249548</p>
             </div>
           ) : null}
         </div>

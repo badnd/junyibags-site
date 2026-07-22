@@ -17,7 +17,10 @@ export async function generateMetadata({ params }) {
   return {
     title: `${product.title} | ${product.model}`,
     description: product.metaDescription ?? `${product.intro} OEM/ODM custom bag manufacturer with low MOQ, logo options and factory quotation support.`,
-    alternates: { canonical: productPath(slug, product) },
+    alternates: {
+      canonical: productPath(slug, product),
+      ...(product.ru ? { languages: { en: `${siteUrl}${productPath(slug, product)}`, ru: `${siteUrl}/ru/products/${slug}`, 'x-default': `${siteUrl}${productPath(slug, product)}` } } : {})
+    },
     openGraph: {
       title: product.title,
       description: product.intro,

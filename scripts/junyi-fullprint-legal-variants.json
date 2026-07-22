@@ -1,0 +1,8 @@
+{
+  "version": "2026-07-22.1",
+  "policy": "Approved cross-site model variants must use distinct artwork, imagery and copy and must not create cross-site links.",
+  "variants": [
+    { "model": "YTLJY5633", "site": "junyibags.com", "variant": "360-degree all-over print", "counterpart": "nameerbag.com solid-color local-logo version", "imageMatch": "operator supplied: zero pHash matches", "approvedAt": "2026-07-22" },
+    { "model": "YTLJY5642", "site": "junyibags.com", "variant": "all-over sublimation print", "counterpart": "nameerbag.com solid-color local-logo version", "imageMatch": "operator supplied: zero pHash matches", "approvedAt": "2026-07-22" }
+  ]
+}

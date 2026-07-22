@@ -1,3 +1,5 @@
+import { junyiFullPrintProducts } from './fullprint-crossbody-20260722';
+
 export const siteData = {
   "company": {
     "name": "Tianjin Junyi Premium Trading Co.,Ltd.",
@@ -1165,3 +1167,5 @@ export const siteData = {
     "yqjy0014"
   ]
 };
+
+Object.assign(siteData.products, junyiFullPrintProducts);

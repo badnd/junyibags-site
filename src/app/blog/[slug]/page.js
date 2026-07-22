@@ -90,6 +90,7 @@ export default async function BlogPostPage({ params }) {
             </div>
             <Link className="btn btn-light" href="/contact">Get Factory Quote</Link>
           </div></>}
+          {post.slug.includes('all-over') || post.slug.includes('sublimation') ? <aside className="related-resources"><h2>Related full-print crossbody bags</h2><Link href="/products/full-print-custom-crossbody-bag-ytljy5633">YTLJY5633 full-print custom crossbody bag</Link><Link href="/products/full-print-compact-crossbody-bag-ytljy5642">YTLJY5642 full-print compact crossbody bag</Link></aside> : null}
         </div>
       </article>
     </>

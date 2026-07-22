@@ -2,6 +2,8 @@ import { notFound } from 'next/navigation';
 import { RuQuoteForm } from '@/components/RuQuoteForm';
 import { ruPages, ruShared, ruSite } from '@/data/ru-phase1';
 import { RuHomePhase2, RuProductsPage } from '@/components/RuPhase2Sections';
+import { RuProductPage } from '@/components/RuProductPage';
+import { siteData } from '@/data/site-data';
 
 function pageKey(params) {
   return (params?.slug || []).join('/');
@@ -9,6 +11,12 @@ function pageKey(params) {
 
 function pageByParams(params) {
   const key = pageKey(params);
+  if (key.startsWith('products/')) {
+    const slug = key.slice('products/'.length);
+    const product = siteData.products[slug];
+    if (!product?.ru) return undefined;
+    return { route: `/ru/products/${slug}`, enRoute: `/products/${slug}`, title: product.ru.metaTitle, description: product.ru.metaDescription, product, productSlug: slug };
+  }
   if (key === 'products') {
     return {
       route: '/ru/products',
@@ -21,7 +29,8 @@ function pageByParams(params) {
 }
 
 export function generateStaticParams() {
-  return [...Object.keys(ruPages), 'products'].map((slug) => ({ slug: slug ? slug.split('/') : [] }));
+  const products = Object.entries(siteData.products).filter(([, product]) => product.ru).map(([slug]) => `products/${slug}`);
+  return [...Object.keys(ruPages), 'products', ...products].map((slug) => ({ slug: slug ? slug.split('/') : [] }));
 }
 
 
@@ -49,6 +58,8 @@ export default async function RussianPhaseOnePage({ params, searchParams }) {
   const key = pageKey(resolvedParams);
   const page = pageByParams(resolvedParams);
   if (!page) notFound();
+
+  if (page.product) return <RuProductPage slug={page.productSlug} product={page.product} />;
 
   if (key === 'products') {
     const resolvedSearchParams = await searchParams;

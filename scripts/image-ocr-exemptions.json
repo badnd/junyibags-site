@@ -1,5 +1,5 @@
 {
-  "version": "2026-07-17.1",
+  "version": "2026-07-22.1",
   "hashBinding": "Exact SHA-256 and exact pHash are both required. A changed image automatically invalidates the exemption.",
   "exemptions": [
     {
@@ -265,6 +265,144 @@
       "reviewedEvidence": "$0",
       "reviewedAt": "2026-07-17",
       "reason": "Human visual review on 2026-07-17 confirmed that the OCR currency-and-number reading is a false positive. The image contains no currency symbol and no public price."
+    },
+    {
+      "sha256": "e4b296ae4585b64171615552d769559d522f4e04a65913c9123b3d1dac0f3e49",
+      "phash": "0683871fe024db3f",
+      "ruleIds": [
+        "moq-vague-low",
+        "public-price"
+      ],
+      "source": "https://images.junyibags.com/assets/images/junyi/products/ytljy5633/ytljy5633-01.webp",
+      "reviewedEvidence": "LOW MOQ",
+      "reviewedAt": "2026-07-22",
+      "reason": "Operator-approved source instruction and human visual review confirmed that this full-print product poster contains LOW MOQ without a number, range, public price, certification claim, obsolete year, obsolete area, or obsolete contact details. The OCR public-price hit is a low-confidence false positive caused by non-price dimensions or artwork. The exemption is bound to exact SHA-256 and pHash."
+    },
+    {
+      "sha256": "9755cc174465d5927590edc11f5f75bb4d94081db069b96621444e246a45f26c",
+      "phash": "0046473f9313e53f",
+      "ruleIds": [
+        "moq-vague-low"
+      ],
+      "source": "https://images.junyibags.com/assets/images/junyi/products/ytljy5633/ytljy5633-02.webp",
+      "reviewedEvidence": "LOW MOQ",
+      "reviewedAt": "2026-07-22",
+      "reason": "Operator-approved source instruction and human visual review confirmed that this full-print product poster contains LOW MOQ without a number, range, public price, certification claim, obsolete year, obsolete area, or obsolete contact details. The exemption is bound to exact SHA-256 and pHash."
+    },
+    {
+      "sha256": "5ad562f522bbfcb0cd2b12395eb6c1ef2057c254338f7042225a025fa7179552",
+      "phash": "428dc66d92b2d363",
+      "ruleIds": [
+        "moq-vague-low"
+      ],
+      "source": "https://images.junyibags.com/assets/images/junyi/products/ytljy5633/ytljy5633-03.webp",
+      "reviewedEvidence": "LOW MOQ",
+      "reviewedAt": "2026-07-22",
+      "reason": "Operator-approved source instruction and human visual review confirmed that this full-print product poster contains LOW MOQ without a number, range, public price, certification claim, obsolete year, obsolete area, or obsolete contact details. The exemption is bound to exact SHA-256 and pHash."
+    },
+    {
+      "sha256": "4538512f30377cfc5fa6c9d7de467b0b898c37b9bae36992638f819c24de0b3e",
+      "phash": "044bcb3e94b5c31e",
+      "ruleIds": [
+        "moq-vague-low",
+        "public-price"
+      ],
+      "source": "https://images.junyibags.com/assets/images/junyi/products/ytljy5633/ytljy5633-04.webp",
+      "reviewedEvidence": "LOW MOQ",
+      "reviewedAt": "2026-07-22",
+      "reason": "Operator-approved source instruction and human visual review confirmed that this full-print product poster contains LOW MOQ without a number, range, public price, certification claim, obsolete year, obsolete area, or obsolete contact details. The OCR public-price hit is a low-confidence false positive caused by non-price dimensions or artwork. The exemption is bound to exact SHA-256 and pHash."
+    },
+    {
+      "sha256": "8147269e8df79eb7a344ed893f314422a263aa578a069b260e555af5ee72f6a9",
+      "phash": "084bcf3c8133cf1e",
+      "ruleIds": [
+        "moq-vague-low",
+        "public-price"
+      ],
+      "source": "https://images.junyibags.com/assets/images/junyi/products/ytljy5633/ytljy5633-05.webp",
+      "reviewedEvidence": "LOW MOQ",
+      "reviewedAt": "2026-07-22",
+      "reason": "Operator-approved source instruction and human visual review confirmed that this full-print product poster contains LOW MOQ without a number, range, public price, certification claim, obsolete year, obsolete area, or obsolete contact details. The OCR public-price hit is a low-confidence false positive caused by non-price dimensions or artwork. The exemption is bound to exact SHA-256 and pHash."
+    },
+    {
+      "sha256": "c429039b9744ea39a9b92fc709ed3d2c7340b46fefad7874e67e7f91c4912743",
+      "phash": "250a70e78d74da1b",
+      "ruleIds": [
+        "moq-vague-low",
+        "public-price"
+      ],
+      "source": "https://images.junyibags.com/assets/images/junyi/products/ytljy5633/ytljy5633-06.webp",
+      "reviewedEvidence": "LOW MOQ",
+      "reviewedAt": "2026-07-22",
+      "reason": "Operator-approved source instruction and human visual review confirmed that this full-print product poster contains LOW MOQ without a number, range, public price, certification claim, obsolete year, obsolete area, or obsolete contact details. The OCR public-price hit is a low-confidence false positive caused by non-price dimensions or artwork. The exemption is bound to exact SHA-256 and pHash."
+    },
+    {
+      "sha256": "cf57128d65dd04cb1d62b3cfc1bf02f5cb2e9ca5317e6ca361d0938fd921b9ce",
+      "phash": "176596391e794998",
+      "ruleIds": [
+        "moq-vague-low"
+      ],
+      "source": "https://images.junyibags.com/assets/images/junyi/products/ytljy5642/ytljy5642-01.webp",
+      "reviewedEvidence": "LOW MOQ",
+      "reviewedAt": "2026-07-22",
+      "reason": "Operator-approved source instruction and human visual review confirmed that this full-print product poster contains LOW MOQ without a number, range, public price, certification claim, obsolete year, obsolete area, or obsolete contact details. The exemption is bound to exact SHA-256 and pHash."
+    },
+    {
+      "sha256": "ea247778f1b83e4e0e5afe60e6958463f1f21d97a3ec36856029946790be3daf",
+      "phash": "15b4c7383d499c99",
+      "ruleIds": [
+        "moq-vague-low",
+        "public-price"
+      ],
+      "source": "https://images.junyibags.com/assets/images/junyi/products/ytljy5642/ytljy5642-02.webp",
+      "reviewedEvidence": "LOW MOQ",
+      "reviewedAt": "2026-07-22",
+      "reason": "Operator-approved source instruction and human visual review confirmed that this full-print product poster contains LOW MOQ without a number, range, public price, certification claim, obsolete year, obsolete area, or obsolete contact details. The OCR public-price hit is a low-confidence false positive caused by non-price dimensions or artwork. The exemption is bound to exact SHA-256 and pHash."
+    },
+    {
+      "sha256": "ec9da7aab3cf183664f88c698a29eea854fadabbb1ab40d5477281b8a1073f18",
+      "phash": "1c09327fc94b9c5c",
+      "ruleIds": [
+        "moq-vague-low",
+        "public-price"
+      ],
+      "source": "https://images.junyibags.com/assets/images/junyi/products/ytljy5642/ytljy5642-03.webp",
+      "reviewedEvidence": "LOW MOQ",
+      "reviewedAt": "2026-07-22",
+      "reason": "Operator-approved source instruction and human visual review confirmed that this full-print product poster contains LOW MOQ without a number, range, public price, certification claim, obsolete year, obsolete area, or obsolete contact details. The OCR public-price hit is a low-confidence false positive caused by non-price dimensions or artwork. The exemption is bound to exact SHA-256 and pHash."
+    },
+    {
+      "sha256": "66ee19a1032fe8ea3496351bda3b564d80aa24c04d3f14445bcfab764d000f35",
+      "phash": "1f18b04fc00e9cfe",
+      "ruleIds": [
+        "moq-vague-low"
+      ],
+      "source": "https://images.junyibags.com/assets/images/junyi/products/ytljy5642/ytljy5642-04.webp",
+      "reviewedEvidence": "LOW MOQ",
+      "reviewedAt": "2026-07-22",
+      "reason": "Operator-approved source instruction and human visual review confirmed that this full-print product poster contains LOW MOQ without a number, range, public price, certification claim, obsolete year, obsolete area, or obsolete contact details. The exemption is bound to exact SHA-256 and pHash."
+    },
+    {
+      "sha256": "2d23085060b49285b36cfcf8270637a212bc887982880d4b52c161cf576beeb7",
+      "phash": "190633fc863c92f3",
+      "ruleIds": [
+        "moq-vague-low"
+      ],
+      "source": "https://images.junyibags.com/assets/images/junyi/products/ytljy5642/ytljy5642-05.webp",
+      "reviewedEvidence": "LOW MOQ",
+      "reviewedAt": "2026-07-22",
+      "reason": "Operator-approved source instruction and human visual review confirmed that this full-print product poster contains LOW MOQ without a number, range, public price, certification claim, obsolete year, obsolete area, or obsolete contact details. The exemption is bound to exact SHA-256 and pHash."
+    },
+    {
+      "sha256": "ab401b59cb30fc7a49101d8d6bf50af01c0542057dbeafba4d5e8863aaf76114",
+      "phash": "1d22629fc48c0efe",
+      "ruleIds": [
+        "moq-vague-low"
+      ],
+      "source": "https://images.junyibags.com/assets/images/junyi/products/ytljy5642/ytljy5642-06.webp",
+      "reviewedEvidence": "LOW MOQ",
+      "reviewedAt": "2026-07-22",
+      "reason": "Operator-approved source instruction and human visual review confirmed that this full-print product poster contains LOW MOQ without a number, range, public price, certification claim, obsolete year, obsolete area, or obsolete contact details. The exemption is bound to exact SHA-256 and pHash."
     }
   ]
 }

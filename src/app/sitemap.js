@@ -12,6 +12,7 @@ export default function sitemap() {
     ...ruRoutes.map((route) => ({ url: `${siteUrl}${route}`, lastModified: now })),
     ...landingPages.map((page) => ({ url: `${siteUrl}/${page.slug}`, lastModified: now })),
     ...Object.entries(siteData.products).map(([slug, product]) => ({ url: `${siteUrl}${productPath(slug, product)}`, lastModified: now })),
+    ...Object.entries(siteData.products).filter(([, product]) => product.ru).map(([slug]) => ({ url: `${siteUrl}/ru/products/${slug}`, lastModified: now })),
     ...blogPosts.map((post) => ({ url: `${siteUrl}/blog/${post.slug}`, lastModified: post.date }))
   ];
 }

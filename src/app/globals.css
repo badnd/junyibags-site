@@ -399,3 +399,4 @@ main > section:nth-of-type(n+2){content-visibility:auto;contain-intrinsic-size:a
 @keyframes contact-ball-ripple{0%{transform:scale(1);opacity:1}38%{opacity:.88}72%{opacity:.48}100%{transform:scale(3.2);opacity:0}}
 @media(prefers-reduced-motion:reduce){.contact-ball::before,.contact-ball::after,.contact-ripple{animation:none;display:none}}
 @media(max-width:600px){.whatsapp-icon{width:31px;height:31px}.contact-tooltip{display:none}}
+.related-resources{margin-top:36px;padding-top:24px;border-top:1px solid #dbe2ea}.related-resources a{display:inline-block;margin:0 16px 10px 0;font-weight:700}.product-facts-panel{margin-top:28px;padding:22px;border:1px solid #dbe2ea;background:#f7f9fc;border-radius:6px}.product-facts-panel p{margin:0 0 10px}
