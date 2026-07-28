@@ -65,7 +65,7 @@ export function SiteHeader() {
           </ul>
           <div className="nav-actions">
             <LanguageSwitcher />
-            <a className="btn btn-secondary" href={`mailto:${siteData.company.email}`}>Email Us</a>
+            <Link className="btn btn-secondary" href="/contact">Email Us</Link>
             <a className="btn btn-primary" href={whatsappUrl(siteData)} target="_blank" rel="noopener">WhatsApp</a>
           </div>
         </div>
