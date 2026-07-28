@@ -6,7 +6,9 @@ export const coreI18nRoutes = {
   '/factory': '/ru/factory',
   '/about': '/ru/about',
   '/contact': '/ru/contact',
-  '/products': '/ru/products'
+  '/products': '/ru/products',
+  '/blog': '/ru/blog',
+  '/blog/seven-years-one-customer': '/ru/blog/seven-years-one-customer'
 };
 
 export function i18nAlternates(route) {

@@ -15,6 +15,9 @@ export default function sitemap() {
     ...resourcePages.flatMap((page) => [{ url: `${siteUrl}/resources/${page.slug}`, lastModified: now }, { url: `${siteUrl}/ru/resources/${page.slug}`, lastModified: now }]),
     ...Object.entries(siteData.products).map(([slug, product]) => ({ url: `${siteUrl}${productPath(slug, product)}`, lastModified: now })),
     ...Object.entries(siteData.products).filter(([, product]) => product.ru).map(([slug]) => ({ url: `${siteUrl}/ru/products/${slug}`, lastModified: now })),
-    ...blogPosts.map((post) => ({ url: `${siteUrl}/blog/${post.slug}`, lastModified: post.date }))
+    ...blogPosts.flatMap((post) => [
+      { url: `${siteUrl}/blog/${post.slug}`, lastModified: post.date },
+      ...(post.ru ? [{ url: `${siteUrl}/ru/blog/${post.slug}`, lastModified: post.date }] : [])
+    ])
   ];
 }

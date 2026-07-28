@@ -1,7 +1,9 @@
 import { blogBatch20260721 } from './blog-batch-20260721';
+import { sevenYearsOneCustomer } from './blog-seven-years-one-customer';
 
 export const blogPosts = [
   ...blogBatch20260721,
+  sevenYearsOneCustomer,
   {
     slug: 'sublimation-vs-screen-printing-bags',
     title: 'Sublimation Printing vs Screen Printing for Bags: Which Is Better for Custom Designs?',

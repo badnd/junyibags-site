@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { blogPosts } from '@/data/blog-posts';
 import { assetPath } from '@/lib/paths';
-import { blogCardImage } from '@/lib/card-images';
 
 export const metadata = {
   title: 'Custom Bag Buying Guides',
@@ -21,9 +20,9 @@ export default function BlogPage() {
           </div>
         </div>
         <div className="grid grid-3">
-          {blogPosts.map((post, index) => (
+          {blogPosts.map((post) => (
             <article className="card blog-card" key={post.slug}>
-              <Link className="card-media" href={`/blog/${post.slug}`}><img src={assetPath(blogCardImage(index))} alt={post.heroAlt || post.title} /></Link>
+              <Link className={`card-media${post.brandCover ? ' blog-brand-cover' : ''}`} href={`/blog/${post.slug}`}>{post.brandCover ? <img src={assetPath(post.hero)} alt={post.heroAlt || post.title} /> : <img src={assetPath(post.hero)} alt={post.heroAlt || post.title} />}</Link>
               <div className="card-body">
                 <div className="blog-meta"><span>{post.category}</span><span>{post.date}</span></div>
                 <h2 className="card-title">{post.title}</h2>

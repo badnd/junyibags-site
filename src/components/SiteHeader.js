@@ -32,7 +32,7 @@ export function SiteHeader() {
     ['Factory', '/factory'],
     ['About Us', '/about'],
     [isRu ? 'Ресурсы' : 'Resources', isRu ? '/ru/resources' : '/resources'],
-    ['Blog', '/blog'],
+    ['Blog', isRu ? '/ru/blog' : '/blog'],
     ['Contact', '/contact']
   ];
 

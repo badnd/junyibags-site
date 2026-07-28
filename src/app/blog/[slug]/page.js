@@ -17,7 +17,14 @@ export async function generateMetadata({ params }) {
     title: post.metaTitle ? { absolute: post.metaTitle } : `${post.title} | Blog`,
     description: post.description,
     keywords: post.keywords,
-    alternates: { canonical: `/blog/${post.slug}` },
+    alternates: {
+      canonical: `/blog/${post.slug}`,
+      ...(post.ru ? { languages: {
+        en: `${siteUrl}/blog/${post.slug}`,
+        ru: `${siteUrl}/ru/blog/${post.slug}`,
+        'x-default': `${siteUrl}/blog/${post.slug}`
+      } } : {})
+    },
     openGraph: {
       title: post.title,
       description: post.description,
@@ -71,7 +78,7 @@ export default async function BlogPostPage({ params }) {
           <h1>{post.title}</h1>
           <p className="article-lead">{post.description}</p>
           <div className="blog-meta article-meta"><span>{post.category}</span><span>{post.date}</span></div>
-          <figure className="article-hero-figure">
+          <figure className={`article-hero-figure${post.brandCover ? ' blog-brand-cover' : ''}`}>
             <img className="article-hero" src={assetPath(post.hero)} alt={post.heroAlt || post.title} />
             {post.heroCaption ? <figcaption>{post.heroCaption}</figcaption> : null}
           </figure>
