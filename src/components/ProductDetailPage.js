@@ -3,6 +3,7 @@ import { siteData } from '@/data/site-data';
 import { JsonLd } from '@/components/JsonLd';
 import { ProductGallery } from '@/components/ProductGallery';
 import { InquiryForm } from '@/components/InquiryForm';
+import { EmailUsLink } from '@/components/EmailUsLink';
 import { assetPath, productPath, productSchema, siteUrl, whatsappUrl } from '@/lib/paths';
 
 export function ProductDetailPage({ slug, product }) {
@@ -45,7 +46,7 @@ export function ProductDetailPage({ slug, product }) {
             <div className="hero-cta">
               <a className="btn btn-primary" href={whatsappUrl(siteData, product)} target="_blank" rel="noopener">WhatsApp Quote</a>
               <Link className="btn btn-primary" href={`/contact?product=${encodeURIComponent(product.model)}`}>Send Request</Link>
-              <a className="btn btn-secondary" href={`mailto:${siteData.company.email}?subject=${encodeURIComponent(`junyibags.com inquiry - ${product.model}`)}`}>Email Us</a>
+              <EmailUsLink className="btn btn-secondary" email={siteData.company.email} subject={`junyibags.com inquiry - ${product.model}`} />
             </div>
           </article>
           <aside className="quote-card">
@@ -86,7 +87,7 @@ export function ProductDetailPage({ slug, product }) {
               <p>{product.inquiry.pricing}</p>
               <p>{product.inquiry.services}</p>
               <p className="muted">{product.inquiry.note}</p>
-              <p><strong>Contact Anna Wei:</strong><br />Email <a href="mailto:annawei@nameerbag.com">annawei@nameerbag.com</a> · WhatsApp +86 151 0224 9548 · WeChat 15102249548</p>
+<p><strong>Contact Anna Wei:</strong><br />Email <a href="mailto:annawei@nameerbag.com?subject=junyibags.com%20inquiry">annawei@nameerbag.com</a> · WhatsApp +86 151 0224 9548 · WeChat 15102249548</p>
             </div>
           ) : null}
         </div>

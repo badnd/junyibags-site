@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import { siteData } from '@/data/site-data';
 import { whatsappUrl } from '@/lib/paths';
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
+import { EmailUsLink } from '@/components/EmailUsLink';
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
@@ -67,7 +68,7 @@ export function SiteHeader() {
             <LanguageSwitcher />
             <div className="inquiry-cta-pair">
               <Link className="btn btn-primary" href="/contact">Send Request</Link>
-              <a className="btn btn-secondary" href={`mailto:${siteData.company.email}?subject=${encodeURIComponent('Inquiry from junyibags.com')}`}>Email Us</a>
+              <EmailUsLink className="btn btn-secondary" email={siteData.company.email} subject="Inquiry from junyibags.com" />
             </div>
             <a className="btn btn-primary" href={whatsappUrl(siteData)} target="_blank" rel="noopener">WhatsApp</a>
           </div>

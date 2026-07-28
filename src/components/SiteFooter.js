@@ -45,7 +45,7 @@ export function SiteFooter() {
           <div>
             <h4>Contact</h4>
             <ul>
-              <li>Email: <a href={`mailto:${siteData.company.email}`}>{siteData.company.email}</a></li>
+<li>Email: <a href={`mailto:${siteData.company.email}?subject=${encodeURIComponent('junyibags.com inquiry')}`}>{siteData.company.email}</a></li>
               <li>WhatsApp: <a href={whatsappUrl(siteData)} target="_blank" rel="noopener">{siteData.company.whatsapp}</a></li>
               <li>WeChat: {siteData.company.wechat}</li>
               <li>{siteData.company.priceText}</li>

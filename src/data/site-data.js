@@ -72,7 +72,7 @@ export const siteData = {
       "slug": "waist-bags",
       "name": "Waist Bags",
       "desc": "Full-surface custom waist bags with adjustable straps, lightweight nylon and brand-ready print options.",
-      "image": "assets/images/junyi/products/ytljy6824/ytljy6824-01.png",
+      "image": "assets/images/junyi/products/ytljy6858/ytljy6858-02.png",
       "link": "/products?category=waist-bags"
     },
     {
@@ -1137,8 +1137,7 @@ export const siteData = {
       "We check materials, stitching, zipper, print effect, packing and final goods before shipment, and keep communication clear during production."
     ]
   ],
-  // Migration baseline only. New products enter the homepage through publishedAt.
-  "featuredProductBaseline": [
+  "homeFeaturedProducts": [
     "all-over-print-crossbody-bag-ytljy956",
     "all-over-print-vertical-crossbody-ytljy6840",
     "ytljy8083",
@@ -1147,7 +1146,9 @@ export const siteData = {
     "ytljy6830",
     "ytljy5634",
     "ytljy944",
-    "ytljy6835"
+    "ytljy6835",
+    "ytljy6824",
+    "yqjy0014"
   ],
   "analytics": {
     "ga4": ""

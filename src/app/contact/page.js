@@ -18,7 +18,7 @@ export default function ContactPage() {
           <h1>Get a custom bag factory quote</h1>
           <p className="muted">Send product type, quantity, logo method and target market. We will reply with MOQ, sample options and production suggestions.</p>
           <div className="contact-mini">
-            <div><strong>Email:</strong> <a href={`mailto:${siteData.company.email}`}>{siteData.company.email}</a></div>
+<div><strong>Email:</strong> <a href={`mailto:${siteData.company.email}?subject=${encodeURIComponent('junyibags.com inquiry')}`}>{siteData.company.email}</a></div>
             <div><strong>WhatsApp:</strong> <a href={whatsappUrl(siteData)} target="_blank" rel="noopener">{siteData.company.whatsapp}</a></div>
             <div><strong>WeChat:</strong> {siteData.company.wechat}</div>
           </div>
