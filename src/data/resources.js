@@ -7,8 +7,8 @@ export const resourcePages = [
       ru: { title: 'Подготовка макета для сумок с полноцветной печатью', description: 'Подготовьте файлы, разрешение, цвета, швы и повторяющиеся узоры для производства сумок с полной запечаткой.' },
     },
     related: {
-      en: [['Choose fabric and print method', '/resources/all-over-print-fabric-method'], ['Browse all-over print bags', '/products'], ['All-over print service', '/full-print']],
-      ru: [['Выбрать ткань и метод печати', '/ru/resources/all-over-print-fabric-method'], ['Каталог сумок с полной запечаткой', '/ru/products'], ['Услуга полной запечатки', '/ru/full-print']],
+      en: [['Choose fabric and print method', '/resources/all-over-print-fabric-method'], ['Browse all-over print bags', '/products'], ['All-over print service', '/custom-service']],
+      ru: [['Выбрать ткань и метод печати', '/ru/resources/all-over-print-fabric-method'], ['Каталог сумок с полной запечаткой', '/ru/products'], ['Услуга полной запечатки', '/ru/custom-service']],
     },
   },
   {
@@ -19,8 +19,8 @@ export const resourcePages = [
       ru: { title: 'Ткани и методы для полной запечатки сумок', description: 'Сравните ткани для печати, особенности сублимации, передачу цвета и ограничения полной запечатки.' },
     },
     related: {
-      en: [['All-over print service', '/full-print'], ['Browse printed bags', '/products'], ['Prepare your artwork', '/resources/artwork-preparation-guide']],
-      ru: [['Услуга полной запечатки', '/ru/full-print'], ['Каталог принтованных сумок', '/ru/products'], ['Подготовить макет', '/ru/resources/artwork-preparation-guide']],
+      en: [['All-over print service', '/custom-service'], ['Browse printed bags', '/products'], ['Prepare your artwork', '/resources/artwork-preparation-guide']],
+      ru: [['Услуга полной запечатки', '/ru/custom-service'], ['Каталог принтованных сумок', '/ru/products'], ['Подготовить макет', '/ru/resources/artwork-preparation-guide']],
     },
   },
 ];
