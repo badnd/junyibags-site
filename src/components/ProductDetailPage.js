@@ -44,7 +44,8 @@ export function ProductDetailPage({ slug, product }) {
             </table>
             <div className="hero-cta">
               <a className="btn btn-primary" href={whatsappUrl(siteData, product)} target="_blank" rel="noopener">WhatsApp Quote</a>
-              <Link className="btn btn-secondary" href={`/contact?product=${encodeURIComponent(product.model)}`}>Email Us</Link>
+              <Link className="btn btn-primary" href={`/contact?product=${encodeURIComponent(product.model)}`}>Send Request</Link>
+              <a className="btn btn-secondary" href={`mailto:${siteData.company.email}?subject=${encodeURIComponent(`junyibags.com inquiry - ${product.model}`)}`}>Email Us</a>
             </div>
           </article>
           <aside className="quote-card">

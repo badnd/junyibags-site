@@ -65,7 +65,10 @@ export function SiteHeader() {
           </ul>
           <div className="nav-actions">
             <LanguageSwitcher />
-            <Link className="btn btn-secondary" href="/contact">Email Us</Link>
+            <div className="inquiry-cta-pair">
+              <Link className="btn btn-primary" href="/contact">Send Request</Link>
+              <a className="btn btn-secondary" href={`mailto:${siteData.company.email}?subject=${encodeURIComponent('Inquiry from junyibags.com')}`}>Email Us</a>
+            </div>
             <a className="btn btn-primary" href={whatsappUrl(siteData)} target="_blank" rel="noopener">WhatsApp</a>
           </div>
         </div>
