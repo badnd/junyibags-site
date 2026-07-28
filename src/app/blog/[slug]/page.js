@@ -92,10 +92,10 @@ export default async function BlogPostPage({ params }) {
           </div>
           <div className="cta-banner article-cta">
             <div>
-              <h2>Need a custom bag quote?</h2>
-              <p>Send your bag type, logo method, quantity and target market. We will help review the most practical order plan.</p>
+              <h2>{post.cta?.title || 'Need a custom bag quote?'}</h2>
+              <p>{post.cta?.text || 'Send your bag type, logo method, quantity and target market. We will help review the most practical order plan.'}</p>
             </div>
-            <Link className="btn btn-light" href="/contact">Get Factory Quote</Link>
+            <Link className="btn btn-light" href={post.cta?.href || '/contact'}>{post.cta?.label || 'Get Factory Quote'}</Link>
           </div></>}
           {post.slug.includes('all-over') || post.slug.includes('sublimation') ? <aside className="related-resources"><h2>Related full-print crossbody bags</h2><Link href="/products/full-print-custom-crossbody-bag-ytljy5633">YTLJY5633 full-print custom crossbody bag</Link><Link href="/products/full-print-compact-crossbody-bag-ytljy5642">YTLJY5642 full-print compact crossbody bag</Link></aside> : null}
         </div>
