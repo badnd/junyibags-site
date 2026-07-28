@@ -20,12 +20,18 @@ export function SiteHeader() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  useEffect(() => {
+    document.body.classList.toggle('mobile-nav-open', open);
+    return () => document.body.classList.remove('mobile-nav-open');
+  }, [open]);
+
   const links = [
     ['Home', '/'],
     ['Products', isRu ? '/ru/products' : '/products'],
     ['Customization', '/custom-service'],
     ['Factory', '/factory'],
     ['About Us', '/about'],
+    [isRu ? 'Ресурсы' : 'Resources', isRu ? '/ru/resources' : '/resources'],
     ['Blog', '/blog'],
     ['Contact', '/contact']
   ];
