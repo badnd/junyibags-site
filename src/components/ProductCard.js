@@ -9,7 +9,7 @@ export function ProductCard({ slug, product, showLogoZone = false }) {
   return (
     <article className="card product-card">
       <Link className="card-media" href={productPath(slug, product)}>
-        <img src={assetPath(productCardImage(slug, product))} alt={product.title} loading="lazy" decoding="async" />
+        <img src={assetPath(productCardImage(slug))} alt={product.title} loading="lazy" decoding="async" />
         {showLogoZone ? <span className="logo-location-pill">Custom Logo Zone</span> : null}
       </Link>
       <div className="card-body">
