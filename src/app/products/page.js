@@ -40,8 +40,8 @@ export default async function ProductsPage({ searchParams }) {
           <div className="grid grid-4">
             {siteData.categories.map((category) => (
               <Link className="card category-mini" href={category.link || `/products?category=${category.slug}`} key={category.slug}>
-                <img src={assetPath(categoryCardImage(category.slug))} alt={category.name} />
-                <strong>{category.name}</strong>
+                <span className="category-mini-media"><img src={assetPath(categoryCardImage(category.slug))} alt={category.name} /></span>
+                <span className="category-mini-body"><strong>{category.name}</strong><span>{category.desc}</span></span>
               </Link>
             ))}
           </div>

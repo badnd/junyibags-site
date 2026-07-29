@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { assetPath, productPath } from '@/lib/paths';
 import { siteData } from '@/data/site-data';
+import { productCardImage } from '@/lib/card-images';
 
 export function ProductCard({ slug, product, showLogoZone = false }) {
   const process = (product.specs || []).find(([name]) => /logo|print|label/i.test(name));
@@ -8,12 +9,12 @@ export function ProductCard({ slug, product, showLogoZone = false }) {
   return (
     <article className="card product-card">
       <Link className="card-media" href={productPath(slug, product)}>
-        <img src={assetPath(product.cardImage ?? product.hero)} alt={product.title} loading="lazy" decoding="async" />
+        <img src={assetPath(productCardImage(slug))} alt={product.title} loading="lazy" decoding="async" />
         {showLogoZone ? <span className="logo-location-pill">Custom Logo Zone</span> : null}
       </Link>
       <div className="card-body">
         <div className="chip-list">
-          {product.badges.slice(0, 3).map((badge) => (
+          {product.badges.slice(0, 2).map((badge) => (
             <span className="badge" key={badge}>{badge}</span>
           ))}
         </div>
