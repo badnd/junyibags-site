@@ -72,7 +72,7 @@ export default function AboutPage() {
             <p>A Russian buyer found us through a B2B platform in 2019. The first order was 200-300 bags. Today, the program has grown to around 10,000 bags per year.</p>
             <p>The recurring range includes shoulder bags and waist bags with full customization across artwork, print placement, colors, labels, zipper details, lining and packaging.</p>
             <p><strong>Seven years. No dramatic story to tell. He just kept ordering.</strong></p>
-            <div className="story-actions"><Link className="btn btn-primary" href="/contact">Start an All-Over Print Project</Link><a className="btn btn-secondary" href="https://wa.me/8615102249548">WhatsApp Anna</a></div>
+            <div className="story-actions"><Link className="btn btn-primary" href="/contact">Start an All-Over Print Project</Link><a className="btn btn-secondary" href="https://wa.me/8615102249548?text=Hi%2C%20I%20am%20contacting%20you%20from%20junyibags.com.%20I%20would%20like%20to%20discuss%20an%20all-over%20print%20bag%20project.%20Please%20send%20MOQ%20tiers%2C%20sample%20cost%20and%20lead%20time.%20-%20Anna%20Wei%2C%20Sales">WhatsApp Anna</a></div>
           </div>
         </div>
       </section>
