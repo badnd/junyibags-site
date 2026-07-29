@@ -65,7 +65,7 @@ export const siteData = {
       "slug": "crossbody-sling-bags",
       "name": "Crossbody & Sling Bags",
       "desc": "Compact all-over print crossbody and sling bags for streetwear, daily carry, events and promotional orders.",
-      "image": "assets/images/junyi/products/ytljy8083/ytljy8083-01.png",
+      "image": "assets/images/junyi/products/ytljy8083/ytljy8083-02.png",
       "link": "/products?category=crossbody-sling-bags"
     },
     {
@@ -79,7 +79,7 @@ export const siteData = {
       "slug": "backpacks",
       "name": "Backpacks",
       "desc": "All-over print casual backpacks for school, commuting, travel, retail collections and custom brand programs.",
-      "image": "assets/images/junyi/products/yqjy0014/yqjy0014-01.png",
+      "image": "assets/images/junyi/products/yqjy0014/yqjy0014-02.png",
       "link": "/products?category=backpacks"
     }
   ],
@@ -129,7 +129,7 @@ export const siteData = {
         ]
       ],
       "hero": "assets/images/junyi/products/ytljy8083/ytljy8083-01.png",
-      "cardImage": "assets/images/junyi/products/ytljy8083/ytljy8083-01.png",
+      "cardImage": "assets/images/junyi/products/ytljy8083/ytljy8083-02.png",
       "lifestyle": "assets/images/junyi/products/ytljy8083/ytljy8083-02.png",
       "gallery": [
         "assets/images/junyi/products/ytljy8083/ytljy8083-01.png",
@@ -211,7 +211,7 @@ export const siteData = {
         ]
       ],
       "hero": "assets/images/junyi/products/ytljy6858/ytljy6858-01.png",
-      "cardImage": "assets/images/junyi/products/ytljy6858/ytljy6858-01.png",
+      "cardImage": "assets/images/junyi/products/ytljy6858/ytljy6858-04.png",
       "lifestyle": "assets/images/junyi/products/ytljy6858/ytljy6858-04.png",
       "gallery": [
         "assets/images/junyi/products/ytljy6858/ytljy6858-01.png",
@@ -293,7 +293,7 @@ export const siteData = {
         ]
       ],
       "hero": "assets/images/junyi/products/ytljy6825/ytljy6825-01.png",
-      "cardImage": "assets/images/junyi/products/ytljy6825/ytljy6825-01.png",
+      "cardImage": "assets/images/junyi/products/ytljy6825/ytljy6825-02.png",
       "lifestyle": "assets/images/junyi/products/ytljy6825/ytljy6825-02.png",
       "gallery": [
         "assets/images/junyi/products/ytljy6825/ytljy6825-01.png",
@@ -375,7 +375,7 @@ export const siteData = {
         ]
       ],
       "hero": "assets/images/junyi/products/ytljy6830/ytljy6830-01.png",
-      "cardImage": "assets/images/junyi/products/ytljy6830/ytljy6830-01.png",
+      "cardImage": "assets/images/junyi/products/ytljy6830/ytljy6830-02.png",
       "lifestyle": "assets/images/junyi/products/ytljy6830/ytljy6830-02.png",
       "gallery": [
         "assets/images/junyi/products/ytljy6830/ytljy6830-01.png",
@@ -457,7 +457,7 @@ export const siteData = {
         ]
       ],
       "hero": "assets/images/junyi/products/ytljy5634/ytljy5634-01.png",
-      "cardImage": "assets/images/junyi/products/ytljy5634/ytljy5634-01.png",
+      "cardImage": "assets/images/junyi/products/ytljy5634/ytljy5634-02.png",
       "lifestyle": "assets/images/junyi/products/ytljy5634/ytljy5634-02.png",
       "gallery": [
         "assets/images/junyi/products/ytljy5634/ytljy5634-01.png",
@@ -539,7 +539,7 @@ export const siteData = {
         ]
       ],
       "hero": "assets/images/junyi/products/ytljy944/ytljy944-01.png",
-      "cardImage": "assets/images/junyi/products/ytljy944/ytljy944-01.png",
+      "cardImage": "assets/images/junyi/products/ytljy944/ytljy944-02.png",
       "lifestyle": "assets/images/junyi/products/ytljy944/ytljy944-02.png",
       "gallery": [
         "assets/images/junyi/products/ytljy944/ytljy944-01.png",
@@ -621,7 +621,7 @@ export const siteData = {
         ]
       ],
       "hero": "assets/images/junyi/products/ytljy6835/ytljy6835-01.png",
-      "cardImage": "assets/images/junyi/products/ytljy6835/ytljy6835-01.png",
+      "cardImage": "assets/images/junyi/products/ytljy6835/ytljy6835-02.png",
       "lifestyle": "assets/images/junyi/products/ytljy6835/ytljy6835-02.png",
       "gallery": [
         "assets/images/junyi/products/ytljy6835/ytljy6835-01.png",
@@ -703,7 +703,7 @@ export const siteData = {
         ]
       ],
       "hero": "assets/images/junyi/products/ytljy6824/ytljy6824-01.png",
-      "cardImage": "assets/images/junyi/products/ytljy6824/ytljy6824-01.png",
+      "cardImage": "assets/images/junyi/products/ytljy6824/ytljy6824-02.png",
       "lifestyle": "assets/images/junyi/products/ytljy6824/ytljy6824-02.png",
       "gallery": [
         "assets/images/junyi/products/ytljy6824/ytljy6824-01.png",
@@ -809,7 +809,7 @@ export const siteData = {
         ]
       ],
       "hero": "assets/images/junyi/products/all-over-print-crossbody-bag-ytljy956/all-over-print-crossbody-bag-ytljy956-1.webp",
-      "cardImage": "assets/images/junyi/products/all-over-print-crossbody-bag-ytljy956/all-over-print-crossbody-bag-ytljy956-1.webp",
+      "cardImage": "assets/images/junyi/products/all-over-print-crossbody-bag-ytljy956/all-over-print-crossbody-bag-ytljy956-8.webp",
       "lifestyle": "assets/images/junyi/products/all-over-print-crossbody-bag-ytljy956/all-over-print-crossbody-bag-ytljy956-8.webp",
       "gallery": [
         "assets/images/junyi/products/all-over-print-crossbody-bag-ytljy956/all-over-print-crossbody-bag-ytljy956-1.webp",
@@ -951,7 +951,7 @@ export const siteData = {
         ]
       ],
       "hero": "assets/images/junyi/products/all-over-print-vertical-crossbody-ytljy6840/all-over-print-vertical-crossbody-ytljy6840-1.webp",
-      "cardImage": "assets/images/junyi/products/all-over-print-vertical-crossbody-ytljy6840/all-over-print-vertical-crossbody-ytljy6840-1.webp",
+      "cardImage": "assets/images/junyi/products/all-over-print-vertical-crossbody-ytljy6840/all-over-print-vertical-crossbody-ytljy6840-8.webp",
       "lifestyle": "assets/images/junyi/products/all-over-print-vertical-crossbody-ytljy6840/all-over-print-vertical-crossbody-ytljy6840-8.webp",
       "gallery": [
         "assets/images/junyi/products/all-over-print-vertical-crossbody-ytljy6840/all-over-print-vertical-crossbody-ytljy6840-1.webp",
@@ -1071,7 +1071,7 @@ export const siteData = {
         ]
       ],
       "hero": "assets/images/junyi/products/yqjy0014/yqjy0014-01.png",
-      "cardImage": "assets/images/junyi/products/yqjy0014/yqjy0014-01.png",
+      "cardImage": "assets/images/junyi/products/yqjy0014/yqjy0014-02.png",
       "lifestyle": "assets/images/junyi/products/yqjy0014/yqjy0014-02.png",
       "gallery": [
         "assets/images/junyi/products/yqjy0014/yqjy0014-01.png",
