@@ -16,7 +16,7 @@ export const siteData = {
       "title": "Custom Bag Manufacturer for Global Brands",
       "subtitle": "OEM/ODM | Private Label | Full-Print Bags",
       "text": "Full-print fabric cutting footage brings Junyi Bags' all-over print customization into the first screen for importers, brands and promotional buyers.",
-      "image": "assets/images/junyi/trust/factory-sewing-waistbag-1600.jpg",
+      "image": "assets/images/junyi/factory/fullprint-automatic-pattern-cutter.jpg",
       "video": "assets/videos/factory/factory-fullprint-cutting-machine-18s.mp4",
       "duration": 18000,
       "cta": "Browse Products",
@@ -26,7 +26,7 @@ export const siteData = {
       "title": "Multi-Station Factory Capacity for Custom Bag Orders",
       "subtitle": "Workshop Overview | Sewing Lines | Export Support",
       "text": "A real workshop overview shows multiple production stations, factory scale and capacity support for custom waist bag and sling bag programs.",
-      "image": "assets/images/junyi/trust/factory-sewing-waistbag-1600.jpg",
+      "image": "assets/images/junyi/factory/fullprint-artwork-prepress.jpg",
       "video": "assets/videos/factory/factory-overview-multistation-21s.mp4",
       "duration": 21000,
       "cta": "Explore Factory",
@@ -36,7 +36,7 @@ export const siteData = {
       "title": "Waist Bag Sewing for Full-Print Custom Programs",
       "subtitle": "Waist Bags | Crossbody Bags | Sewing Detail",
       "text": "Professional workshop photography focuses on waist bag sewing, the core product type behind Junyi Bags' custom print collections.",
-      "image": "assets/images/junyi/trust/factory-sewing-waistbag-1600.jpg",
+      "image": "assets/images/junyi/products/showcase/product-slingbag-8colors-900.jpg",
       "duration": 4000,
       "cta": "View Custom Service",
       "link": "pages/custom-service.html"
@@ -45,7 +45,7 @@ export const siteData = {
       "title": "Artwork Preparation for Full-Print Bags",
       "subtitle": "Artwork | Panel Layout | Prepress",
       "text": "A real prepress workstation shows how bag dimensions and panel layouts are reviewed before printed material moves to cutting.",
-      "image": "assets/images/junyi/factory/fullprint-artwork-prepress.jpg",
+      "image": "assets/images/junyi/products/all-over-print-crossbody-bag-ytljy956/all-over-print-crossbody-bag-ytljy956-1.webp",
       "duration": 4000,
       "cta": "Contact Factory",
       "link": "pages/contact.html"
@@ -54,7 +54,7 @@ export const siteData = {
       "title": "Automatic Panel Cutting for Print Programs",
       "subtitle": "Pattern Cutter | Panel Preparation | Production Proof",
       "text": "A real automatic cutting table prepares marked bag panels before printed components move into sewing and assembly.",
-      "image": "assets/images/junyi/factory/fullprint-automatic-pattern-cutter.jpg",
+      "image": "assets/images/junyi/trust/factory-sewing-waistbag-1600.jpg",
       "duration": 4000,
       "cta": "Contact Factory",
       "link": "pages/contact.html"
@@ -65,21 +65,21 @@ export const siteData = {
       "slug": "crossbody-sling-bags",
       "name": "Crossbody & Sling Bags",
       "desc": "Compact all-over print crossbody and sling bags for streetwear, daily carry, events and promotional orders.",
-      "image": "assets/images/junyi/products/ytljy8083/ytljy8083-02.png",
+      "image": "assets/images/junyi/products/ytljy8083/ytljy8083-01.png",
       "link": "/products?category=crossbody-sling-bags"
     },
     {
       "slug": "waist-bags",
       "name": "Waist Bags",
       "desc": "Full-surface custom waist bags with adjustable straps, lightweight nylon and brand-ready print options.",
-      "image": "assets/images/junyi/products/ytljy6858/ytljy6858-02.png",
+      "image": "assets/images/junyi/products/ytljy6824/ytljy6824-01.png",
       "link": "/products?category=waist-bags"
     },
     {
       "slug": "backpacks",
       "name": "Backpacks",
       "desc": "All-over print casual backpacks for school, commuting, travel, retail collections and custom brand programs.",
-      "image": "assets/images/junyi/products/yqjy0014/yqjy0014-02.png",
+      "image": "assets/images/junyi/products/yqjy0014/yqjy0014-01.png",
       "link": "/products?category=backpacks"
     }
   ],
@@ -129,7 +129,7 @@ export const siteData = {
         ]
       ],
       "hero": "assets/images/junyi/products/ytljy8083/ytljy8083-01.png",
-      "cardImage": "assets/images/junyi/products/ytljy8083/ytljy8083-02.png",
+      "cardImage": "assets/images/junyi/products/ytljy8083/ytljy8083-01.png",
       "lifestyle": "assets/images/junyi/products/ytljy8083/ytljy8083-02.png",
       "gallery": [
         "assets/images/junyi/products/ytljy8083/ytljy8083-01.png",
@@ -211,7 +211,7 @@ export const siteData = {
         ]
       ],
       "hero": "assets/images/junyi/products/ytljy6858/ytljy6858-01.png",
-      "cardImage": "assets/images/junyi/products/ytljy6858/ytljy6858-04.png",
+      "cardImage": "assets/images/junyi/products/ytljy6858/ytljy6858-01.png",
       "lifestyle": "assets/images/junyi/products/ytljy6858/ytljy6858-04.png",
       "gallery": [
         "assets/images/junyi/products/ytljy6858/ytljy6858-01.png",
@@ -293,7 +293,7 @@ export const siteData = {
         ]
       ],
       "hero": "assets/images/junyi/products/ytljy6825/ytljy6825-01.png",
-      "cardImage": "assets/images/junyi/products/ytljy6825/ytljy6825-02.png",
+      "cardImage": "assets/images/junyi/products/ytljy6825/ytljy6825-01.png",
       "lifestyle": "assets/images/junyi/products/ytljy6825/ytljy6825-02.png",
       "gallery": [
         "assets/images/junyi/products/ytljy6825/ytljy6825-01.png",
@@ -375,7 +375,7 @@ export const siteData = {
         ]
       ],
       "hero": "assets/images/junyi/products/ytljy6830/ytljy6830-01.png",
-      "cardImage": "assets/images/junyi/products/ytljy6830/ytljy6830-02.png",
+      "cardImage": "assets/images/junyi/products/ytljy6830/ytljy6830-01.png",
       "lifestyle": "assets/images/junyi/products/ytljy6830/ytljy6830-02.png",
       "gallery": [
         "assets/images/junyi/products/ytljy6830/ytljy6830-01.png",
@@ -457,7 +457,7 @@ export const siteData = {
         ]
       ],
       "hero": "assets/images/junyi/products/ytljy5634/ytljy5634-01.png",
-      "cardImage": "assets/images/junyi/products/ytljy5634/ytljy5634-02.png",
+      "cardImage": "assets/images/junyi/products/ytljy5634/ytljy5634-01.png",
       "lifestyle": "assets/images/junyi/products/ytljy5634/ytljy5634-02.png",
       "gallery": [
         "assets/images/junyi/products/ytljy5634/ytljy5634-01.png",
@@ -539,7 +539,7 @@ export const siteData = {
         ]
       ],
       "hero": "assets/images/junyi/products/ytljy944/ytljy944-01.png",
-      "cardImage": "assets/images/junyi/products/ytljy944/ytljy944-02.png",
+      "cardImage": "assets/images/junyi/products/ytljy944/ytljy944-01.png",
       "lifestyle": "assets/images/junyi/products/ytljy944/ytljy944-02.png",
       "gallery": [
         "assets/images/junyi/products/ytljy944/ytljy944-01.png",
@@ -621,7 +621,7 @@ export const siteData = {
         ]
       ],
       "hero": "assets/images/junyi/products/ytljy6835/ytljy6835-01.png",
-      "cardImage": "assets/images/junyi/products/ytljy6835/ytljy6835-02.png",
+      "cardImage": "assets/images/junyi/products/ytljy6835/ytljy6835-01.png",
       "lifestyle": "assets/images/junyi/products/ytljy6835/ytljy6835-02.png",
       "gallery": [
         "assets/images/junyi/products/ytljy6835/ytljy6835-01.png",
@@ -703,7 +703,7 @@ export const siteData = {
         ]
       ],
       "hero": "assets/images/junyi/products/ytljy6824/ytljy6824-01.png",
-      "cardImage": "assets/images/junyi/products/ytljy6824/ytljy6824-02.png",
+      "cardImage": "assets/images/junyi/products/ytljy6824/ytljy6824-01.png",
       "lifestyle": "assets/images/junyi/products/ytljy6824/ytljy6824-02.png",
       "gallery": [
         "assets/images/junyi/products/ytljy6824/ytljy6824-01.png",
@@ -809,7 +809,7 @@ export const siteData = {
         ]
       ],
       "hero": "assets/images/junyi/products/all-over-print-crossbody-bag-ytljy956/all-over-print-crossbody-bag-ytljy956-1.webp",
-      "cardImage": "assets/images/junyi/products/all-over-print-crossbody-bag-ytljy956/all-over-print-crossbody-bag-ytljy956-8.webp",
+      "cardImage": "assets/images/junyi/products/all-over-print-crossbody-bag-ytljy956/all-over-print-crossbody-bag-ytljy956-1.webp",
       "lifestyle": "assets/images/junyi/products/all-over-print-crossbody-bag-ytljy956/all-over-print-crossbody-bag-ytljy956-8.webp",
       "gallery": [
         "assets/images/junyi/products/all-over-print-crossbody-bag-ytljy956/all-over-print-crossbody-bag-ytljy956-1.webp",
@@ -951,7 +951,7 @@ export const siteData = {
         ]
       ],
       "hero": "assets/images/junyi/products/all-over-print-vertical-crossbody-ytljy6840/all-over-print-vertical-crossbody-ytljy6840-1.webp",
-      "cardImage": "assets/images/junyi/products/all-over-print-vertical-crossbody-ytljy6840/all-over-print-vertical-crossbody-ytljy6840-8.webp",
+      "cardImage": "assets/images/junyi/products/all-over-print-vertical-crossbody-ytljy6840/all-over-print-vertical-crossbody-ytljy6840-1.webp",
       "lifestyle": "assets/images/junyi/products/all-over-print-vertical-crossbody-ytljy6840/all-over-print-vertical-crossbody-ytljy6840-8.webp",
       "gallery": [
         "assets/images/junyi/products/all-over-print-vertical-crossbody-ytljy6840/all-over-print-vertical-crossbody-ytljy6840-1.webp",
@@ -1071,7 +1071,7 @@ export const siteData = {
         ]
       ],
       "hero": "assets/images/junyi/products/yqjy0014/yqjy0014-01.png",
-      "cardImage": "assets/images/junyi/products/yqjy0014/yqjy0014-02.png",
+      "cardImage": "assets/images/junyi/products/yqjy0014/yqjy0014-01.png",
       "lifestyle": "assets/images/junyi/products/yqjy0014/yqjy0014-02.png",
       "gallery": [
         "assets/images/junyi/products/yqjy0014/yqjy0014-01.png",
@@ -1137,7 +1137,8 @@ export const siteData = {
       "We check materials, stitching, zipper, print effect, packing and final goods before shipment, and keep communication clear during production."
     ]
   ],
-  "homeFeaturedProducts": [
+  // Migration baseline only. New products enter the homepage through publishedAt.
+  "featuredProductBaseline": [
     "all-over-print-crossbody-bag-ytljy956",
     "all-over-print-vertical-crossbody-ytljy6840",
     "ytljy8083",
@@ -1146,9 +1147,7 @@ export const siteData = {
     "ytljy6830",
     "ytljy5634",
     "ytljy944",
-    "ytljy6835",
-    "ytljy6824",
-    "yqjy0014"
+    "ytljy6835"
   ],
   "analytics": {
     "ga4": ""
